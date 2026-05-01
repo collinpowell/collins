@@ -41,17 +41,17 @@ const projects: Project[] = [
     url: "https://lunarfinance.io",
     image: "/projects/lunar-finance.png",
     description:
-      "Multi-chain DEX aggregator — cross-chain trading and liquidity platform",
+      "Multi-chain DEX aggregator processing over $1M+ in trading volume and serving 350k+ users with high-throughput cross-chain routing.",
     role: "Backend Developer",
     stack: ["Rust", "Solana", "Solidity", "Jupiter API", "Node.js"],
-    tag: "DeFi · DEX · Multi-chain",
+    tag: "DeFi · DEX · High-Throughput",
   },
   {
     name: "Solvux",
     url: "https://www.solvux.xyz",
     image: "/projects/solvux.png",
     description:
-      "Cross-chain DeFi platform supporting 50+ networks with advanced swap and bridge routing",
+      "Cross-chain DeFi platform supporting 50+ networks. Optimized swap and bridge routing for scalable Web3 infrastructure.",
     role: "Solo Builder — Full Stack",
     stack: ["Next.js", "Rust", "Solana", "Solidity", "Node.js"],
     tag: "Personal Project · DeFi · DEX",
@@ -72,17 +72,17 @@ const projects: Project[] = [
     url: "https://www.shurieducation.com",
     image: "/projects/shuri-education.png",
     description:
-      "UK-based international relocation and education platform covering 10+ countries",
+      "UK-based ed-tech platform. Managed server surge during launch month, optimized operations, and enhanced customer service via a proprietary dashboard and sophisticated APIs.",
     role: "Full-Stack Developer",
     stack: ["Next.js", "Node.js", "Cloudinary"],
-    tag: "Client Work · UK · Full-Stack",
+    tag: "Client Work · Enterprise · SaaS",
   },
   {
     name: "The Offshore Lab",
     url: "https://www.theoffshorelab.com",
     image: "/projects/offshore-lab.png",
     description:
-      "Enterprise website for a Nigerian/UK integrated services company featured in TechCabal and national media",
+      "Enterprise platform for a Nigerian/UK integrated services company. Delivered scalable infrastructure featured in TechCabal and national media.",
     role: "Full-Stack Developer",
     stack: ["Next.js", "Node.js"],
     tag: "Client Work · Lagos · Enterprise",
@@ -92,20 +92,20 @@ const projects: Project[] = [
     url: "https://www.kittycouturememe.com",
     image: "/projects/kitty-couture.png",
     description:
-      "Solana meme coin + NFT ecosystem website for Dream Girls Digital Collectibles",
+      "Solana ecosystem for Digital Collectibles. Successfully deployed smart contracts and token economics, enabling the project to raise significant seed funding.",
     role: "Solana Developer + Frontend",
     stack: ["Next.js", "Rust", "Solana", "Token Deployment"],
-    tag: "Client Work · Solana · NFT",
+    tag: "Client Work · Web3 · Smart Contracts",
   },
   {
     name: "Lupply",
     url: "https://lupply.com",
     image: "/projects/lupply.png",
     description:
-      "Food delivery and business management SaaS — POS, delivery platform, restaurant management.",
+      "Scalable SaaS ecosystem. Successfully served 5 enterprise businesses with robust business management, POS, and delivery logistics.",
     role: "Project Manager (Built with team)",
     stack: ["Next.js", "Node.js", "Express"],
-    tag: "Founder · SaaS",
+    tag: "Founder · SaaS · Cloud-Native",
   },
   {
     name: "Lupply App",
@@ -135,10 +135,10 @@ const projects: Project[] = [
     image: null,
     placeholderClass: "nodex",
     description:
-      "Nigerian tech learning hub — built full website, student portal, and internal tools. Co-founder.",
+      "EdTech learning hub. Serviced over 200 active students concurrently with custom LMS features and robust internal management tools.",
     role: "Co-Founder & Lead Developer",
     stack: ["Next.js", "Node.js"],
-    tag: "Co-Founder · EdTech · Nigeria",
+    tag: "Co-Founder · EdTech · LMS",
   },
   {
     name: "Howell Network",

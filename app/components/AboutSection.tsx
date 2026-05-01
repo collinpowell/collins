@@ -97,7 +97,7 @@ export default function AboutSection() {
             <div className="space-y-5 text-text-secondary leading-relaxed">
               <p className="text-lg">
                 Collin Powell is a senior blockchain and full-stack engineer
-                based in Port Harcourt, Nigeria. Over 6 years he&apos;s shipped DEX
+                based in Lagos, Nigeria. Over 6 years he&apos;s shipped DEX
                 aggregators, DeFi platforms, custom blockchains, SaaS products,
                 mobile apps, and enterprise websites for clients across Nigeria,
                 the UK, the Philippines, India, and the US.
