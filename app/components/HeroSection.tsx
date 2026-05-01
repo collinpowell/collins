@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function ParticleField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -112,6 +112,15 @@ const techStack = [
 ];
 
 export default function HeroSection() {
+  const [titleIndex, setTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTitleIndex((prev) => (prev + 1) % 2);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="hero"
@@ -151,12 +160,30 @@ export default function HeroSection() {
         </div>
 
         {/* Headline */}
-        <h1 className="animate-fade-in-up delay-200 text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-black tracking-tight leading-[1.1] mb-6">
-          I Build the{" "}
-          <span className="gradient-text-hero">Infrastructure</span>
-          <br />
-          of <span className="gradient-text-hero">Web3</span>
-        </h1>
+        <div className="min-h-[120px] sm:min-h-[150px] md:min-h-[180px] lg:min-h-[200px] flex flex-col justify-center mb-6">
+          <h1
+            key={titleIndex}
+            className={`animate-fade-in-up text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-black tracking-tight leading-[1.1] ${
+              titleIndex === 0 ? "delay-200" : ""
+            }`}
+          >
+            {titleIndex === 0 ? (
+              <>
+                I Build the{" "}
+                <span className="gradient-text-hero">Infrastructure</span>
+                <br />
+                of <span className="gradient-text-hero">Web3</span>
+              </>
+            ) : (
+              <>
+                I Build{" "}
+                <span className="gradient-text-hero">Enterprise Apps</span>
+                <br />
+                & <span className="gradient-text-hero">SaaS</span>
+              </>
+            )}
+          </h1>
+        </div>
 
         {/* Tech stack row */}
         <div className="animate-fade-in-up delay-300 flex flex-wrap items-center justify-center gap-3 mb-6">
