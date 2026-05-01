@@ -74,7 +74,7 @@ export default function CTASection() {
             }`}
           >
             Whether you&apos;re building a DeFi protocol, need a production
-            Next.js app, or want a Solana program written in Rust — let&apos;s
+            Next.js app, require cross-platform App Development, or want a Solana program written in Rust — let&apos;s
             talk.
           </p>
 

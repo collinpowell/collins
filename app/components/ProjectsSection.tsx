@@ -57,6 +57,17 @@ const projects: Project[] = [
     tag: "Personal Project · DeFi · DEX",
   },
   {
+    name: "Solvux Wallet",
+    url: "https://www.solvux.xyz",
+    image: null,
+    placeholderClass: "solvux",
+    description:
+      "Secure, cross-chain cryptocurrency wallet. Currently still in testing.",
+    role: "Solo Builder",
+    stack: ["Flutter", "Solana", "Rust"],
+    tag: "In Testing · Mobile · Wallet",
+  },
+  {
     name: "Shuri Education",
     url: "https://www.shurieducation.com",
     image: "/projects/shuri-education.png",
@@ -91,10 +102,32 @@ const projects: Project[] = [
     url: "https://lupply.com",
     image: "/projects/lupply.png",
     description:
-      "Food delivery and business management SaaS — POS, delivery platform, restaurant management, mobile apps. Fully built solo.",
-    role: "Founder & Solo Developer",
-    stack: ["Flutter", "Next.js", "Node.js", "Express"],
-    tag: "Founder · SaaS · Mobile",
+      "Food delivery and business management SaaS — POS, delivery platform, restaurant management.",
+    role: "Project Manager (Built with team)",
+    stack: ["Next.js", "Node.js", "Express"],
+    tag: "Founder · SaaS",
+  },
+  {
+    name: "Lupply App",
+    url: "https://play.google.com/store/apps/details?id=com.cpx.lupply",
+    image: "/projects/lupply-app.png",
+    placeholderClass: "lupply",
+    description:
+      "Mobile application for the Lupply ecosystem (available on Play Store).",
+    role: "Project Manager (Built with team)",
+    stack: ["Flutter"],
+    tag: "Mobile App · SaaS",
+  },
+  {
+    name: "Lupply Windows App",
+    url: "https://apps.microsoft.com/detail/9nxv0wn9cznn?hl=en-GB&gl=NG",
+    image: "/projects/lupply-windows.png",
+    placeholderClass: "lupply",
+    description:
+      "Desktop application for Lupply's ecosystem (available on Microsoft Store).",
+    role: "Project Manager (Built with team)",
+    stack: ["Flutter", "Windows"],
+    tag: "Desktop App · SaaS",
   },
   {
     name: "NodeX iHub",
