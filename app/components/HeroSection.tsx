@@ -150,12 +150,12 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[900px] mx-auto px-8 sm:px-12 lg:px-16 text-center">
+      <div className="relative z-10 w-full max-w-[900px] mx-auto px-8 sm:px-12 lg:px-16 text-center pt-24 sm:pt-0">
         {/* Available badge */}
         <div className="animate-fade-in-up mb-8">
           <div className="available-badge mx-auto w-fit">
             <span className="pulse-dot" />
-            Available for Remote Roles
+            Available for Opportunities
           </div>
         </div>
 
@@ -203,7 +203,7 @@ export default function HeroSection() {
           products.
         </p>
         <p className="animate-fade-in-up delay-500 text-base text-text-muted max-w-[550px] mx-auto mb-10">
-          AI-assisted development with Claude Opus. Available for remote roles worldwide.
+          AI-assisted development with Claude Opus. Available for remote or relocation worldwide.
         </p>
 
         {/* CTA Buttons */}

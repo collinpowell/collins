@@ -48,9 +48,8 @@ export default function CTASection() {
               inView ? "animate-fade-in-up delay-100" : "opacity-0"
             }`}
           >
-            Available for{" "}
-            <span className="gradient-text">Remote Roles</span>{" "}
-            Worldwide
+            Let&apos;s Build Something{" "}
+            <span className="gradient-text">Great</span>
           </h2>
 
           {/* Role types */}
@@ -59,7 +58,7 @@ export default function CTASection() {
               inView ? "animate-fade-in-up delay-200" : "opacity-0"
             }`}
           >
-            {["Full-Time", "Contract", "Part-Time", "Consulting"].map(
+            {["Remote", "On-site", "Relocation", "Contract"].map(
               (role) => (
                 <span key={role} className="tech-badge !text-sm !px-4 !py-1.5">
                   {role}
