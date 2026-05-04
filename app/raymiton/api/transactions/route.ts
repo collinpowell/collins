@@ -2,17 +2,22 @@ import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import connectDB from '../../lib/mongodb';
 import Transaction from '../../lib/Transaction';
+import InventoryItem from '../../lib/InventoryItem';
 
-async function isAuthenticated() {
+async function getAuthRole() {
   const cookieStore = await cookies();
   const session = cookieStore.get('raymiton_session');
-  return session?.value === 'authenticated';
+  if (!session?.value) return null;
+  if (session.value === 'authenticated-admin') return 'admin';
+  if (session.value === 'authenticated-employee') return 'employee';
+  return null;
 }
 
 // GET all transactions with optional filters
 export async function GET(request: NextRequest) {
   try {
-    if (!(await isAuthenticated())) {
+    const role = await getAuthRole();
+    if (role !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -52,7 +57,8 @@ export async function GET(request: NextRequest) {
 // POST - create new transaction
 export async function POST(request: NextRequest) {
   try {
-    if (!(await isAuthenticated())) {
+    const role = await getAuthRole();
+    if (!role) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -74,6 +80,17 @@ export async function POST(request: NextRequest) {
     });
 
     await transaction.save();
+
+    // If it's a bar item from inventory, reduce the stock
+    if (body.category === 'Bar' && body.inventoryItemId && body.quantity) {
+      try {
+        await InventoryItem.findByIdAndUpdate(body.inventoryItemId, {
+          $inc: { stock: -body.quantity }
+        });
+      } catch (err) {
+        console.error('Failed to update inventory stock:', err);
+      }
+    }
 
     return NextResponse.json(transaction, { status: 201 });
   } catch (error) {

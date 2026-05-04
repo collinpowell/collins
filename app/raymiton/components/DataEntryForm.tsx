@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ITransaction, Category, RoomConfig, StayType, TransactionType } from '../lib/types';
+import { ITransaction, Category, RoomConfig, StayType, TransactionType, IInventoryItem } from '../lib/types';
 import { 
   Zap, 
   Edit2, 
@@ -13,7 +13,8 @@ import {
   Wine, 
   CircleDot, // Snooker
   Save, 
-  Plus
+  Plus,
+  Package
 } from 'lucide-react';
 
 interface Props {
@@ -22,6 +23,7 @@ interface Props {
   onCancelEdit: () => void;
   roomDefaults: RoomConfig[];
   categories: Category[];
+  inventory: IInventoryItem[];
 }
 
 const INITIAL_FORM = {
@@ -34,9 +36,11 @@ const INITIAL_FORM = {
   stayType: 'Night' as StayType,
   roomNumber: 1,
   isSnooker: false,
+  inventoryItemId: '',
+  quantity: 1,
 };
 
-export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEdit, roomDefaults, categories }: Props) {
+export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEdit, roomDefaults, categories, inventory }: Props) {
   const [form, setForm] = useState(INITIAL_FORM);
   const [submitting, setSubmitting] = useState(false);
 
@@ -52,6 +56,8 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
         stayType: editingTransaction.stayType || 'Night',
         roomNumber: editingTransaction.roomNumber || 1,
         isSnooker: editingTransaction.isSnooker || false,
+        inventoryItemId: editingTransaction.inventoryItemId || '',
+        quantity: editingTransaction.quantity || 1,
       });
     } else {
       setForm(INITIAL_FORM);
@@ -68,6 +74,25 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
     }
   };
 
+  const handleInventoryChange = (itemId: string, qty: number = 1) => {
+    if (!itemId) {
+      setForm(prev => ({ ...prev, inventoryItemId: '', description: '', totalCharged: '', amountPaid: '' }));
+      return;
+    }
+    const item = inventory.find(i => i._id === itemId);
+    if (item) {
+      const totalPrice = item.price * qty;
+      setForm(prev => ({ 
+        ...prev, 
+        inventoryItemId: itemId, 
+        quantity: qty,
+        description: `${item.name} (x${qty})`,
+        totalCharged: totalPrice.toString(),
+        amountPaid: totalPrice.toString()
+      }));
+    }
+  };
+
   const handleSubmit = async () => {
     if (!form.description.trim() || !form.totalCharged) return;
     setSubmitting(true);
@@ -79,12 +104,18 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
       isSnooker: form.isSnooker,
     };
     if (form.category === 'Rooms') { tx.stayType = form.stayType; tx.roomNumber = form.roomNumber; }
+    if (form.category === 'Bar' && form.inventoryItemId) {
+      tx.inventoryItemId = form.inventoryItemId;
+      tx.quantity = form.quantity;
+    }
+    
     const success = await onSubmit(tx);
     if (success && !editingTransaction) {
       setForm({ ...INITIAL_FORM, date: form.date });
     }
     setSubmitting(false);
   };
+// ... rest of the component ...
 
   const charged = parseFloat(form.totalCharged) || 0;
   const paid = parseFloat(form.amountPaid) || 0;
@@ -148,17 +179,51 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
           </>
         )}
         {form.category === 'Bar' && form.type === 'INCOME' && (
-          <div className="r-field">
-            <label className="r-label">Bar Type</label>
-            <div className="r-toggle-group">
-              <button className={`r-toggle-btn ${!form.isSnooker ? 'active' : ''}`} onClick={() => setForm({ ...form, isSnooker: false })}>
-                <Wine size={16} /> Drinks
-              </button>
-              <button className={`r-toggle-btn ${form.isSnooker ? 'active' : ''}`} onClick={() => setForm({ ...form, isSnooker: true })}>
-                <CircleDot size={16} /> Snooker
-              </button>
+          <>
+            <div className="r-field">
+              <label className="r-label">Bar Type</label>
+              <div className="r-toggle-group">
+                <button className={`r-toggle-btn ${!form.isSnooker ? 'active' : ''}`} onClick={() => setForm({ ...form, isSnooker: false })}>
+                  <Wine size={16} /> Drinks
+                </button>
+                <button className={`r-toggle-btn ${form.isSnooker ? 'active' : ''}`} onClick={() => setForm({ ...form, isSnooker: true })}>
+                  <CircleDot size={16} /> Snooker
+                </button>
+              </div>
             </div>
-          </div>
+            
+            {!form.isSnooker && (
+              <>
+                <div className="r-field">
+                  <label className="r-label">Inventory Item</label>
+                  <select 
+                    className="r-select" 
+                    value={form.inventoryItemId} 
+                    onChange={(e) => handleInventoryChange(e.target.value, form.quantity)}
+                  >
+                    <option value="">Custom Entry / Not in list</option>
+                    {inventory.map((item) => (
+                      <option key={item._id} value={item._id} disabled={item.stock <= 0}>
+                        {item.name} — ₦{item.price.toLocaleString()} ({item.stock} left)
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                {form.inventoryItemId && (
+                  <div className="r-field">
+                    <label className="r-label">Quantity</label>
+                    <input 
+                      type="number" 
+                      className="r-input" 
+                      min="1"
+                      value={form.quantity} 
+                      onChange={(e) => handleInventoryChange(form.inventoryItemId, parseInt(e.target.value) || 1)} 
+                    />
+                  </div>
+                )}
+              </>
+            )}
+          </>
         )}
         <div className="r-field full-width">
           <label className="r-label">Description</label>

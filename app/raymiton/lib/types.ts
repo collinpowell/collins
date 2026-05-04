@@ -16,6 +16,19 @@ export interface ITransaction {
   stayType?: StayType;
   roomNumber?: number;
   isSnooker?: boolean;
+  inventoryItemId?: string; // Link to inventory
+  quantity?: number; // Quantity sold
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface IInventoryItem {
+  _id?: string;
+  name: string;
+  price: number;
+  stock: number;
+  category: string;
+  minStockLevel: number;
   createdAt?: string;
   updatedAt?: string;
 }

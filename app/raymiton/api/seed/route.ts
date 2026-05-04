@@ -4,16 +4,19 @@ import connectDB from '../../lib/mongodb';
 import Transaction from '../../lib/Transaction';
 import { SEED_DATA } from '../../lib/seed-data';
 
-async function isAuthenticated() {
+async function getAuthRole() {
   const cookieStore = await cookies();
   const session = cookieStore.get('raymiton_session');
-  return session?.value === 'authenticated';
+  if (!session?.value) return null;
+  if (session.value === 'authenticated-admin') return 'admin';
+  if (session.value === 'authenticated-employee') return 'employee';
+  return null;
 }
 
 // POST - seed database with initial spreadsheet data
 export async function POST() {
   try {
-    if (!(await isAuthenticated())) {
+    if ((await getAuthRole()) !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 

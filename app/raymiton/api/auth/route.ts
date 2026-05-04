@@ -11,14 +11,22 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true, message: 'Logged out successfully' });
     }
 
-    const correctPassword = process.env.RAYMITON_PASSWORD || 'Jambmaster11$';
+    const adminPassword = process.env.RAYMITON_PASSWORD || 'Jambmaster11$';
+    const employeePassword = process.env.RAYMITON_EMPLOYEE_PASSWORD || '12345678';
 
-    if (password === correctPassword) {
+    let role = null;
+    if (password === adminPassword) {
+      role = 'admin';
+    } else if (password === employeePassword) {
+      role = 'employee';
+    }
+
+    if (role) {
       // Set a secure HTTP-only cookie that expires in 30 days
       const cookieStore = await cookies();
       cookieStore.set({
         name: 'raymiton_session',
-        value: 'authenticated',
+        value: `authenticated-${role}`,
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
@@ -26,7 +34,7 @@ export async function POST(req: Request) {
         maxAge: 60 * 60 * 24 * 30, // 30 days
       });
 
-      return NextResponse.json({ success: true, message: 'Login successful' });
+      return NextResponse.json({ success: true, message: 'Login successful', role });
     }
 
     return NextResponse.json({ success: false, message: 'Incorrect password' }, { status: 401 });

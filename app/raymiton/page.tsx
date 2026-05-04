@@ -2,12 +2,12 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTheme } from 'next-themes';
-import { 
-  LayoutDashboard, 
-  PlusCircle, 
-  List, 
-  Wine, 
-  BedDouble, 
+import {
+  LayoutDashboard,
+  PlusCircle,
+  List,
+  Wine,
+  BedDouble,
   Users,
   Building,
   Download,
@@ -16,18 +16,20 @@ import {
   CheckCircle2,
   AlertCircle,
   Lock,
-  LogOut
+  LogOut,
+  Package
 } from 'lucide-react';
 import './dashboard.css';
-import { ITransaction, DashboardMetrics, ROOM_DEFAULTS, CATEGORIES, Category } from './lib/types';
+import { ITransaction, DashboardMetrics, ROOM_DEFAULTS, CATEGORIES, Category, IInventoryItem } from './lib/types';
 import DashboardOverview from './components/DashboardOverview';
 import DataEntryForm from './components/DataEntryForm';
 import TransactionTable from './components/TransactionTable';
 import BarAnalytics from './components/BarAnalytics';
 import RoomManager from './components/RoomManager';
 import DebtorTracker from './components/DebtorTracker';
+import InventoryManager from './components/InventoryManager';
 
-type Tab = 'overview' | 'entry' | 'transactions' | 'bar' | 'rooms' | 'debtors';
+type Tab = 'overview' | 'entry' | 'transactions' | 'bar' | 'rooms' | 'debtors' | 'inventory';
 
 const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: 'overview', label: 'Overview', icon: <LayoutDashboard size={18} /> },
@@ -36,6 +38,7 @@ const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: 'bar', label: 'Bar', icon: <Wine size={18} /> },
   { id: 'rooms', label: 'Rooms', icon: <BedDouble size={18} /> },
   { id: 'debtors', label: 'Debtors', icon: <Users size={18} /> },
+  { id: 'inventory', label: 'Inventory', icon: <Package size={18} /> },
 ];
 
 interface Toast {
@@ -45,11 +48,13 @@ interface Toast {
 
 export default function RaymitonDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [userRole, setUserRole] = useState<'admin' | 'employee' | null>(null);
   const [password, setPassword] = useState('');
   const [authLoading, setAuthLoading] = useState(true);
 
   const [activeTab, setActiveTab] = useState<Tab>('overview');
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
+  const [inventory, setInventory] = useState<IInventoryItem[]>([]);
   const [metrics, setMetrics] = useState<DashboardMetrics | null>(null);
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
@@ -74,26 +79,43 @@ export default function RaymitonDashboard() {
     setTransactions(data);
   }, []);
 
-  const fetchMetrics = useCallback(async () => {
-    const res = await fetch('/raymiton/api/metrics');
-    if (res.status === 401) throw new Error('Unauthorized');
-    if (!res.ok) throw new Error('Failed to fetch');
-    const data = await res.json();
-    setMetrics(data);
+  const fetchInventory = useCallback(async () => {
+    try {
+      const res = await fetch('/raymiton/api/inventory');
+      if (res.ok) {
+        const data = await res.json();
+        setInventory(data);
+      }
+    } catch (err) {
+      console.error('Failed to fetch inventory:', err);
+    }
   }, []);
 
   const refreshData = useCallback(async () => {
     try {
-      await Promise.all([fetchTransactions(), fetchMetrics()]);
-      setIsAuthenticated(true);
-    } catch (err: any) {
-      if (err.message === 'Unauthorized') {
-        setIsAuthenticated(false);
-      } else {
-        showToast('Failed to load data', 'error');
+      const metricsRes = await fetch('/raymiton/api/metrics');
+      if (metricsRes.status === 200) {
+        const data = await metricsRes.json();
+        setMetrics(data);
+        setUserRole('admin');
+        setIsAuthenticated(true);
+        await Promise.all([fetchTransactions(), fetchInventory()]);
+      } else if (metricsRes.status === 401) {
+        const invRes = await fetch('/raymiton/api/inventory');
+        if (invRes.status === 200) {
+          const invData = await invRes.json();
+          setInventory(invData);
+          setUserRole('employee');
+          setIsAuthenticated(true);
+          setActiveTab('entry');
+        } else {
+          setIsAuthenticated(false);
+        }
       }
+    } catch (err: any) {
+      setIsAuthenticated(false);
     }
-  }, [fetchTransactions, fetchMetrics, showToast]);
+  }, [fetchTransactions, fetchInventory, showToast]);
 
   useEffect(() => {
     setAuthLoading(true);
@@ -110,8 +132,15 @@ export default function RaymitonDashboard() {
         body: JSON.stringify({ password }),
       });
       if (res.ok) {
+        const data = await res.json();
         setIsAuthenticated(true);
-        refreshData();
+        setUserRole(data.role);
+        if (data.role === 'admin') {
+          refreshData();
+          setActiveTab('overview');
+        } else {
+          setActiveTab('entry');
+        }
       } else {
         showToast('Incorrect password', 'error');
       }
@@ -130,6 +159,7 @@ export default function RaymitonDashboard() {
         body: JSON.stringify({ action: 'logout' }),
       });
       setIsAuthenticated(false);
+      setUserRole(null);
       setTransactions([]);
       setMetrics(null);
     } catch (err) {
@@ -165,7 +195,7 @@ export default function RaymitonDashboard() {
       }
       if (!res.ok) throw new Error('Failed to create');
       showToast('Transaction added successfully');
-      refreshData();
+      if (userRole === 'admin') refreshData();
       return true;
     } catch {
       showToast('Failed to add transaction', 'error');
@@ -262,9 +292,9 @@ export default function RaymitonDashboard() {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', padding: 20 }}>
           <div className="r-card" style={{ maxWidth: 400, width: '100%', padding: '40px 30px', textAlign: 'center' }}>
             <Building size={48} className="r-text-accent" style={{ margin: '0 auto 20px' }} />
-            <h1 style={{ fontSize: 24, marginBottom: 8 }}>Raymiton Admin</h1>
-            <p style={{ color: 'var(--r-text-muted)', marginBottom: 30, fontSize: 14 }}>Enter your password to access the dashboard</p>
-            
+            <h1 style={{ fontSize: 24, marginBottom: 8 }}>Raymiton Dashboard</h1>
+            <p style={{ color: 'var(--r-text-muted)', marginBottom: 30, fontSize: 14 }}>Enter your password to access the system</p>
+
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <div style={{ position: 'relative' }}>
                 <Lock size={16} style={{ position: 'absolute', left: 12, top: 12, color: 'var(--r-text-muted)' }} />
@@ -279,7 +309,7 @@ export default function RaymitonDashboard() {
                 />
               </div>
               <button type="submit" className="r-btn r-btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                Access Dashboard
+                Login
               </button>
             </form>
           </div>
@@ -305,11 +335,13 @@ export default function RaymitonDashboard() {
           </div>
           <div>
             <h1>RAYMITON HOTEL</h1>
-            <div className="r-header-subtitle">Management Dashboard</div>
+            <div className="r-header-subtitle">
+              {userRole === 'admin' ? 'Admin Dashboard' : 'Data Entry Terminal'}
+            </div>
           </div>
         </div>
         <div className="r-header-actions">
-          {transactions.length === 0 && (
+          {userRole === 'admin' && transactions.length === 0 && (
             <button className="r-btn r-btn-primary r-btn-sm" onClick={handleSeedData}>
               <Download size={16} />
               Load Spreadsheet
@@ -317,15 +349,15 @@ export default function RaymitonDashboard() {
           )}
           {mounted && (
             <>
-              <button 
-                className="r-icon-btn" 
+              <button
+                className="r-icon-btn"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 aria-label="Toggle theme"
               >
                 {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               </button>
-              <button 
-                className="r-icon-btn" 
+              <button
+                className="r-icon-btn"
                 onClick={handleLogout}
                 aria-label="Logout"
                 style={{ marginLeft: 8 }}
@@ -337,21 +369,23 @@ export default function RaymitonDashboard() {
         </div>
       </header>
 
-      {/* Tabs */}
-      <nav className="r-tabs">
-        {TABS.map((tab) => (
-          <button
-            key={tab.id}
-            className={`r-tab ${activeTab === tab.id ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab(tab.id);
-              if (tab.id !== 'entry') setEditingTransaction(null);
-            }}
-          >
-            {tab.icon} {tab.label}
-          </button>
-        ))}
-      </nav>
+      {/* Tabs - Only show for Admin */}
+      {userRole === 'admin' && (
+        <nav className="r-tabs">
+          {TABS.map((tab) => (
+            <button
+              key={tab.id}
+              className={`r-tab ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => {
+                setActiveTab(tab.id);
+                if (tab.id !== 'entry') setEditingTransaction(null);
+              }}
+            >
+              {tab.icon} {tab.label}
+            </button>
+          ))}
+        </nav>
+      )}
 
       {/* Content */}
       <main className="r-content">
@@ -362,7 +396,7 @@ export default function RaymitonDashboard() {
           </div>
         ) : (
           <>
-            {activeTab === 'overview' && (
+            {activeTab === 'overview' && userRole === 'admin' && (
               <DashboardOverview
                 metrics={metrics}
                 transactions={transactions}
@@ -380,10 +414,11 @@ export default function RaymitonDashboard() {
                 onCancelEdit={handleCancelEdit}
                 roomDefaults={ROOM_DEFAULTS}
                 categories={CATEGORIES}
+                inventory={inventory}
               />
             )}
 
-            {activeTab === 'transactions' && (
+            {activeTab === 'transactions' && userRole === 'admin' && (
               <TransactionTable
                 transactions={transactions}
                 onEdit={handleEditClick}
@@ -391,8 +426,14 @@ export default function RaymitonDashboard() {
                 formatCurrency={formatCurrency}
               />
             )}
+            {activeTab === 'inventory' && userRole === 'admin' && (
+              <InventoryManager
+                formatCurrency={formatCurrency}
+              />
+            )}
 
-            {activeTab === 'bar' && (
+
+            {activeTab === 'bar' && userRole === 'admin' && (
               <BarAnalytics
                 transactions={transactions}
                 metrics={metrics}
@@ -400,7 +441,7 @@ export default function RaymitonDashboard() {
               />
             )}
 
-            {activeTab === 'rooms' && (
+            {activeTab === 'rooms' && userRole === 'admin' && (
               <RoomManager
                 transactions={transactions}
                 roomDefaults={ROOM_DEFAULTS}
@@ -409,7 +450,7 @@ export default function RaymitonDashboard() {
               />
             )}
 
-            {activeTab === 'debtors' && (
+            {activeTab === 'debtors' && userRole === 'admin' && (
               <DebtorTracker
                 transactions={transactions}
                 formatCurrency={formatCurrency}

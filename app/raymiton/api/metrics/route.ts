@@ -3,16 +3,19 @@ import { cookies } from 'next/headers';
 import connectDB from '../../lib/mongodb';
 import Transaction from '../../lib/Transaction';
 
-async function isAuthenticated() {
+async function getAuthRole() {
   const cookieStore = await cookies();
   const session = cookieStore.get('raymiton_session');
-  return session?.value === 'authenticated';
+  if (!session?.value) return null;
+  if (session.value === 'authenticated-admin') return 'admin';
+  if (session.value === 'authenticated-employee') return 'employee';
+  return null;
 }
 
 // GET dashboard metrics
 export async function GET() {
   try {
-    if (!(await isAuthenticated())) {
+    if ((await getAuthRole()) !== 'admin') {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
