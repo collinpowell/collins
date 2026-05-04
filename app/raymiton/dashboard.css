@@ -842,6 +842,172 @@
   box-shadow: var(--r-shadow);
 }
 
+/* ── Inventory Manager ── */
+.r-inventory {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.r-inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: var(--r-bg-card);
+  padding: 24px;
+  border-radius: var(--r-radius);
+  border: 1px solid var(--r-border);
+  box-shadow: var(--r-shadow);
+}
+
+.r-inventory-stats {
+  display: flex;
+  gap: 32px;
+}
+
+.r-mini-stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.r-stat-val {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.r-stat-label {
+  font-size: 13px;
+  color: var(--r-text-muted);
+  font-weight: 600;
+}
+
+.r-inventory-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.r-search-wrapper {
+  position: relative;
+  width: 280px;
+}
+
+.r-search-wrapper svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--r-text-muted);
+  pointer-events: none;
+}
+
+.r-search-wrapper input {
+  width: 100%;
+  padding: 10px 16px 10px 42px;
+  background: var(--r-bg-input);
+  border: 1px solid var(--r-border);
+  border-radius: var(--r-radius-sm);
+  color: var(--r-text);
+  font-family: var(--r-font);
+  transition: var(--r-transition);
+  outline: none;
+}
+
+.r-search-wrapper input:focus {
+  border-color: var(--r-accent);
+  background: var(--r-bg-card);
+}
+
+.r-inventory-form-card {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.r-inventory-form .r-form-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.r-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.r-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--r-text-muted);
+}
+
+.r-form-group input,
+.r-form-group select {
+  background: var(--r-bg-input);
+  border: 1px solid var(--r-border);
+  color: var(--r-text);
+  padding: 10px 14px;
+  border-radius: var(--r-radius-sm);
+  font-size: 14px;
+  outline: none;
+  transition: var(--r-transition);
+}
+
+.r-form-group input:focus,
+.r-form-group select:focus {
+  border-color: var(--r-accent);
+  background: var(--r-bg-card);
+}
+
+.r-status {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.r-status.out {
+  background: var(--r-red-bg);
+  color: var(--r-red);
+}
+
+.r-status.low {
+  background: var(--r-yellow-bg);
+  color: var(--r-yellow);
+}
+
+.r-status.paid {
+  background: var(--r-green-bg);
+  color: var(--r-green);
+}
+
+/* ── Common Card / Component tweaks ── */
+.r-text-red {
+  color: var(--r-red) !important;
+}
+
+.r-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.r-table-loading,
+.r-empty-state {
+  padding: 40px;
+  text-align: center;
+  color: var(--r-text-muted);
+  font-weight: 500;
+}
+
 .r-bar-card-title {
   font-size: 16px;
   font-weight: 700;
