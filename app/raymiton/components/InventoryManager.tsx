@@ -9,16 +9,19 @@ import {
   AlertTriangle, 
   Package, 
   TrendingUp, 
+  TrendingDown,
+  DollarSign,
   Check,
   X
 } from 'lucide-react';
-import { IInventoryItem } from '../lib/types';
+import { IInventoryItem, ITransaction } from '../lib/types';
 
-interface InventoryManagerProps {
+interface Props {
   formatCurrency: (amount: number) => string;
+  transactions: ITransaction[];
 }
 
-export default function InventoryManager({ formatCurrency }: InventoryManagerProps) {
+export default function InventoryManager({ formatCurrency, transactions }: Props) {
   const [items, setItems] = useState<IInventoryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -108,6 +111,18 @@ export default function InventoryManager({ formatCurrency }: InventoryManagerPro
   );
 
   const lowStockItems = items.filter(item => item.stock <= item.minStockLevel);
+  const totalValue = items.reduce((acc, item) => acc + (item.stock * item.price), 0);
+
+  const getFinancials = (itemId: string) => {
+    const itemTransactions = transactions.filter(tx => tx.inventoryItemId === itemId);
+    const revenue = itemTransactions
+      .filter(tx => tx.type === 'INCOME')
+      .reduce((acc, tx) => acc + tx.totalCharged, 0);
+    const cost = itemTransactions
+      .filter(tx => tx.type === 'EXPENSE')
+      .reduce((acc, tx) => acc + tx.totalCharged, 0);
+    return { revenue, cost, profit: revenue - cost };
+  };
 
   return (
     <div className="r-inventory">
@@ -125,6 +140,13 @@ export default function InventoryManager({ formatCurrency }: InventoryManagerPro
             <div>
               <span className="r-stat-val">{lowStockItems.length}</span>
               <span className="r-stat-label">Low Stock</span>
+            </div>
+          </div>
+          <div className="r-mini-stat">
+            <TrendingUp size={20} color="var(--r-green)" />
+            <div>
+              <span className="r-stat-val">{formatCurrency(totalValue)}</span>
+              <span className="r-stat-label">Stock Value</span>
             </div>
           </div>
         </div>
@@ -232,43 +254,61 @@ export default function InventoryManager({ formatCurrency }: InventoryManagerPro
                   <th>Category</th>
                   <th>Price</th>
                   <th>Stock</th>
+                  <th>Financials (Rev / Cost / Profit)</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredItems.map((item) => (
-                  <tr key={item._id}>
-                    <td><strong>{item.name}</strong></td>
-                    <td><span className="r-badge">{item.category}</span></td>
-                    <td>{formatCurrency(item.price)}</td>
-                    <td>
-                      <span style={{ 
-                        fontWeight: 'bold',
-                        color: item.stock <= item.minStockLevel ? 'var(--r-red)' : 'inherit'
-                      }}>
-                        {item.stock}
-                      </span>
-                    </td>
-                    <td>
-                      {item.stock <= 0 ? (
-                        <span className="r-status out">Out of Stock</span>
-                      ) : item.stock <= item.minStockLevel ? (
-                        <span className="r-status low">Low Stock</span>
-                      ) : (
-                        <span className="r-status paid">In Stock</span>
-                      )}
-                    </td>
-                    <td className="r-actions">
-                      <button className="r-icon-btn" title="Edit" onClick={() => handleEdit(item)}>
-                        <Edit2 size={16} />
-                      </button>
-                      <button className="r-icon-btn r-text-red" title="Delete" onClick={() => handleDelete(item._id!)}>
-                        <Trash2 size={16} />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {filteredItems.map((item) => {
+                  const { revenue, cost, profit } = getFinancials(item._id!);
+                  return (
+                    <tr key={item._id}>
+                      <td>
+                        <div style={{ fontWeight: 600 }}>{item.name}</div>
+                        <div style={{ fontSize: 11, color: 'var(--r-text-dim)' }}>ID: {item._id?.slice(-6)}</div>
+                      </td>
+                      <td><span className="r-badge r-badge-bar">{item.category}</span></td>
+                      <td>{formatCurrency(item.price)}</td>
+                      <td>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                          <span style={{ fontWeight: 700, fontSize: 15 }}>{item.stock}</span>
+                          <span style={{ fontSize: 11, color: 'var(--r-text-muted)' }}>/ min {item.minStockLevel}</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                          <div style={{ fontSize: 11, color: 'var(--r-green)', display: 'flex', justifyContent: 'space-between', gap: 8 }}>
+                            <span>Rev:</span> <span>{formatCurrency(revenue)}</span>
+                          </div>
+                          <div style={{ fontSize: 11, color: 'var(--r-red)', display: 'flex', justifyContent: 'space-between', gap: 8 }}>
+                            <span>Cost:</span> <span>{formatCurrency(cost)}</span>
+                          </div>
+                          <div style={{ fontSize: 12, fontWeight: 700, color: profit >= 0 ? 'var(--r-green)' : 'var(--r-red)', borderTop: '1px solid var(--r-border)', marginTop: 2, paddingTop: 2, display: 'flex', justifyContent: 'space-between', gap: 8 }}>
+                            <span>Profit:</span> <span>{formatCurrency(profit)}</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        {item.stock <= 0 ? (
+                          <span className="r-status out">Out of Stock</span>
+                        ) : item.stock <= item.minStockLevel ? (
+                          <span className="r-status low">Low Stock</span>
+                        ) : (
+                          <span className="r-status paid">In Stock</span>
+                        )}
+                      </td>
+                      <td className="r-actions">
+                        <button className="r-icon-btn" title="Edit" onClick={() => handleEdit(item)}>
+                          <Edit2 size={16} />
+                        </button>
+                        <button className="r-icon-btn r-text-red" title="Delete" onClick={() => handleDelete(item._id!)}>
+                          <Trash2 size={16} />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

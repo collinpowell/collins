@@ -12,7 +12,8 @@ import {
   Trash2,
   RefreshCcw,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  X
 } from 'lucide-react';
 
 interface Props {
@@ -28,12 +29,24 @@ export default function TransactionTable({ transactions, onEdit, onDelete, forma
   const [filterStatus, setFilterStatus] = useState<string>('All');
   const [search, setSearch] = useState('');
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   const filtered = transactions.filter((tx) => {
     if (filterCat !== 'All' && tx.category !== filterCat) return false;
     if (filterType !== 'All' && tx.type !== filterType) return false;
     if (filterStatus !== 'All' && tx.status !== filterStatus) return false;
     if (search && !tx.description.toLowerCase().includes(search.toLowerCase())) return false;
+    
+    if (startDate) {
+      if (new Date(tx.date) < new Date(startDate)) return false;
+    }
+    if (endDate) {
+      const end = new Date(endDate);
+      end.setHours(23, 59, 59, 999);
+      if (new Date(tx.date) > end) return false;
+    }
+    
     return true;
   }).sort((a, b) => {
     const dateA = new Date(a.date).getTime();
@@ -52,16 +65,42 @@ export default function TransactionTable({ transactions, onEdit, onDelete, forma
           <List size={22} className="r-text-accent" style={{ marginRight: 8 }} />
           All Transactions ({filtered.length})
         </div>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', position: 'relative' }}>
-          <Search size={14} style={{ position: 'absolute', left: 10, color: 'var(--r-text-muted)' }} />
-          <input
-            type="text"
-            className="r-input"
-            placeholder="Search..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={{ width: 180, padding: '6px 12px 6px 30px', fontSize: 12 }}
-          />
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className="r-date-filters" style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <input 
+              type="date" 
+              className="r-input-sm" 
+              value={startDate} 
+              onChange={(e) => setStartDate(e.target.value)} 
+              title="Start Date"
+              style={{ width: 130, padding: '4px 8px', fontSize: 12 }}
+            />
+            <span style={{ color: 'var(--r-text-muted)', fontSize: 12 }}>to</span>
+            <input 
+              type="date" 
+              className="r-input-sm" 
+              value={endDate} 
+              onChange={(e) => setEndDate(e.target.value)} 
+              title="End Date"
+              style={{ width: 130, padding: '4px 8px', fontSize: 12 }}
+            />
+            {(startDate || endDate) && (
+              <button className="r-btn-icon" onClick={() => { setStartDate(''); setEndDate(''); }} title="Clear Dates" style={{ width: 28, height: 28 }}>
+                <X size={14} />
+              </button>
+            )}
+          </div>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', position: 'relative' }}>
+            <Search size={14} style={{ position: 'absolute', left: 10, color: 'var(--r-text-muted)' }} />
+            <input
+              type="text"
+              className="r-input"
+              placeholder="Search..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              style={{ width: 180, padding: '6px 12px 6px 30px', fontSize: 12 }}
+            />
+          </div>
         </div>
       </div>
       <div style={{ padding: '8px 20px', display: 'flex', gap: 6, flexWrap: 'wrap', borderBottom: '1px solid var(--r-border)' }}>

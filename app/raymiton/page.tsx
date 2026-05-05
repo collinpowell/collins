@@ -429,6 +429,7 @@ export default function RaymitonDashboard() {
             {activeTab === 'inventory' && userRole === 'admin' && (
               <InventoryManager
                 formatCurrency={formatCurrency}
+                transactions={transactions}
               />
             )}
 
