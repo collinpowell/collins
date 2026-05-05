@@ -81,11 +81,12 @@ export async function POST(request: NextRequest) {
 
     await transaction.save();
 
-    // If it's a bar item from inventory, reduce the stock
+    // If it's a bar item from inventory, update the stock
     if (body.category === 'Bar' && body.inventoryItemId && body.quantity) {
       try {
+        const incrementValue = body.type === 'EXPENSE' ? body.quantity : -body.quantity;
         await InventoryItem.findByIdAndUpdate(body.inventoryItemId, {
-          $inc: { stock: -body.quantity }
+          $inc: { stock: incrementValue }
         });
       } catch (err) {
         console.error('Failed to update inventory stock:', err);

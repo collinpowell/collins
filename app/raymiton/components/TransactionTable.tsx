@@ -10,7 +10,9 @@ import {
   CircleDot, 
   Edit2, 
   Trash2,
-  RefreshCcw
+  RefreshCcw,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 interface Props {
@@ -25,6 +27,7 @@ export default function TransactionTable({ transactions, onEdit, onDelete, forma
   const [filterType, setFilterType] = useState<string>('All');
   const [filterStatus, setFilterStatus] = useState<string>('All');
   const [search, setSearch] = useState('');
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
 
   const filtered = transactions.filter((tx) => {
     if (filterCat !== 'All' && tx.category !== filterCat) return false;
@@ -32,7 +35,15 @@ export default function TransactionTable({ transactions, onEdit, onDelete, forma
     if (filterStatus !== 'All' && tx.status !== filterStatus) return false;
     if (search && !tx.description.toLowerCase().includes(search.toLowerCase())) return false;
     return true;
+  }).sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return sortDir === 'desc' ? dateB - dateA : dateA - dateB;
   });
+
+  const toggleSort = () => {
+    setSortDir(prev => prev === 'asc' ? 'desc' : 'asc');
+  };
 
   return (
     <div className="r-table-wrap">
@@ -76,7 +87,11 @@ export default function TransactionTable({ transactions, onEdit, onDelete, forma
         <table className="r-table">
           <thead>
             <tr>
-              <th>Date</th>
+              <th onClick={toggleSort} style={{ cursor: 'pointer', userSelect: 'none' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                  Date {sortDir === 'desc' ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
+                </div>
+              </th>
               <th>Type</th>
               <th>Category</th>
               <th>Description</th>

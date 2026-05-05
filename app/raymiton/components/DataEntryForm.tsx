@@ -178,10 +178,10 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
             </div>
           </>
         )}
-        {form.category === 'Bar' && form.type === 'INCOME' && (
+        {form.category === 'Bar' && (
           <>
             <div className="r-field">
-              <label className="r-label">Bar Type</label>
+              <label className="r-label">Bar Action</label>
               <div className="r-toggle-group">
                 <button className={`r-toggle-btn ${!form.isSnooker ? 'active' : ''}`} onClick={() => setForm({ ...form, isSnooker: false })}>
                   <Wine size={16} /> Drinks
@@ -195,7 +195,7 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
             {!form.isSnooker && (
               <>
                 <div className="r-field">
-                  <label className="r-label">Inventory Item</label>
+                  <label className="r-label">{form.type === 'INCOME' ? 'Select Item to Sell' : 'Select Item to Restock'}</label>
                   <select 
                     className="r-select" 
                     value={form.inventoryItemId} 
@@ -203,7 +203,7 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
                   >
                     <option value="">Custom Entry / Not in list</option>
                     {inventory.map((item) => (
-                      <option key={item._id} value={item._id} disabled={item.stock <= 0}>
+                      <option key={item._id} value={item._id} disabled={form.type === 'INCOME' && item.stock <= 0}>
                         {item.name} — ₦{item.price.toLocaleString()} ({item.stock} left)
                       </option>
                     ))}
@@ -211,7 +211,7 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
                 </div>
                 {form.inventoryItemId && (
                   <div className="r-field">
-                    <label className="r-label">Quantity</label>
+                    <label className="r-label">Quantity ({form.type === 'INCOME' ? 'Sell' : 'Add to Stock'})</label>
                     <input 
                       type="number" 
                       className="r-input" 
