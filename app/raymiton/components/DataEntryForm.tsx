@@ -40,6 +40,7 @@ const INITIAL_FORM = {
   inventoryItemId: '',
   quantity: 1,
   paymentMethod: 'Cash' as 'Cash' | 'Transfer' | 'POS',
+  items: [] as { inventoryItemId: string; name: string; quantity: number; priceAtTime: number }[],
 };
 
 export default function DataEntryForm({ 
@@ -69,6 +70,7 @@ export default function DataEntryForm({
         inventoryItemId: editingTransaction.inventoryItemId || '',
         quantity: editingTransaction.quantity || 1,
         paymentMethod: editingTransaction.paymentMethod || 'Cash',
+        items: editingTransaction.items || [],
       });
     } else {
       setForm(INITIAL_FORM);
@@ -85,23 +87,45 @@ export default function DataEntryForm({
     }
   };
 
-  const handleInventoryChange = (itemId: string, qty: number = 1) => {
-    if (!itemId) {
-      setForm(prev => ({ ...prev, inventoryItemId: '', description: '', totalCharged: '', amountPaid: '' }));
-      return;
-    }
-    const item = inventory.find(i => i._id === itemId);
+  const addToCart = () => {
+    if (!form.inventoryItemId) return;
+    const item = inventory.find(i => i._id === form.inventoryItemId);
     if (item) {
-      const totalPrice = item.price * qty;
-      setForm(prev => ({ 
-        ...prev, 
-        inventoryItemId: itemId, 
-        quantity: qty,
-        description: `${item.name} (x${qty})`,
-        totalCharged: totalPrice.toString(),
-        amountPaid: totalPrice.toString()
+      const newItem = {
+        inventoryItemId: item._id!,
+        name: item.name,
+        quantity: form.quantity,
+        priceAtTime: item.price
+      };
+      
+      const newItems = [...form.items, newItem];
+      const newTotal = newItems.reduce((sum, i) => sum + (i.priceAtTime * i.quantity), 0);
+      const newDesc = newItems.map(i => `${i.name} (x${i.quantity})`).join(', ');
+      
+      setForm(prev => ({
+        ...prev,
+        items: newItems,
+        totalCharged: newTotal.toString(),
+        amountPaid: newTotal.toString(),
+        description: newDesc,
+        inventoryItemId: '', // Reset selector
+        quantity: 1
       }));
     }
+  };
+
+  const removeFromCart = (index: number) => {
+    const newItems = form.items.filter((_, i) => i !== index);
+    const newTotal = newItems.reduce((sum, i) => sum + (i.priceAtTime * i.quantity), 0);
+    const newDesc = newItems.map(i => `${i.name} (x${i.quantity})`).join(', ');
+    
+    setForm(prev => ({
+      ...prev,
+      items: newItems,
+      totalCharged: newTotal.toString(),
+      amountPaid: newTotal.toString(),
+      description: newDesc
+    }));
   };
 
   const handleSubmit = async () => {
@@ -205,35 +229,63 @@ export default function DataEntryForm({
             </div>
             
             {!form.isSnooker && (
-              <>
-                <div className="r-field">
-                  <label className="r-label">{form.type === 'INCOME' ? 'Select Item to Sell' : 'Select Item to Restock'}</label>
-                  <select 
-                    className="r-select" 
-                    value={form.inventoryItemId} 
-                    onChange={(e) => handleInventoryChange(e.target.value, form.quantity)}
-                  >
-                    <option value="">Custom Entry / Not in list</option>
-                    {inventory.map((item) => (
-                      <option key={item._id} value={item._id} disabled={form.type === 'INCOME' && item.stock <= 0}>
-                        {item.name} — ₦{item.price.toLocaleString()} ({item.stock} left)
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                {form.inventoryItemId && (
-                  <div className="r-field">
-                    <label className="r-label">Quantity ({form.type === 'INCOME' ? 'Sell' : 'Add to Stock'})</label>
+              <div className="r-field full-width" style={{ border: '1px solid var(--r-border)', padding: 12, borderRadius: 8, background: 'rgba(255,255,255,0.03)' }}>
+                <div style={{ display: 'flex', gap: 12, marginBottom: 12, alignItems: 'flex-end' }}>
+                  <div style={{ flex: 1 }}>
+                    <label className="r-label">{form.type === 'INCOME' ? 'Select Item' : 'Restock Item'}</label>
+                    <select 
+                      className="r-select" 
+                      value={form.inventoryItemId} 
+                      onChange={(e) => setForm(prev => ({ ...prev, inventoryItemId: e.target.value }))}
+                    >
+                      <option value="">Choose item...</option>
+                      {inventory.map((item) => (
+                        <option key={item._id} value={item._id} disabled={form.type === 'INCOME' && item.stock <= 0}>
+                          {item.name} — ₦{item.price.toLocaleString()} ({item.stock} left)
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div style={{ width: 80 }}>
+                    <label className="r-label">Qty</label>
                     <input 
                       type="number" 
                       className="r-input" 
                       min="1"
                       value={form.quantity} 
-                      onChange={(e) => handleInventoryChange(form.inventoryItemId, parseInt(e.target.value) || 1)} 
+                      onChange={(e) => setForm(prev => ({ ...prev, quantity: parseInt(e.target.value) || 1 }))} 
                     />
                   </div>
+                  <button 
+                    type="button" 
+                    className="r-btn r-btn-accent r-btn-sm" 
+                    onClick={addToCart}
+                    disabled={!form.inventoryItemId}
+                    style={{ height: 42 }}
+                  >
+                    <Plus size={16} /> Add
+                  </button>
+                </div>
+
+                {form.items.length > 0 && (
+                  <div className="r-cart-list" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--r-text-muted)', textTransform: 'uppercase' }}>Selected Items:</div>
+                    {form.items.map((item, idx) => (
+                      <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--r-bg-body)', padding: '6px 10px', borderRadius: 6, border: '1px solid var(--r-border)' }}>
+                        <div style={{ fontSize: 13 }}>
+                          <strong>{item.name}</strong> <span style={{ color: 'var(--r-text-dim)' }}>x{item.quantity}</span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                          <span style={{ fontSize: 13, fontWeight: 600 }}>₦{(item.priceAtTime * item.quantity).toLocaleString()}</span>
+                          <button onClick={() => removeFromCart(idx)} style={{ color: 'var(--r-red)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex' }}>
+                            <X size={14} />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 )}
-              </>
+              </div>
             )}
           </>
         )}

@@ -81,15 +81,23 @@ export async function POST(request: NextRequest) {
 
     await transaction.save();
 
-    // If it's a bar item from inventory, update the stock
-    if (body.category === 'Bar' && body.inventoryItemId && body.quantity) {
-      try {
-        const incrementValue = body.type === 'EXPENSE' ? body.quantity : -body.quantity;
-        await InventoryItem.findByIdAndUpdate(body.inventoryItemId, {
-          $inc: { stock: incrementValue }
-        });
-      } catch (err) {
-        console.error('Failed to update inventory stock:', err);
+    // Handle inventory stock updates
+    if (body.category === 'Bar') {
+      const itemsToUpdate = body.items && body.items.length > 0 
+        ? body.items 
+        : (body.inventoryItemId ? [{ inventoryItemId: body.inventoryItemId, quantity: body.quantity }] : []);
+
+      for (const item of itemsToUpdate) {
+        if (item.inventoryItemId && item.quantity) {
+          try {
+            const incrementValue = body.type === 'EXPENSE' ? item.quantity : -item.quantity;
+            await InventoryItem.findByIdAndUpdate(item.inventoryItemId, {
+              $inc: { stock: incrementValue }
+            });
+          } catch (err) {
+            console.error(`Failed to update inventory stock for item ${item.inventoryItemId}:`, err);
+          }
+        }
       }
     }
 

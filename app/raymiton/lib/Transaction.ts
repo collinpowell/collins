@@ -16,6 +16,12 @@ export interface ITransactionDoc {
   recordedBy?: string;
   inventoryItemId?: string;
   quantity?: number;
+  items?: {
+    inventoryItemId: string;
+    name: string;
+    quantity: number;
+    priceAtTime: number;
+  }[];
 }
 
 const TransactionSchema = new Schema<ITransactionDoc>(
@@ -43,6 +49,12 @@ const TransactionSchema = new Schema<ITransactionDoc>(
     recordedBy: { type: String },
     inventoryItemId: { type: String },
     quantity: { type: Number },
+    items: [{
+      inventoryItemId: { type: String, required: true },
+      name: { type: String, required: true },
+      quantity: { type: Number, required: true },
+      priceAtTime: { type: Number, required: true },
+    }],
   },
   {
     timestamps: true,

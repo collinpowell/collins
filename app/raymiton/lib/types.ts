@@ -18,8 +18,14 @@ export interface ITransaction {
   stayType?: StayType;
   roomNumber?: number;
   isSnooker?: boolean;
-  inventoryItemId?: string; // Link to inventory
-  quantity?: number; // Quantity sold
+  inventoryItemId?: string; // Legacy/Single item
+  quantity?: number; // Legacy/Single item
+  items?: {
+    inventoryItemId: string;
+    name: string;
+    quantity: number;
+    priceAtTime: number;
+  }[];
   createdAt?: string;
   updatedAt?: string;
 }
