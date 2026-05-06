@@ -24,6 +24,7 @@ interface Props {
   roomDefaults: RoomConfig[];
   categories: Category[];
   inventory: IInventoryItem[];
+  recordedBy: string;
 }
 
 const INITIAL_FORM = {
@@ -38,9 +39,18 @@ const INITIAL_FORM = {
   isSnooker: false,
   inventoryItemId: '',
   quantity: 1,
+  paymentMethod: 'Cash' as 'Cash' | 'Transfer',
 };
 
-export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEdit, roomDefaults, categories, inventory }: Props) {
+export default function DataEntryForm({ 
+  onSubmit, 
+  editingTransaction, 
+  onCancelEdit, 
+  roomDefaults, 
+  categories, 
+  inventory,
+  recordedBy 
+}: Props) {
   const [form, setForm] = useState(INITIAL_FORM);
   const [submitting, setSubmitting] = useState(false);
 
@@ -58,6 +68,7 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
         isSnooker: editingTransaction.isSnooker || false,
         inventoryItemId: editingTransaction.inventoryItemId || '',
         quantity: editingTransaction.quantity || 1,
+        paymentMethod: editingTransaction.paymentMethod || 'Cash',
       });
     } else {
       setForm(INITIAL_FORM);
@@ -97,11 +108,13 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
     if (!form.description.trim() || !form.totalCharged) return;
     setSubmitting(true);
     const tx: Partial<ITransaction> = {
-      date: form.date, type: form.type, category: form.category,
-      description: form.description.trim(),
-      totalCharged: parseFloat(form.totalCharged) || 0,
-      amountPaid: parseFloat(form.amountPaid) || 0,
+      ...form,
+      date: new Date(form.date).toISOString(),
+      totalCharged: parseFloat(form.totalCharged as any) || 0,
+      amountPaid: parseFloat(form.amountPaid as any) || 0,
       isSnooker: form.isSnooker,
+      paymentMethod: form.paymentMethod as any,
+      recordedBy: recordedBy,
     };
     if (form.category === 'Rooms') { tx.stayType = form.stayType; tx.roomNumber = form.roomNumber; }
     if (form.category === 'Bar' && form.inventoryItemId) {
@@ -115,7 +128,6 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
     }
     setSubmitting(false);
   };
-// ... rest of the component ...
 
   const charged = parseFloat(form.totalCharged) || 0;
   const paid = parseFloat(form.amountPaid) || 0;
@@ -228,6 +240,18 @@ export default function DataEntryForm({ onSubmit, editingTransaction, onCancelEd
         <div className="r-field full-width">
           <label className="r-label">Description</label>
           <input type="text" className="r-input" placeholder="e.g. Lodge Jiro (Night) Room 2, Bottle of Water..." value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value, isSnooker: e.target.value.toLowerCase().includes('snooker') ? true : form.isSnooker })} />
+        </div>
+        <div className="r-field">
+          <label className="r-label">Payment Method</label>
+          <select 
+            className="r-select" 
+            value={form.paymentMethod} 
+            onChange={(e) => setForm({ ...form, paymentMethod: e.target.value as any })}
+          >
+            <option value="Cash">💵 Cash</option>
+            <option value="Transfer">🏛️ Bank Transfer</option>
+            <option value="POS">💳 Card / POS</option>
+          </select>
         </div>
         <div className="r-field">
           <label className="r-label">Total Charged (₦)</label>
