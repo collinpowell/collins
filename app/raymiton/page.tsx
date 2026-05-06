@@ -267,6 +267,27 @@ export default function RaymitonDashboard() {
     setActiveTab('entry');
   };
 
+  const handleQuickPayment = async (transactionId: string, additionalAmount: number) => {
+    try {
+      const tx = transactions.find(t => t._id === transactionId);
+      if (!tx) return;
+
+      const newAmountPaid = tx.amountPaid + additionalAmount;
+      const response = await fetch(`/api/transactions/${transactionId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amountPaid: newAmountPaid }),
+      });
+
+      if (response.ok) {
+        const updatedTx = await response.json();
+        setTransactions(prev => prev.map(t => t._id === transactionId ? updatedTx : t));
+      }
+    } catch (err) {
+      console.error('Failed to record payment:', err);
+    }
+  };
+
   const handleCancelEdit = () => {
     setEditingTransaction(null);
   };
@@ -396,11 +417,12 @@ export default function RaymitonDashboard() {
           </div>
         ) : (
           <>
-            {activeTab === 'overview' && userRole === 'admin' && (
+            {activeTab === 'overview' && (
               <DashboardOverview
                 metrics={metrics}
                 transactions={transactions}
                 formatCurrency={formatCurrency}
+                onRecordPayment={handleQuickPayment}
               />
             )}
 
@@ -415,6 +437,7 @@ export default function RaymitonDashboard() {
                 roomDefaults={ROOM_DEFAULTS}
                 categories={CATEGORIES}
                 inventory={inventory}
+                recordedBy={userRole === 'admin' ? 'Admin' : 'Staff'}
               />
             )}
 
@@ -456,6 +479,7 @@ export default function RaymitonDashboard() {
                 transactions={transactions}
                 formatCurrency={formatCurrency}
                 onMarkPaid={handleMarkPaid}
+                onRecordPayment={handleQuickPayment}
                 onEdit={handleEditClick}
               />
             )}

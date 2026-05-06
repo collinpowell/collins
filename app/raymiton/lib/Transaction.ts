@@ -12,6 +12,10 @@ export interface ITransactionDoc {
   stayType?: 'Night' | 'Short';
   roomNumber?: number;
   isSnooker: boolean;
+  paymentMethod: 'Cash' | 'Transfer' | 'POS';
+  recordedBy?: string;
+  inventoryItemId?: string;
+  quantity?: number;
 }
 
 const TransactionSchema = new Schema<ITransactionDoc>(
@@ -35,6 +39,10 @@ const TransactionSchema = new Schema<ITransactionDoc>(
     stayType: { type: String, enum: ['Night', 'Short'] },
     roomNumber: { type: Number, min: 1, max: 6 },
     isSnooker: { type: Boolean, default: false },
+    paymentMethod: { type: String, enum: ['Cash', 'Transfer', 'POS'], default: 'Cash' },
+    recordedBy: { type: String },
+    inventoryItemId: { type: String },
+    quantity: { type: Number },
   },
   {
     timestamps: true,

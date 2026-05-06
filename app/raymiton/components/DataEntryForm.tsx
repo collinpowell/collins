@@ -39,7 +39,7 @@ const INITIAL_FORM = {
   isSnooker: false,
   inventoryItemId: '',
   quantity: 1,
-  paymentMethod: 'Cash' as 'Cash' | 'Transfer',
+  paymentMethod: 'Cash' as 'Cash' | 'Transfer' | 'POS',
 };
 
 export default function DataEntryForm({ 

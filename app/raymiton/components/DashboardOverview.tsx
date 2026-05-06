@@ -17,9 +17,10 @@ interface Props {
   metrics: DashboardMetrics | null;
   transactions: ITransaction[];
   formatCurrency: (n: number) => string;
+  onRecordPayment: (transactionId: string, additionalAmount: number) => Promise<void>;
 }
 
-export default function DashboardOverview({ metrics, transactions, formatCurrency }: Props) {
+export default function DashboardOverview({ metrics, transactions, formatCurrency, onRecordPayment }: Props) {
   if (!metrics) {
     return (
       <div className="r-empty">

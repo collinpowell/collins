@@ -13,6 +13,8 @@ export interface ITransaction {
   amountPaid: number;
   balanceOwed: number;
   status: PaymentStatus;
+  paymentMethod?: 'Cash' | 'Transfer' | 'POS';
+  recordedBy?: string;
   stayType?: StayType;
   roomNumber?: number;
   isSnooker?: boolean;

@@ -12,6 +12,7 @@ export const SEED_DATA: Omit<ITransaction, '_id' | 'balanceOwed' | 'status' | 'c
     amountPaid: 15000,
     stayType: 'Night',
     roomNumber: 1,
+    paymentMethod: 'Cash',
   },
   {
     date: '2026-05-01',

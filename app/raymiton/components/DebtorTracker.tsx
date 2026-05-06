@@ -7,6 +7,7 @@ interface Props {
   transactions: ITransaction[];
   formatCurrency: (n: number) => string;
   onMarkPaid: (id: string, totalCharged: number) => void;
+  onRecordPayment: (id: string, amount: number) => void;
   onEdit: (tx: ITransaction) => void;
 }
 
@@ -32,7 +33,7 @@ function extractName(description: string): string {
   return 'Unknown';
 }
 
-export default function DebtorTracker({ transactions, formatCurrency, onMarkPaid, onEdit }: Props) {
+export default function DebtorTracker({ transactions, formatCurrency, onMarkPaid, onRecordPayment, onEdit }: Props) {
   const unpaid = transactions.filter((t) => t.type === 'INCOME' && t.balanceOwed > 0);
 
   // Group by extracted name
@@ -119,8 +120,16 @@ export default function DebtorTracker({ transactions, formatCurrency, onMarkPaid
                   <button className="r-btn-icon" onClick={() => onEdit(t)} title="Edit payment" style={{ marginRight: 4 }}>
                     <Edit2 size={16} />
                   </button>
+                  <button className="r-btn r-btn-ghost r-btn-sm" onClick={() => {
+                    const amt = prompt('Enter amount to pay:');
+                    if (amt && !isNaN(parseFloat(amt))) {
+                      onRecordPayment(t._id!, parseFloat(amt));
+                    }
+                  }} style={{ fontSize: 11, padding: '4px 8px', marginRight: 4 }}>
+                    Pay Part
+                  </button>
                   <button className="r-btn r-btn-success r-btn-sm" onClick={() => onMarkPaid(t._id!, t.totalCharged)} style={{ fontSize: 11, display: 'flex', alignItems: 'center', gap: 4 }}>
-                    <CheckCircle2 size={14} /> Mark Paid
+                    <CheckCircle2 size={14} /> Full Pay
                   </button>
                 </div>
               ))}
