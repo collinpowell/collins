@@ -17,7 +17,8 @@ import {
   AlertCircle,
   Lock,
   LogOut,
-  Package
+  Package,
+  TrendingUp as TrendingUpIcon
 } from 'lucide-react';
 import './dashboard.css';
 import { ITransaction, DashboardMetrics, ROOM_DEFAULTS, CATEGORIES, Category, IInventoryItem } from './lib/types';
@@ -28,11 +29,13 @@ import BarAnalytics from './components/BarAnalytics';
 import RoomManager from './components/RoomManager';
 import DebtorTracker from './components/DebtorTracker';
 import InventoryManager from './components/InventoryManager';
+import CalendarAnalytics from './components/CalendarAnalytics';
 
-type Tab = 'overview' | 'entry' | 'transactions' | 'bar' | 'rooms' | 'debtors' | 'inventory';
+type Tab = 'overview' | 'analytics' | 'entry' | 'transactions' | 'bar' | 'rooms' | 'debtors' | 'inventory';
 
 const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: 'overview', label: 'Overview', icon: <LayoutDashboard size={18} /> },
+  { id: 'analytics', label: 'Analytics', icon: <TrendingUpIcon size={18} /> },
   { id: 'entry', label: 'New Entry', icon: <PlusCircle size={18} /> },
   { id: 'transactions', label: 'Transactions', icon: <List size={18} /> },
   { id: 'bar', label: 'Bar', icon: <Wine size={18} /> },
@@ -59,6 +62,9 @@ export default function RaymitonDashboard() {
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
   const [editingTransaction, setEditingTransaction] = useState<ITransaction | null>(null);
+  const [activeSession, setActiveSession] = useState<any>(null);
+  const [showSessionModal, setShowSessionModal] = useState<'OPEN' | 'CLOSE' | null>(null);
+  const [sessionInput, setSessionInput] = useState('');
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -91,6 +97,18 @@ export default function RaymitonDashboard() {
     }
   }, []);
 
+  const fetchActiveSession = useCallback(async () => {
+    try {
+      const res = await fetch('/raymiton/api/sessions?active=true');
+      if (res.ok) {
+        const data = await res.json();
+        setActiveSession(data);
+      }
+    } catch (err) {
+      console.error('Failed to fetch session:', err);
+    }
+  }, []);
+
   const refreshData = useCallback(async () => {
     try {
       const metricsRes = await fetch('/raymiton/api/metrics');
@@ -99,7 +117,7 @@ export default function RaymitonDashboard() {
         setMetrics(data);
         setUserRole('admin');
         setIsAuthenticated(true);
-        await Promise.all([fetchTransactions(), fetchInventory()]);
+        await Promise.all([fetchTransactions(), fetchInventory(), fetchActiveSession()]);
       } else if (metricsRes.status === 401) {
         const invRes = await fetch('/raymiton/api/inventory');
         if (invRes.status === 200) {
@@ -108,6 +126,7 @@ export default function RaymitonDashboard() {
           setUserRole('employee');
           setIsAuthenticated(true);
           setActiveTab('entry');
+          await fetchActiveSession();
         } else {
           setIsAuthenticated(false);
         }
@@ -121,6 +140,54 @@ export default function RaymitonDashboard() {
     setAuthLoading(true);
     refreshData().finally(() => setAuthLoading(false));
   }, [refreshData]);
+
+  const handleOpenDay = async () => {
+    try {
+      const res = await fetch('/raymiton/api/sessions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ openingBalance: parseFloat(sessionInput) || 0 }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setActiveSession(data);
+        setShowSessionModal(null);
+        setSessionInput('');
+        showToast('Day opened successfully!');
+      } else {
+        const err = await res.json();
+        showToast(err.error || 'Failed to open day', 'error');
+      }
+    } catch (err) {
+      showToast('Error opening day', 'error');
+    }
+  };
+
+  const handleCloseDay = async () => {
+    if (!activeSession) return;
+    try {
+      const res = await fetch('/raymiton/api/sessions', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId: activeSession._id,
+          actualCashAtClose: parseFloat(sessionInput) || 0
+        }),
+      });
+      if (res.ok) {
+        setActiveSession(null);
+        setShowSessionModal(null);
+        setSessionInput('');
+        showToast('Day closed successfully!');
+        refreshData();
+      } else {
+        const err = await res.json();
+        showToast(err.error || 'Failed to close day', 'error');
+      }
+    } catch (err) {
+      showToast('Error closing day', 'error');
+    }
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -410,6 +477,85 @@ export default function RaymitonDashboard() {
 
       {/* Content */}
       <main className="r-content">
+        {userRole === 'admin' && (
+          <div className="r-session-banner" style={{
+            marginBottom: 20,
+            padding: '12px 20px',
+            borderRadius: 'var(--r-radius)',
+            background: activeSession ? 'var(--r-green-bg)' : 'var(--r-red-bg)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            border: `1px solid ${activeSession ? 'var(--r-green)' : 'var(--r-red)'}`
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{
+                width: 10,
+                height: 10,
+                borderRadius: '50%',
+                background: activeSession ? 'var(--r-green)' : 'var(--r-red)',
+                boxShadow: `0 0 10px ${activeSession ? 'var(--r-green)' : 'var(--r-red)'}`
+              }} />
+              <div style={{ fontWeight: 600, color: activeSession ? 'var(--r-green)' : 'var(--r-red)' }}>
+                {activeSession ? `Day Open: ${activeSession.date}` : 'Day Closed'}
+              </div>
+              {activeSession && (
+                <div style={{ fontSize: 13, color: 'var(--r-text-dim)' }}>
+                  Opening Balance: ₦{activeSession.openingBalance.toLocaleString()}
+                </div>
+              )}
+            </div>
+            {activeSession ? (
+              <button className="r-btn r-btn-sm" onClick={() => { setShowSessionModal('CLOSE'); setSessionInput(''); }} style={{ background: 'var(--r-red)', color: 'white' }}>
+                <Lock size={14} /> Close Day
+              </button>
+            ) : (
+              <button className="r-btn r-btn-sm" onClick={() => { setShowSessionModal('OPEN'); setSessionInput('0'); }} style={{ background: 'var(--r-green)', color: 'white' }}>
+                <PlusCircle size={14} /> Open New Day
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Session Modal */}
+        {showSessionModal && (
+          <div className="r-modal-overlay" style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+            <div className="r-card" style={{ maxWidth: 400, width: '100%', padding: 32, animation: 'slideUp 0.3s ease-out' }}>
+              <h2 style={{ fontSize: 20, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+                {showSessionModal === 'OPEN' ? <PlusCircle className="r-text-green" /> : <Lock className="r-text-red" />}
+                {showSessionModal === 'OPEN' ? 'Open New Day' : 'Close Active Day'}
+              </h2>
+              <p style={{ color: 'var(--r-text-dim)', fontSize: 14, marginBottom: 24 }}>
+                {showSessionModal === 'OPEN' 
+                  ? 'Enter the starting cash balance for today.' 
+                  : 'Enter the actual cash amount in the drawer for reconciliation.'}
+              </p>
+              
+              <div className="r-field" style={{ marginBottom: 24 }}>
+                <label className="r-label">{showSessionModal === 'OPEN' ? 'Opening Balance (₦)' : 'Actual Cash in Hand (₦)'}</label>
+                <input 
+                  type="number" 
+                  className="r-input" 
+                  autoFocus 
+                  value={sessionInput} 
+                  onChange={(e) => setSessionInput(e.target.value)}
+                  placeholder="0"
+                />
+              </div>
+
+              <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-end' }}>
+                <button className="r-btn r-btn-ghost" onClick={() => setShowSessionModal(null)}>Cancel</button>
+                <button 
+                  className={`r-btn ${showSessionModal === 'OPEN' ? 'r-btn-success' : 'r-btn-danger'}`} 
+                  onClick={showSessionModal === 'OPEN' ? handleOpenDay : handleCloseDay}
+                >
+                  {showSessionModal === 'OPEN' ? 'Open Day' : 'Close Day'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {loading ? (
           <div className="r-loading">
             <div className="r-spinner" />
@@ -423,6 +569,7 @@ export default function RaymitonDashboard() {
                 transactions={transactions}
                 formatCurrency={formatCurrency}
                 onRecordPayment={handleQuickPayment}
+                activeSession={activeSession}
               />
             )}
 
@@ -447,6 +594,7 @@ export default function RaymitonDashboard() {
                 onEdit={handleEditClick}
                 onDelete={handleDeleteTransaction}
                 formatCurrency={formatCurrency}
+                activeSession={activeSession}
               />
             )}
             {activeTab === 'inventory' && userRole === 'admin' && (
@@ -471,6 +619,13 @@ export default function RaymitonDashboard() {
                 roomDefaults={ROOM_DEFAULTS}
                 formatCurrency={formatCurrency}
                 onMarkPaid={handleMarkPaid}
+              />
+            )}
+
+            {activeTab === 'analytics' && userRole === 'admin' && (
+              <CalendarAnalytics
+                transactions={transactions}
+                formatCurrency={formatCurrency}
               />
             )}
 

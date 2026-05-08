@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { DashboardMetrics, ITransaction } from '../lib/types';
 import {
   BarChart3,
@@ -10,7 +11,9 @@ import {
   Wine,
   CircleDollarSign,
   CircleDot,
-  AlertTriangle
+  AlertTriangle,
+  History,
+  CalendarDays
 } from 'lucide-react';
 
 interface Props {
@@ -18,9 +21,12 @@ interface Props {
   transactions: ITransaction[];
   formatCurrency: (n: number) => string;
   onRecordPayment: (transactionId: string, additionalAmount: number) => Promise<void>;
+  activeSession: any;
 }
 
-export default function DashboardOverview({ metrics, transactions, formatCurrency, onRecordPayment }: Props) {
+export default function DashboardOverview({ metrics, transactions, formatCurrency, onRecordPayment, activeSession }: Props) {
+  const [viewMode, setViewMode] = useState<'Daily' | 'Cumulative'>('Daily');
+
   if (!metrics) {
     return (
       <div className="r-empty">
@@ -31,14 +37,21 @@ export default function DashboardOverview({ metrics, transactions, formatCurrenc
     );
   }
 
-  // Recent transactions (last 5)
-  const recent = transactions.slice(0, 5);
+  // Today's Date or Active Session Date
+  const displayDate = activeSession ? activeSession.date : new Date().toISOString().split('T')[0];
+  
+  // Filter transactions for calculations
+  const filteredTx = viewMode === 'Daily' 
+    ? transactions.filter(t => new Date(t.date).toISOString().split('T')[0] === displayDate)
+    : transactions;
 
-  // Today's summary
-  const today = new Date().toISOString().split('T')[0];
+  // Recent transactions (last 5)
+  const recent = filteredTx.slice(0, 5);
+
+  // Daily Summary (always show today/active date summary)
   const todayTx = transactions.filter((t) => {
     const txDate = new Date(t.date).toISOString().split('T')[0];
-    return txDate === today;
+    return txDate === displayDate;
   });
   const todayIncome = todayTx
     .filter((t) => t.type === 'INCOME')
@@ -47,42 +60,61 @@ export default function DashboardOverview({ metrics, transactions, formatCurrenc
     .filter((t) => t.type === 'EXPENSE')
     .reduce((s, t) => s + t.totalCharged, 0);
 
+  // Metrics for display
+  const currentMetrics = viewMode === 'Daily' ? {
+    totalRevenue: todayIncome,
+    totalExpenses: todayExpense,
+    netProfit: todayIncome - todayExpense,
+    roomRevenue: todayTx.filter(t => t.category === 'Rooms' && t.type === 'INCOME').reduce((s, t) => s + t.amountPaid, 0),
+    barRevenue: todayTx.filter(t => t.category === 'Bar' && t.type === 'INCOME' && !t.isSnooker).reduce((s, t) => s + t.amountPaid, 0),
+    barExpenses: todayTx.filter(t => t.category === 'Bar' && t.type === 'EXPENSE').reduce((s, t) => s + t.totalCharged, 0),
+    barProfit: 0, // Calculated below
+    snookerRevenue: todayTx.filter(t => t.isSnooker && t.type === 'INCOME').reduce((s, t) => s + t.amountPaid, 0),
+    totalOutstanding: todayTx.reduce((s, t) => s + t.balanceOwed, 0),
+    transactionCount: todayTx.length
+  } : metrics;
+
+  // Fix barProfit for daily
+  if (viewMode === 'Daily') {
+    currentMetrics.barProfit = currentMetrics.barRevenue - currentMetrics.barExpenses;
+  }
+
   const cards = [
     {
       label: 'Total Revenue',
-      value: formatCurrency(metrics.totalRevenue),
+      value: formatCurrency(currentMetrics.totalRevenue),
       icon: <Banknote size={24} />,
       bg: 'var(--r-green-bg)',
       color: 'var(--r-green)',
-      sub: `${transactions.filter((t) => t.type === 'INCOME').length} income entries`,
+      sub: `${filteredTx.filter((t) => t.type === 'INCOME').length} income entries`,
     },
     {
       label: 'Total Expenses',
-      value: formatCurrency(metrics.totalExpenses),
+      value: formatCurrency(currentMetrics.totalExpenses),
       icon: <TrendingDown size={24} />,
       bg: 'var(--r-red-bg)',
       color: 'var(--r-red)',
-      sub: `${transactions.filter((t) => t.type === 'EXPENSE').length} expense entries`,
+      sub: `${filteredTx.filter((t) => t.type === 'EXPENSE').length} expense entries`,
     },
     {
       label: 'Net Profit',
-      value: formatCurrency(metrics.netProfit),
-      icon: metrics.netProfit >= 0 ? <TrendingUp size={24} /> : <TrendingDown size={24} />,
-      bg: metrics.netProfit >= 0 ? 'var(--r-green-bg)' : 'var(--r-red-bg)',
-      color: metrics.netProfit >= 0 ? 'var(--r-green)' : 'var(--r-red)',
-      sub: metrics.netProfit >= 0 ? 'In the green' : 'In the red',
+      value: formatCurrency(currentMetrics.netProfit),
+      icon: currentMetrics.netProfit >= 0 ? <TrendingUp size={24} /> : <TrendingDown size={24} />,
+      bg: currentMetrics.netProfit >= 0 ? 'var(--r-green-bg)' : 'var(--r-red-bg)',
+      color: currentMetrics.netProfit >= 0 ? 'var(--r-green)' : 'var(--r-red)',
+      sub: currentMetrics.netProfit >= 0 ? 'In the green' : 'In the red',
     },
     {
       label: 'Room Revenue',
-      value: formatCurrency(metrics.roomRevenue),
+      value: formatCurrency(currentMetrics.roomRevenue),
       icon: <BedDouble size={24} />,
       bg: 'var(--r-blue-bg)',
       color: 'var(--r-blue)',
-      sub: `${transactions.filter((t) => t.category === 'Rooms' && t.type === 'INCOME').length} bookings`,
+      sub: `${filteredTx.filter((t) => t.category === 'Rooms' && t.type === 'INCOME').length} bookings`,
     },
     {
       label: 'Bar Revenue',
-      value: formatCurrency(metrics.barRevenue),
+      value: formatCurrency(currentMetrics.barRevenue),
       icon: <Wine size={24} />,
       bg: 'var(--r-orange-bg)',
       color: 'var(--r-orange)',
@@ -90,15 +122,15 @@ export default function DashboardOverview({ metrics, transactions, formatCurrenc
     },
     {
       label: 'Bar Profit',
-      value: formatCurrency(metrics.barProfit),
+      value: formatCurrency(currentMetrics.barProfit),
       icon: <CircleDollarSign size={24} />,
-      bg: metrics.barProfit >= 0 ? 'var(--r-green-bg)' : 'var(--r-red-bg)',
-      color: metrics.barProfit >= 0 ? 'var(--r-green)' : 'var(--r-red)',
-      sub: `Cost: ${formatCurrency(metrics.barExpenses)}`,
+      bg: currentMetrics.barProfit >= 0 ? 'var(--r-green-bg)' : 'var(--r-red-bg)',
+      color: currentMetrics.barProfit >= 0 ? 'var(--r-green)' : 'var(--r-red)',
+      sub: `Cost: ${formatCurrency(currentMetrics.barExpenses)}`,
     },
     {
       label: 'Snooker Revenue',
-      value: formatCurrency(metrics.snookerRevenue),
+      value: formatCurrency(currentMetrics.snookerRevenue),
       icon: <CircleDot size={24} />,
       bg: 'var(--r-accent-glow)',
       color: 'var(--r-accent)',
@@ -106,20 +138,50 @@ export default function DashboardOverview({ metrics, transactions, formatCurrenc
     },
     {
       label: 'Outstanding Debts',
-      value: formatCurrency(metrics.totalOutstanding),
+      value: formatCurrency(currentMetrics.totalOutstanding),
       icon: <AlertTriangle size={24} />,
-      bg: metrics.totalOutstanding > 0 ? 'var(--r-red-bg)' : 'var(--r-green-bg)',
-      color: metrics.totalOutstanding > 0 ? 'var(--r-red)' : 'var(--r-green)',
-      sub: `${transactions.filter((t) => t.balanceOwed > 0).length} unpaid entries`,
+      bg: currentMetrics.totalOutstanding > 0 ? 'var(--r-red-bg)' : 'var(--r-green-bg)',
+      color: currentMetrics.totalOutstanding > 0 ? 'var(--r-red)' : 'var(--r-green)',
+      sub: `${filteredTx.filter((t) => t.balanceOwed > 0).length} unpaid entries`,
     },
   ];
 
   return (
     <div>
+      {/* Header with Title and Subtle Toggle */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+        <h2 style={{ fontSize: 18, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 10 }}>
+          <CalendarDays size={20} className="r-text-accent" />
+          {viewMode === 'Daily' ? 'Today\'s Performance' : 'All-Time Performance'}
+        </h2>
+        <button 
+          onClick={() => setViewMode(viewMode === 'Daily' ? 'Cumulative' : 'Daily')}
+          style={{ 
+            background: 'none', 
+            border: 'none', 
+            color: 'var(--r-text-dim)', 
+            fontSize: 12, 
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+            padding: '4px 8px',
+            borderRadius: 4,
+            transition: 'var(--r-transition)'
+          }}
+          className="r-hover-bg"
+        >
+          {viewMode === 'Daily' ? <History size={14} /> : <CalendarDays size={14} />}
+          {viewMode === 'Daily' ? 'Switch to All-Time' : 'Back to Daily View'}
+        </button>
+      </div>
+
       {/* Today's Quick Stats */}
       {(todayIncome > 0 || todayExpense > 0) && (
         <div style={{ marginBottom: 24, padding: '16px 20px', background: 'var(--r-bg-card)', borderRadius: 'var(--r-radius)', border: '1px solid var(--r-border)' }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--r-text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 12 }}>Today&apos;s Summary</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--r-text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 12 }}>
+            {viewMode === 'Daily' ? 'Current Session Performance' : "Today's Summary"}
+          </div>
           <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap' }}>
             <div>
               <span style={{ color: 'var(--r-green)', fontWeight: 800, fontSize: 20 }}>{formatCurrency(todayIncome)}</span>
@@ -160,8 +222,8 @@ export default function DashboardOverview({ metrics, transactions, formatCurrenc
       {/* Recent Transactions */}
       <div className="r-table-wrap">
         <div className="r-table-header">
-          <div className="r-table-title">Recent Transactions</div>
-          <div className="r-metric-sub">{metrics.transactionCount} total entries</div>
+          <div className="r-table-title">{viewMode === 'Daily' ? 'Session Transactions' : 'Recent Transactions'}</div>
+          <div className="r-metric-sub">{viewMode === 'Daily' ? `${todayTx.length} items recorded today` : `${metrics.transactionCount} total entries`}</div>
         </div>
         <div className="r-table-overflow">
           <table className="r-table">

@@ -13,7 +13,8 @@ import {
   RefreshCcw,
   ChevronDown,
   ChevronUp,
-  X
+  X,
+  History
 } from 'lucide-react';
 
 interface Props {
@@ -21,16 +22,20 @@ interface Props {
   onEdit: (tx: ITransaction) => void;
   onDelete: (id: string) => void;
   formatCurrency: (n: number) => string;
+  activeSession: any;
 }
 
-export default function TransactionTable({ transactions, onEdit, onDelete, formatCurrency }: Props) {
+export default function TransactionTable({ transactions, onEdit, onDelete, formatCurrency, activeSession }: Props) {
+  // Use today's date in YYYY-MM-DD format as default
+  const today = new Date().toISOString().split('T')[0];
+  
   const [filterCat, setFilterCat] = useState<string>('All');
   const [filterType, setFilterType] = useState<string>('All');
   const [filterStatus, setFilterStatus] = useState<string>('All');
   const [search, setSearch] = useState('');
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [startDate, setStartDate] = useState(today);
+  const [endDate, setEndDate] = useState(today);
 
   const filtered = transactions.filter((tx) => {
     if (filterCat !== 'All' && tx.category !== filterCat) return false;
@@ -63,9 +68,18 @@ export default function TransactionTable({ transactions, onEdit, onDelete, forma
       <div className="r-table-header">
         <div className="r-table-title">
           <List size={22} className="r-text-accent" style={{ marginRight: 8 }} />
-          All Transactions ({filtered.length})
+          {startDate === today && endDate === today ? 'Today\'s Transactions' : 'Transaction History'} ({filtered.length})
         </div>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+          {(startDate || endDate) && (
+            <button 
+              className="r-btn r-btn-ghost r-btn-sm" 
+              onClick={() => { setStartDate(''); setEndDate(''); }}
+              style={{ fontSize: 11, padding: '4px 10px' }}
+            >
+              <History size={14} /> Show All History
+            </button>
+          )}
           <div className="r-date-filters" style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
             <input 
               type="date" 
