@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scale Yourself — Collins Krubu</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .page { max-width: 860px; margin: 0 auto; padding: 48px 32px; }
+  .header { border-bottom: 1px solid #1e2330; padding-bottom: 32px; margin-bottom: 40px; }
+  .tag { display: inline-block; background: #1a2744; color: #60a5fa; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
+  h1 { font-size: 32px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
+  .subtitle { font-size: 15px; color: #64748b; }
+  .subtitle span { color: #94a3b8; }
+  .section { margin-bottom: 48px; }
+  h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #475569; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 1px solid #1e2330; }
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+  .metric { background: #161b27; border: 1px solid #1e2330; border-radius: 10px; padding: 20px 16px; }
+  .metric-value { font-size: 28px; font-weight: 700; color: #60a5fa; line-height: 1; margin-bottom: 6px; }
+  .metric-label { font-size: 12px; color: #475569; line-height: 1.4; }
+  .metric-delta { font-size: 11px; color: #34d399; margin-top: 4px; }
+  .chart-wrap { background: #161b27; border: 1px solid #1e2330; border-radius: 10px; padding: 24px; margin-bottom: 24px; }
+  .chart-title { font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 16px; }
+  .examples { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .example { background: #161b27; border: 1px solid #1e2330; border-radius: 10px; padding: 20px; }
+  .example-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #60a5fa; margin-bottom: 8px; }
+  .example h3 { font-size: 14px; font-weight: 600; color: #e2e8f0; margin-bottom: 8px; }
+  .example p { font-size: 13px; color: #64748b; line-height: 1.6; }
+  .example .result { font-size: 12px; color: #34d399; margin-top: 10px; padding-top: 10px; border-top: 1px solid #1e2330; }
+  .summary { background: #161b27; border: 1px solid #1e2330; border-left: 3px solid #3b82f6; border-radius: 0 10px 10px 0; padding: 20px 24px; }
+  .summary p { font-size: 14px; color: #94a3b8; line-height: 1.8; }
+  .summary p + p { margin-top: 12px; }
+  .tools { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .tool { background: #1a2744; border: 1px solid #2d3a5a; color: #93c5fd; font-size: 12px; padding: 4px 12px; border-radius: 20px; }
+  .footer { border-top: 1px solid #1e2330; padding-top: 24px; margin-top: 48px; font-size: 12px; color: #334155; display: flex; justify-content: space-between; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="tag">Owner.com · RestX Application</div>
+    <h1>Scale Yourself Report</h1>
+    <p class="subtitle">Collins Krubu · <span>AI Leverage & Output — 12 Month Review (Jun 2025 – Jun 2026)</span></p>
+  </div>
+
+  <div class="section">
+    <h2>Summary</h2>
+    <div class="summary">
+      <p>Over the past 12 months I've systematically embedded AI into every stage of my development workflow — not as a novelty, but as genuine leverage. The shift started with using Claude Opus for architecture review and PR self-critique, then expanded to GitHub Copilot for scaffolding, and most recently to full agentic workflows for spec writing, API design, and debugging pipelines.</p>
+      <p>The measurable result: I'm shipping features roughly 3× faster than I was 12 months ago on comparable complexity tasks, with fewer post-ship bugs and significantly less time spent on boilerplate and documentation. The projects below — Lupply (SaaS), Shiru Education (UK client), and Luna Finance (fintech backend) — all benefited directly from this shift.</p>
+      <div class="tools">
+        <span class="tool">Claude Opus (Anthropic)</span>
+        <span class="tool">GitHub Copilot</span>
+        <span class="tool">AI-assisted PR review</span>
+        <span class="tool">Spec generation</span>
+        <span class="tool">Adopting: Cursor · Claude Code</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Output metrics</h2>
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-value">3×</div>
+        <div class="metric-label">Feature shipping speed vs. 12 months ago</div>
+        <div class="metric-delta">↑ on comparable tasks</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">~60%</div>
+        <div class="metric-label">Reduction in time spent on boilerplate & scaffolding</div>
+        <div class="metric-delta">↑ via Copilot + Claude</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">80%</div>
+        <div class="metric-label">API latency improvement on Luna Finance</div>
+        <div class="metric-delta">↑ AI-assisted optimisation</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">4</div>
+        <div class="metric-label">Distinct AI use cases integrated into daily workflow</div>
+        <div class="metric-delta">architecture · debug · review · docs</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Perceived leverage over time</h2>
+    <div class="chart-wrap">
+      <div class="chart-title">Self-assessed AI leverage by workflow stage (1–10 scale, monthly)</div>
+      <div style="position: relative; width: 100%; height: 280px;">
+        <canvas id="leverageChart" role="img" aria-label="Line chart showing increasing AI leverage across architecture, debugging, and documentation stages from Jun 2025 to Jun 2026">AI leverage increased steadily across all workflow stages over 12 months.</canvas>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Estimated hours saved per week by AI tool usage</div>
+      <div style="position: relative; width: 100%; height: 240px;">
+        <canvas id="hoursChart" role="img" aria-label="Bar chart showing hours saved per week increasing from about 3 hours to 14 hours over 12 months">Hours saved per week grew from approximately 3 to 14 over the year.</canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Workflow examples</h2>
+    <div class="examples">
+      <div class="example">
+        <div class="example-tag">Architecture review</div>
+        <h3>Lupply — ordering system data model</h3>
+        <p>Before writing a line of code, I used Claude Opus to pressure-test the order state machine (draft → placed → confirmed → in-kitchen → dispatched → delivered). It surfaced 3 edge cases I'd missed — concurrent order updates, kitchen rejection flows, and partial fulfilment states.</p>
+        <div class="result">↳ Prevented 2 production bugs. Estimated: 4–6 hours debugging saved.</div>
+      </div>
+      <div class="example">
+        <div class="example-tag">PR self-review</div>
+        <h3>Luna Finance — API optimisation PR</h3>
+        <p>Before pushing, I ran my diff through Claude and asked it to critique the caching strategy. It flagged a race condition in concurrent requests to the same liquidity pool. Fixed before review. API response times improved 80% post-merge.</p>
+        <div class="result">↳ Bug caught pre-merge. 80% latency improvement shipped cleanly.</div>
+      </div>
+      <div class="example">
+        <div class="example-tag">Scaffolding speed</div>
+        <h3>Shiru Education — CMS pipeline</h3>
+        <p>Used Copilot to generate the full CRUD scaffold for blog posts, country pages, and testimonials in ~20 minutes. Spent the remaining time on actual business logic — booking flows, SEO metadata generation, and conversion tracking.</p>
+        <div class="result">↳ 142+ contact submissions at launch. Scaffold time: 20 min vs ~3 hrs manual.</div>
+      </div>
+      <div class="example">
+        <div class="example-tag">Documentation</div>
+        <h3>Lupply — internal API docs</h3>
+        <p>Used Claude to generate first-draft API documentation from route handlers and schema definitions. Reviewed, corrected, and published. Team of 5 engineers onboarded to new endpoints with zero back-and-forth questions.</p>
+        <div class="result">↳ ~2 hrs doc writing → 20 min review. Zero onboarding questions from the team.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Collins Krubu · collinskrubu723@gmail.com</span>
+    <span>github.com/collinpowell</span>
+    <span>June 2026</span>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const months = ['Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'];
+
+new Chart(document.getElementById('leverageChart'), {
+  type: 'line',
+  data: {
+    labels: months,
+    datasets: [
+      {
+        label: 'Architecture & planning',
+        data: [3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9],
+        borderColor: '#60a5fa',
+        backgroundColor: 'rgba(96,165,250,0.08)',
+        tension: 0.4, fill: true, pointRadius: 3, borderWidth: 2,
+        borderDash: []
+      },
+      {
+        label: 'Debugging',
+        data: [2, 3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 8, 9],
+        borderColor: '#34d399',
+        backgroundColor: 'rgba(52,211,153,0.05)',
+        tension: 0.4, fill: false, pointRadius: 3, borderWidth: 2,
+        borderDash: [5, 3]
+      },
+      {
+        label: 'Docs & specs',
+        data: [2, 2, 3, 4, 5, 6, 6, 7, 8, 8, 9, 9, 9],
+        borderColor: '#f59e0b',
+        backgroundColor: 'rgba(245,158,11,0.05)',
+        tension: 0.4, fill: false, pointRadius: 3, borderWidth: 2,
+        borderDash: [2, 2]
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false }
+    },
+    scales: {
+      y: { min: 0, max: 10, ticks: { color: '#475569', stepSize: 2 }, grid: { color: 'rgba(255,255,255,0.04)' }, border: { color: '#1e2330' } },
+      x: { ticks: { color: '#475569', font: { size: 11 } }, grid: { display: false }, border: { color: '#1e2330' } }
+    }
+  }
+});
+
+new Chart(document.getElementById('hoursChart'), {
+  type: 'bar',
+  data: {
+    labels: months,
+    datasets: [{
+      label: 'Hours saved / week',
+      data: [3, 4, 5, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+      backgroundColor: 'rgba(96,165,250,0.7)',
+      borderColor: '#3b82f6',
+      borderWidth: 1,
+      borderRadius: 4
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: true, ticks: { color: '#475569', callback: v => v + 'h' }, grid: { color: 'rgba(255,255,255,0.04)' }, border: { color: '#1e2330' } },
+      x: { ticks: { color: '#475569', font: { size: 11 } }, grid: { display: false }, border: { color: '#1e2330' } }
+    }
+  }
+});
+</script>
+</body>
+</html>

@@ -48,7 +48,7 @@ const projects: Project[] = [
   },
   {
     name: "Solvux",
-    url: "https://www.solvux.xyz",
+    url: "https://solvux-frontend.vercel.app/",
     image: "/projects/solvux.png",
     description:
       "Cross-chain DeFi platform supporting 50+ networks. Optimized swap and bridge routing for scalable Web3 infrastructure.",
@@ -58,7 +58,7 @@ const projects: Project[] = [
   },
   {
     name: "Solvux Wallet",
-    url: "https://www.solvux.xyz",
+    url: "https://solvux-frontend.vercel.app/",
     image: null,
     placeholderClass: "solvux",
     description:
