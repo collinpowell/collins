@@ -1,0 +1,25 @@
+# Lupply Ecosystem - Verified Project Links
+
+This document contains the undeniable proof links for the entire Lupply ecosystem, built and managed entirely by Collins with custom admin dashboards.
+
+## 1. Lupply (Business Management & POS)
+- **Web App:** https://app.lupply.com
+- **Google Play Store:** https://play.google.com/store/apps/details?id=com.cpx.lupply
+- **Apple App Store:** https://apps.apple.com/us/app/lupply/id6743771090
+- **Windows Microsoft Store:** https://apps.microsoft.com/detail/9nxv0wn9cznn
+
+## 2. Lupply Food (Food Delivery Marketplace)
+- **Web App:** https://food.lupply.com
+- **Google Play Store:** https://play.google.com/store/apps/details?id=com.lupply.lupply_food
+- **Apple App Store:** https://apps.apple.com/gh/app/lupply-food-delivery-pickup/id6759553691
+
+## 3. Lupply Ride (Delivery & Logistics Platform)
+- **Web App:** https://rider.lupply.com
+- **Google Play Store:** https://play.google.com/store/apps/details?id=com.lupply.lupply_ride&hl=en
+
+## 4. Lupply Store (Online Marketplace)
+- **Web App:** https://store.lupply.com
+
+---
+**Strategy Note for Applications:** 
+When generating a resume or cover letter, these links MUST be prominently displayed to prove full-stack capability (Web, Mobile, Desktop) and live user deployment. The sheer volume of cross-platform deployment here is undeniable proof of mid/senior-level engineering capacity.

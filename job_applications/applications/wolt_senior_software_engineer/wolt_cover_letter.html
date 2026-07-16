@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter - Wolt</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.7;
+            background: #ffffff;
+            font-size: 11pt;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body { padding: 0; }
+            @page { margin: 2cm; }
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 22pt;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .contact-info {
+            color: #555;
+            font-size: 10pt;
+            display: flex;
+            gap: 15px;
+        }
+
+        .date {
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .salutation {
+            margin-bottom: 20px;
+        }
+
+        .paragraph {
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            margin-top: 40px;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #0047FF;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Collins Krubu</h1>
+        <div class="contact-info">
+            <span>collinskrubu723@gmail.com</span> | 
+            <span>github.com/collinpowell</span> | 
+            <span>Berlin / Helsinki (Relocating)</span>
+        </div>
+    </div>
+
+    <div class="date" id="current-date">July 16, 2026</div>
+
+    <div class="salutation">Dear Wolt Engineering Hiring Team,</div>
+
+    <div class="paragraph">
+        When I saw the Senior Software Engineer opening on the Data Developer Experience team, I knew immediately it was a perfect match. I have spent the last four years building, breaking, and scaling infrastructure—from programming microcontrollers in C/C++ at NodeX iHub to architecting the entire cloud and edge deployment pipeline for Lupply, a multi-region SaaS ecosystem. The challenge of building a "Data Control Plane" that is self-healing, snappy, and trustworthy is exactly the kind of complex, high-impact problem I thrive on solving.
+    </div>
+
+    <div class="paragraph">
+        At Lupply, I was the sole platform engineer responsible for ensuring our massive data throughput across our merchant, food, and rider ecosystems didn't crumble under load. I built the infrastructure from the ground up, utilizing a polyglot approach—writing the heavy-lifting data aggregation services in Go and Rust, and scripting our deployment tooling in Python and Node.js. 
+    </div>
+
+    <div class="paragraph">
+        You specifically mentioned looking for engineers who leverage <span class="highlight">Agentic Coding</span>. I am an absolute advocate for this workflow. By tightly integrating autonomous AI coding agents into my daily loop, I have entirely automated boilerplate generation, CI/CD pipeline writing, and test scaffolding. This allows me to dedicate my cognitive load entirely to systems design, security, and developer experience. It is how I was able to single-handedly ship and maintain the Lupply ecosystem across the Web, Google Play Store, Apple App Store, and Microsoft Windows Store simultaneously. 
+    </div>
+
+    <div class="paragraph">
+        My foundation in embedded systems means I treat memory, networking, and concurrency with strict discipline, while my recent work scaling DeFi aggregators (Lunar Finance) processing $1M+ daily volume has taught me how to operate highly-available distributed systems under pressure.
+    </div>
+
+    <div class="paragraph">
+        I am currently relocating to the EU and have the verified legal documentation (Corporate Affairs Commission proof) proving my 4+ years of senior engineering experience, which entirely satisfies the requirements for the EU Blue Card / Specialist Visa independently of a university degree. 
+    </div>
+
+    <div class="paragraph">
+        I would love to bring my polyglot mindset, agent-accelerated workflow, and obsession with Developer Experience to the Data Platform team at Wolt. I look forward to discussing how I can help build robust foundations for the future.
+    </div>
+
+    <div class="signature">
+        Best regards,<br><br>
+        <strong>Collins Krubu</strong>
+    </div>
+
+    <script>
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', dateOptions);
+    </script>
+</body>
+</html>

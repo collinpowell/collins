@@ -1,0 +1,15 @@
+# Application Tracker
+
+This file tracks the status of your job applications. 
+*Note: Some previously sent applications have issues, but moving forward we will fix all issues and aim to land a role.*
+
+## Applications Log
+
+| Date | Company / Role | Type | Status | Links / Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| 2026-07-16 | Wolt / Senior Software Engineer (Data DX) | Direct / Visa | Pre-Interview | App in `applications/wolt_senior_software_engineer` |
+| (example) | (example) | Ausbildung | Sent | (example: Need to verify B1 German level) |
+| (example) | (example) | IT Specialist | Sent | (example: Emphasize 2 years verified exp) |
+
+*Instructions for AI:*
+When a new application is submitted, add a row to this table.

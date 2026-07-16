@@ -1,0 +1,47 @@
+# German Job Search Platforms & Websites
+
+Here is a curated list of websites to find opportunities in Germany, split into your two target paths based on the Gemini chat context.
+
+## Path 1: Direct IT Specialist Jobs (English-Speaking & Visa Sponsorship)
+Since you have 2+ years of verified software engineering experience, you can bypass the degree requirement. Focus on these platforms for English-speaking tech jobs:
+
+1. Arbeitnow (https://www.arbeitnow.com)
+   - Specifically filtered for English-speaking tech roles in Germany.
+   - Look for the tags "Visa Sponsorship" and "Relocation Assistance".
+
+2. Berlin Startup Jobs (https://berlinstartupjobs.com)
+   - The go-to marketplace for early-stage and high-growth companies in Germany’s tech capital. English is the default office language for most of these postings.
+
+3. GermanTechJobs (https://germantechjobs.de)
+   - Highly transparent developer-focused portal. You can filter jobs by your tech stack, location, and salary ranges upfront.
+
+4. Germany Startup Jobs (https://germanystartupjobs.com)
+   - Compiles active engineering listings across thousands of small-to-medium German startups.
+
+5. Wellfound (formerly AngelList) (https://wellfound.com)
+   - Excellent for finding early-stage startups actively looking for developers. Filter by locations like "Berlin" or "Munich" to find teams willing to hire globally.
+
+6. TopStartups.io (Germany) (https://topstartups.io)
+   - Tracks heavily funded startups. Companies with solid funding are usually the most capable of affording the legal costs of sponsoring a visa.
+
+7. LinkedIn & Xing
+   - **Xing:** Known as the "German LinkedIn." Many international tech companies post English-speaking roles here.
+   - **LinkedIn:** Search your tech stack (e.g., "Fullstack React Developer"), set the location to "Germany", and filter by "English" or include the phrase "Visa Sponsorship".
+
+---
+
+## Path 2: IT Ausbildung / Vocational Training (Fachinformatiker)
+If you are pursuing the Ausbildung route (IT Specialist in Application Development) while learning German:
+
+1. Ausbildung.de (https://www.ausbildung.de)
+   - The most popular and comprehensive portal in Germany. Search for "Fachinformatiker Anwendungsentwicklung" to find software engineering apprenticeships.
+
+2. Azubiyo (https://www.azubiyo.de)
+   - An excellent, interactive platform that uses a questionnaire to match your technical interests directly with companies offering open slots.
+
+3. Jobbörse (Federal Employment Agency Portal) (https://jobboerse.arbeitsagentur.de)
+   - The official government portal. Filter for "Ausbildung" to view thousands of state-registered vocational vacancies.
+
+## Strategy Tip for Applications
+- **Direct Jobs:** Put your GitHub and Portfolio link at the very top of your CV to immediately prove your skills.
+- **Ausbildung:** Indicate that you are actively learning German (currently A1, targeting B1/B2) and that your existing coding skills will make you productive from day one.

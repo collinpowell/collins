@@ -96,28 +96,29 @@ export default function AboutSection() {
           >
             <div className="space-y-5 text-text-secondary leading-relaxed">
               <p className="text-lg">
-                Collin Powell is a senior blockchain and full-stack engineer
-                based in Lagos, Nigeria. Over 6 years he&apos;s shipped DEX
-                aggregators, DeFi platforms, custom blockchains, SaaS products,
+                Collin Powell is a senior full-stack and embedded systems engineer
+                based in Lagos, Nigeria. Over 6+ years he&apos;s shipped everything from
+                C/C++ firmware on ESP32 microcontrollers and IoT hardware products
+                to DEX aggregators, DeFi platforms, SaaS products,
                 mobile apps, and enterprise websites for clients across Nigeria,
                 the UK, the Philippines, India, and the US.
               </p>
               <p>
-                He builds with AI-assisted workflows — using{" "}
-                <span className="text-accent-purple-light font-medium">
-                  Claude Opus
-                </span>{" "}
-                and{" "}
-                <span className="text-accent-purple-light font-medium">
-                  GitHub Copilot
-                </span>{" "}
-                to move faster without cutting corners. He&apos;s a former
-                co-founder of{" "}
-                <span className="text-white font-medium">NodeX iHub</span>, a
-                technology learning hub in Warri, Nigeria.
+                As co-founder of{" "}
+                <span className="text-white font-medium">NodeX iHub</span>, he led
+                the engineering of real hardware — smart home devices, automated
+                farm irrigation systems, and coin-operated vending machines — before
+                transitioning to building{" "}
+                <span className="text-accent-cyan-light font-medium">Lupply</span>,
+                a multi-platform SaaS and logistics ecosystem deployed across Web,
+                iOS, Android, and Windows.
               </p>
               <p>
-                He&apos;s available for{" "}
+                He builds with AI-assisted workflows using{" "}
+                <span className="text-accent-purple-light font-medium">
+                  Agentic Coding
+                </span>{" "}
+                to move faster without cutting corners. He&apos;s available for{" "}
                 <span className="text-accent-cyan-light font-medium">
                   full-time remote roles
                 </span>

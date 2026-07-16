@@ -1,24 +1,14 @@
 @import "tailwindcss";
 
 /* ───────────────────── Design Tokens ───────────────────── */
-:root {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #111118;
-  --bg-card: #16161e;
-  --bg-card-hover: #1c1c28;
 
+/* Shared tokens (accent colors, radius, fonts) */
+:root {
   --accent-purple: #7c3aed;
   --accent-purple-light: #a78bfa;
   --accent-cyan: #06b6d4;
   --accent-cyan-light: #22d3ee;
   --accent-green: #10b981;
-
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-
-  --border-color: rgba(124, 58, 237, 0.15);
-  --border-hover: rgba(124, 58, 237, 0.35);
 
   --glow-purple: 0 0 40px rgba(124, 58, 237, 0.15);
   --glow-cyan: 0 0 40px rgba(6, 182, 212, 0.15);
@@ -30,6 +20,36 @@
 
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), "Fira Code", monospace;
+}
+
+/* ── Light theme (default) ── */
+[data-theme="light"] {
+  --bg-primary: #f8f9fb;
+  --bg-secondary: #eef0f6;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3f4f8;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  --border-color: rgba(124, 58, 237, 0.12);
+  --border-hover: rgba(124, 58, 237, 0.30);
+}
+
+/* ── Dark theme ── */
+[data-theme="dark"] {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: #16161e;
+  --bg-card-hover: #1c1c28;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --border-color: rgba(124, 58, 237, 0.15);
+  --border-hover: rgba(124, 58, 237, 0.35);
 }
 
 @theme inline {
@@ -414,14 +434,11 @@ body {
 /* ───────────────────── Skill Category Card ───────────────────── */
 .skill-category {
   padding: 1.75rem;
-  background: linear-gradient(
-    135deg,
-    rgba(22, 22, 30, 0.6),
-    rgba(22, 22, 30, 0.3)
-  );
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   transition: all 0.4s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .skill-category:hover {
@@ -605,8 +622,35 @@ body {
 .nav-blur {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  background: rgba(10, 10, 15, 0.8);
+  background: rgba(var(--nav-blur-rgb, 10, 10, 15), 0.85);
   border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+[data-theme="light"] .nav-blur {
+  background: rgba(248, 249, 251, 0.85);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+/* ───────────────────── Theme Toggle Button ───────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-purple);
+  color: var(--accent-purple-light);
+  box-shadow: var(--glow-purple);
 }
 
 /* ───────────────────── Placeholder project image ───────────────────── */
@@ -624,8 +668,20 @@ body {
   background: linear-gradient(135deg, #064e3b, #065f46, #047857);
 }
 
-.project-placeholder.howell {
+.project-placeholder.solvux {
   background: linear-gradient(135deg, #1e1b4b, #312e81, #4338ca);
+}
+
+.project-placeholder.pivot {
+  background: linear-gradient(135deg, #1c1917, #292524, #44403c);
+}
+
+.project-placeholder.lupply-food {
+  background: linear-gradient(135deg, #7f1d1d, #991b1b, #b91c1c);
+}
+
+.project-placeholder.lupply-ride {
+  background: linear-gradient(135deg, #1e3a5f, #1d4ed8, #3b82f6);
 }
 
 /* ───────────────────── CTA Section BG ───────────────────── */

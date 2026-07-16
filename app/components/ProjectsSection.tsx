@@ -24,6 +24,8 @@ function useInView(threshold = 0.1) {
   return { ref, inView };
 }
 
+type FilterTag = "All" | "Founder" | "Client Work" | "Personal / Web3";
+
 interface Project {
   name: string;
   url: string;
@@ -33,18 +35,125 @@ interface Project {
   role: string;
   stack: string[];
   tag: string;
+  filter: FilterTag[];
 }
 
 const projects: Project[] = [
+  {
+    name: "Lupply",
+    url: "https://lupply.com",
+    image: "/projects/lupply.png",
+    description:
+      "Multi-platform SaaS ecosystem — Business Management, POS, food delivery, and logistics. Serving 5+ enterprise clients. Solely built, deployed, and maintained.",
+    role: "Founder & Lead Engineer",
+    stack: ["Next.js", "Node.js", "Flutter", "Go", "Docker"],
+    tag: "Founder · SaaS · Cloud-Native",
+    filter: ["All", "Founder"],
+  },
+  {
+    name: "Lupply App",
+    url: "https://play.google.com/store/apps/details?id=com.cpx.lupply",
+    image: "/projects/lupply-app.png",
+    placeholderClass: "lupply",
+    description:
+      "Mobile application for the Lupply Business ecosystem. Live on Google Play Store and Apple App Store. CI/CD managed via Fastlane.",
+    role: "Founder & Lead Engineer",
+    stack: ["Flutter", "Fastlane", "iOS", "Android"],
+    tag: "Founder · Mobile App",
+    filter: ["All", "Founder"],
+  },
+  {
+    name: "Lupply Food",
+    url: "https://play.google.com/store/apps/details?id=com.lupply.lupply_food",
+    image: null,
+    placeholderClass: "lupply-food",
+    description:
+      "Food delivery marketplace app. Live on Google Play Store and Apple App Store with active daily orders.",
+    role: "Founder & Lead Engineer",
+    stack: ["Flutter", "Node.js", "Fastlane"],
+    tag: "Founder · Mobile · Food Delivery",
+    filter: ["All", "Founder"],
+  },
+  {
+    name: "Lupply Ride",
+    url: "https://play.google.com/store/apps/details?id=com.lupply.lupply_ride&hl=en",
+    image: null,
+    placeholderClass: "lupply-ride",
+    description:
+      "Delivery and logistics platform. Real-time GPS routing and fleet management, live on Google Play Store.",
+    role: "Founder & Lead Engineer",
+    stack: ["Flutter", "Node.js", "Real-time GPS"],
+    tag: "Founder · Logistics · Mobile",
+    filter: ["All", "Founder"],
+  },
+  {
+    name: "Lupply Windows App",
+    url: "https://apps.microsoft.com/detail/9nxv0wn9cznn?hl=en-GB&gl=NG",
+    image: "/projects/lupply-windows.png",
+    placeholderClass: "lupply",
+    description:
+      "Desktop POS application for Lupply's ecosystem. Live on Microsoft Store.",
+    role: "Founder & Lead Engineer",
+    stack: ["Flutter", "Windows"],
+    tag: "Founder · Desktop App",
+    filter: ["All", "Founder"],
+  },
+  {
+    name: "NodeX iHub",
+    url: "https://node-x-frontend.vercel.app/",
+    image: null,
+    placeholderClass: "nodex",
+    description:
+      "EdTech & IoT product studio. Delivered ESP32-based smart home devices, a sensor-driven farm irrigation system, and a coin-operated vending device. Also served 200+ active students.",
+    role: "Co-Founder & Lead Engineer",
+    stack: ["C/C++", "ESP32", "FreeRTOS", "Next.js", "Node.js"],
+    tag: "Co-Founder · IoT · EdTech",
+    filter: ["All", "Founder"],
+  },
+  {
+    name: "Shuri Education",
+    url: "https://www.shurieducation.com",
+    image: "/projects/shuri-education.png",
+    description:
+      "UK-based ed-tech platform. Managed server surge during launch month, optimized operations, and enhanced customer service via a proprietary dashboard and sophisticated APIs.",
+    role: "Full-Stack Developer",
+    stack: ["Next.js", "Node.js", "Cloudinary", "Vercel"],
+    tag: "Client Work · Enterprise · SaaS",
+    filter: ["All", "Client Work"],
+  },
+  {
+    name: "The Offshore Lab",
+    url: "https://www.theoffshorelab.com",
+    image: "/projects/offshore-lab.png",
+    description:
+      "Enterprise platform for a Nigerian/UK integrated services company. Delivered scalable infrastructure featured in TechCabal and national media.",
+    role: "Full-Stack Developer",
+    stack: ["Next.js", "Node.js", "Vercel"],
+    tag: "Client Work · Lagos · Enterprise",
+    filter: ["All", "Client Work"],
+  },
+  {
+    name: "Pivot Technical",
+    url: "https://pivottechnical.com",
+    image: null,
+    placeholderClass: "pivot",
+    description:
+      "Engineered scalable technical infrastructure and core platform features for an enterprise client.",
+    role: "Software Engineer",
+    stack: ["React", "Node.js", "Next.js", "Postgres"],
+    tag: "Client Work · Enterprise",
+    filter: ["All", "Client Work"],
+  },
   {
     name: "Lunar Finance",
     url: "https://lunarfinance.io",
     image: "/projects/lunar-finance.png",
     description:
       "Multi-chain DEX aggregator processing over $1M+ in trading volume and serving 350k+ users with high-throughput cross-chain routing.",
-    role: "Backend Developer",
-    stack: ["Rust", "Solana", "Solidity", "Jupiter API", "Node.js"],
+    role: "Backend Engineer",
+    stack: ["Rust", "Go", "Solana", "Jupiter API", "Node.js"],
     tag: "DeFi · DEX · High-Throughput",
+    filter: ["All", "Personal / Web3"],
   },
   {
     name: "Solvux",
@@ -55,37 +164,7 @@ const projects: Project[] = [
     role: "Solo Builder — Full Stack",
     stack: ["Next.js", "Rust", "Solana", "Solidity", "Node.js"],
     tag: "Personal Project · DeFi · DEX",
-  },
-  {
-    name: "Solvux Wallet",
-    url: "https://solvux-frontend.vercel.app/",
-    image: null,
-    placeholderClass: "solvux",
-    description:
-      "Secure, cross-chain cryptocurrency wallet. Currently still in testing.",
-    role: "Solo Builder",
-    stack: ["Flutter", "Solana", "Rust"],
-    tag: "In Testing · Mobile · Wallet",
-  },
-  {
-    name: "Shuri Education",
-    url: "https://www.shurieducation.com",
-    image: "/projects/shuri-education.png",
-    description:
-      "UK-based ed-tech platform. Managed server surge during launch month, optimized operations, and enhanced customer service via a proprietary dashboard and sophisticated APIs.",
-    role: "Full-Stack Developer",
-    stack: ["Next.js", "Node.js", "Cloudinary"],
-    tag: "Client Work · Enterprise · SaaS",
-  },
-  {
-    name: "The Offshore Lab",
-    url: "https://www.theoffshorelab.com",
-    image: "/projects/offshore-lab.png",
-    description:
-      "Enterprise platform for a Nigerian/UK integrated services company. Delivered scalable infrastructure featured in TechCabal and national media.",
-    role: "Full-Stack Developer",
-    stack: ["Next.js", "Node.js"],
-    tag: "Client Work · Lagos · Enterprise",
+    filter: ["All", "Personal / Web3"],
   },
   {
     name: "Kitty Couture",
@@ -96,62 +175,11 @@ const projects: Project[] = [
     role: "Solana Developer + Frontend",
     stack: ["Next.js", "Rust", "Solana", "Token Deployment"],
     tag: "Client Work · Web3 · Smart Contracts",
-  },
-  {
-    name: "Lupply",
-    url: "https://lupply.com",
-    image: "/projects/lupply.png",
-    description:
-      "Scalable SaaS ecosystem. Successfully served 5 enterprise businesses with robust business management, POS, and delivery logistics.",
-    role: "Project Manager (Built with team)",
-    stack: ["Next.js", "Node.js", "Express"],
-    tag: "Founder · SaaS · Cloud-Native",
-  },
-  {
-    name: "Lupply App",
-    url: "https://play.google.com/store/apps/details?id=com.cpx.lupply",
-    image: "/projects/lupply-app.png",
-    placeholderClass: "lupply",
-    description:
-      "Mobile application for the Lupply ecosystem (available on Play Store).",
-    role: "Project Manager (Built with team)",
-    stack: ["Flutter"],
-    tag: "Mobile App · SaaS",
-  },
-  {
-    name: "Lupply Windows App",
-    url: "https://apps.microsoft.com/detail/9nxv0wn9cznn?hl=en-GB&gl=NG",
-    image: "/projects/lupply-windows.png",
-    placeholderClass: "lupply",
-    description:
-      "Desktop application for Lupply's ecosystem (available on Microsoft Store).",
-    role: "Project Manager (Built with team)",
-    stack: ["Flutter", "Windows"],
-    tag: "Desktop App · SaaS",
-  },
-  {
-    name: "NodeX iHub",
-    url: "https://www.nodexihub.com",
-    image: null,
-    placeholderClass: "nodex",
-    description:
-      "EdTech learning hub. Serviced over 200 active students concurrently with custom LMS features and robust internal management tools.",
-    role: "Co-Founder & Lead Developer",
-    stack: ["Next.js", "Node.js"],
-    tag: "Co-Founder · EdTech · LMS",
-  },
-  {
-    name: "Howell Network",
-    url: "https://howell-chain.vercel.app",
-    image: null,
-    placeholderClass: "howell",
-    description:
-      "Custom blockchain built on Ethermint, Tendermint, and Cosmos SDK. Deployed on AWS EC2. Connected to MetaMask.",
-    role: "Blockchain Developer & PM",
-    stack: ["Cosmos SDK", "Ethermint", "Tendermint", "AWS EC2"],
-    tag: "Custom Blockchain · Infrastructure",
+    filter: ["All", "Personal / Web3"],
   },
 ];
+
+const FILTER_TABS: FilterTag[] = ["All", "Founder", "Client Work", "Personal / Web3"];
 
 function ProjectCard({
   project,
@@ -167,7 +195,7 @@ function ProjectCard({
       className={`project-card ${
         inView ? "animate-fade-in-up" : "opacity-0"
       }`}
-      style={{ animationDelay: inView ? `${index * 0.1}s` : undefined }}
+      style={{ animationDelay: inView ? `${index * 0.08}s` : undefined }}
     >
       {/* Image */}
       <div className="project-image">
@@ -260,12 +288,15 @@ function ProjectCard({
 
 export default function ProjectsSection() {
   const { ref, inView } = useInView();
+  const [activeFilter, setActiveFilter] = useState<FilterTag>("All");
+
+  const filtered = projects.filter((p) => p.filter.includes(activeFilter));
 
   return (
     <section id="projects" className="relative">
       <div className="gradient-divider" />
       <div className="section-container" ref={ref}>
-        <div className="text-center mb-14">
+        <div className="text-center mb-10">
           <div
             className={`section-label mx-auto w-fit ${
               inView ? "animate-fade-in-up" : "opacity-0"
@@ -293,20 +324,36 @@ export default function ProjectsSection() {
             }`}
           >
             Projects that{" "}
-            <span className="gradient-text">ship & scale</span>
+            <span className="gradient-text">ship &amp; scale</span>
           </h2>
           <p
             className={`section-subtitle mx-auto ${
               inView ? "animate-fade-in-up delay-200" : "opacity-0"
             }`}
           >
-            From DeFi protocols processing millions to enterprise platforms
-            featured in national media.
+            From IoT hardware to DeFi protocols processing millions to enterprise platforms featured in national media.
           </p>
         </div>
 
+        {/* Filter Tabs */}
+        <div className={`flex flex-wrap justify-center gap-2 mb-10 ${inView ? "animate-fade-in-up delay-300" : "opacity-0"}`}>
+          {FILTER_TABS.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveFilter(tab)}
+              className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300 ${
+                activeFilter === tab
+                  ? "bg-accent-purple text-white border-accent-purple shadow-lg"
+                  : "bg-transparent text-text-secondary border-[var(--border-color)] hover:border-accent-purple hover:text-accent-purple-light"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, i) => (
+          {filtered.map((project, i) => (
             <ProjectCard
               key={project.name}
               project={project}

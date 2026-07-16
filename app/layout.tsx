@@ -92,6 +92,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="light"
       className={`${inter.variable} ${firaCode.variable} h-full antialiased`}
     >
       <head>
