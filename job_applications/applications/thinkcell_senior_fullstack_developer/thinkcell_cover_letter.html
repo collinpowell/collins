@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter - think-cell</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.7;
+            background: #ffffff;
+            font-size: 11pt;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body { padding: 0; }
+            @page { margin: 2cm; }
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 22pt;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .contact-info {
+            color: #555;
+            font-size: 10pt;
+            display: flex;
+            gap: 15px;
+        }
+
+        .date {
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .salutation {
+            margin-bottom: 20px;
+        }
+
+        .paragraph {
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            margin-top: 40px;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #1a6b3c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Collins Krubu</h1>
+        <div class="contact-info">
+            <span>collinskrubu723@gmail.com</span> | 
+            <span>github.com/collinpowell</span> | 
+            <span>Berlin (Relocating)</span>
+        </div>
+    </div>
+
+    <div class="date" id="current-date">July 16, 2026</div>
+
+    <div class="salutation">Dear think-cell Hiring Team,</div>
+
+    <div class="paragraph">
+        I'm applying for the Senior Full Stack Developer — Web position. What drew me to this role is the scope of the problem: shaping a web platform that multiple teams depend on, making architectural calls that hold up over time, and working across both frontend and backend without being boxed into a narrow stack. That is exactly how I've worked for the past four years — and I do my best work in that kind of environment.
+    </div>
+
+    <div class="paragraph">
+        At <span class="highlight">Lupply</span>, I built and operated an entire web platform ecosystem from scratch. Not just the user-facing sites (a SaaS dashboard, a food marketplace, an online store) but also the admin back-end, content management workflows, and the deployment pipelines that keep it all running. I was the sole engineer responsible for architectural decisions, performance optimization, and shipping across Web, iOS, Android, and Windows simultaneously. The admin dashboard I built lets non-technical team members manage products, orders, and content without touching code — which is the kind of CMS/publishing workflow challenge that maps directly to what you're building at think-cell.
+    </div>
+
+    <div class="paragraph">
+        One thing that caught my attention in the job description is the requirement to <span class="highlight">interface with back-end systems written in C++</span>. Most web developers can't claim real experience with C++. I can. At NodeX iHub, I wrote C/C++ firmware running on ESP32 microcontrollers with FreeRTOS, built MQTT/TLS communication layers, and managed the entire hardware-to-cloud data pipeline. I understand memory management, system-level constraints, and the discipline that comes from working close to the metal. That background gives me a meaningful advantage when integrating web systems with C++ back-end services.
+    </div>
+
+    <div class="paragraph">
+        On the frontend side, my daily toolkit is HTML, CSS, JavaScript, TypeScript, React, and Next.js — with Tailwind CSS for styling (which I noticed is in your "nice to have" list). I care about Core Web Vitals, accessibility, and technical SEO because I've had to optimize for all three on platforms with real users and real traffic. At Lunar Finance, I worked on a high-traffic web platform serving 350k+ users where performance wasn't optional — it was the product.
+    </div>
+
+    <div class="paragraph">
+        Regarding PHP and Laravel specifically: I haven't worked with them in production. But I've picked up Go, Rust, Python, and multiple JavaScript frameworks on the job, shipping production code in each. Learning a new backend framework within an existing codebase is something I've done repeatedly, and I'd expect to be productive in Laravel quickly. What I bring is the engineering judgment to know <em>when</em> to build for flexibility and when to keep things simple — which matters more than any specific framework.
+    </div>
+
+    <div class="paragraph">
+        I am relocating to Berlin and hold verified documentation (Corporate Affairs Commission proof) of 4+ years of software engineering experience, which satisfies the requirements for the German IT Specialist Visa independently of a university degree. I could start within 3–4 months upon visa approval.
+    </div>
+
+    <div class="paragraph">
+        I'd welcome the chance to discuss how my platform-building experience, C++ systems background, and hands-on approach to web architecture could contribute to the think-cell web team.
+    </div>
+
+    <div class="signature">
+        Best regards,<br><br>
+        <strong>Collins Krubu</strong>
+    </div>
+
+    <script>
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', dateOptions);
+    </script>
+</body>
+</html>

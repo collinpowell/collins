@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collins Krubu - Senior Full Stack Developer (Web)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #ffffff;
+            font-size: 10pt;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 9.5pt;
+            }
+            @page {
+                size: A4;
+                margin: 1.5cm;
+            }
+            a {
+                text-decoration: none;
+                color: #1a6b3c;
+            }
+            .proof-links {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        h1 {
+            font-size: 24pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 12pt;
+            font-weight: 500;
+            color: #1a6b3c;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 15px;
+            font-size: 9pt;
+            color: #555;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .contact-info a:hover {
+            color: #1a6b3c;
+            border-bottom: 1px solid #1a6b3c;
+        }
+
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 5px;
+            margin-bottom: 14px;
+            color: #333;
+        }
+
+        .experience-item {
+            margin-bottom: 18px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .company-title {
+            font-weight: 700;
+            font-size: 11pt;
+            color: #000;
+        }
+
+        .role-title {
+            font-weight: 600;
+            font-size: 10pt;
+            color: #444;
+        }
+
+        .date-location {
+            font-size: 9pt;
+            color: #666;
+            font-weight: 500;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .tech-stack {
+            font-family: monospace;
+            font-size: 8.5pt;
+            color: #1a6b3c;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .proof-links {
+            background: #f5faf7;
+            padding: 8px 14px;
+            border-left: 3px solid #1a6b3c;
+            margin-top: 6px;
+            font-size: 8.5pt;
+        }
+
+        .proof-links a {
+            color: #1a6b3c;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .highlight {
+            background: #edf7f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #1a6b3c;
+            font-weight: 500;
+        }
+
+        .languages-section {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Collins Krubu</h1>
+    <div class="subtitle">Senior Full Stack Developer — Web Platforms</div>
+    
+    <div class="contact-info">
+        <span>📍 Berlin, Germany (Relocating)</span>
+        <a href="mailto:collinskrubu723@gmail.com">✉️ collinskrubu723@gmail.com</a>
+        <a href="https://github.com/collinpowell">🐙 github.com/collinpowell</a>
+        <a href="https://collins-olive.vercel.app">🌐 Portfolio</a>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Summary</div>
+        <p>Full stack web engineer with 4+ years of verified experience building, shipping, and operating production-grade web platforms, CMS-driven content systems, and multi-platform applications. I have sole end-to-end ownership of Lupply — a live web platform ecosystem with admin dashboards, content management workflows, and cross-platform deployments (Web, iOS, Android, Windows). Comfortable making architectural trade-offs, improving Core Web Vitals and technical SEO, and working across frontend (HTML, CSS, JavaScript, React, Next.js, Tailwind CSS) and backend (Node.js, Go, Python). My background in <span class="highlight">C/C++ embedded systems</span> means I can confidently interface with non-web backend systems — including C++ codebases — which most web developers cannot.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Professional Experience</div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Lupply</span> — <span class="role-title">Founder & Lead Full Stack Engineer</span>
+                </div>
+                <div class="date-location">Jan 2023 – Present</div>
+            </div>
+            <ul>
+                <li>Designed, built, and evolved a production web platform ecosystem from scratch — including a SaaS dashboard, food marketplace, logistics tracker, and online store — serving enterprise clients with active daily users.</li>
+                <li>Built and maintained the CMS back-end and admin dashboard that enables non-technical team members to manage products, orders, content, and publishing workflows without developer intervention.</li>
+                <li>Drove architectural improvements across the web stack: migrated rendering strategies for better Core Web Vitals, optimized image pipelines, and implemented structured data for technical SEO.</li>
+                <li>Sole owner of all CI/CD and deployment infrastructure — GitHub Actions pipelines, Fastlane for automated mobile releases, Docker containerization. Every release, every environment, every platform.</li>
+                <li><strong>Cross-system integration:</strong> Built reliable data exchange layers between the web platform and native mobile/desktop clients, handling real-time GPS telemetry, payment processing, and fleet management.</li>
+                <span class="tech-stack">Tech: Next.js, React, Node.js, Go, TypeScript, Tailwind CSS, PostgreSQL, Docker, Fastlane, AWS</span>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Production Deployments (Verified):</strong><br>
+                <a href="https://app.lupply.com" target="_blank">Web App</a>
+                <a href="https://food.lupply.com" target="_blank">Food Marketplace</a>
+                <a href="https://store.lupply.com" target="_blank">Online Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.cpx.lupply" target="_blank">Google Play</a>
+                <a href="https://apps.apple.com/us/app/lupply/id6743771090" target="_blank">App Store</a>
+                <a href="https://apps.microsoft.com/detail/9nxv0wn9cznn" target="_blank">Windows Store</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">NodeX iHub</span> — <span class="role-title">Co-Founder & Lead Engineer</span>
+                </div>
+                <div class="date-location">Jan 2020 – Dec 2023</div>
+            </div>
+            <ul>
+                <li><strong>C/C++ Systems Integration:</strong> Engineered firmware in C/C++ on ESP32 microcontrollers running FreeRTOS, building smart home devices, an automated farm irrigation system, and a coin-operated vending machine — all connected to cloud services via MQTT/TLS.</li>
+                <li>Built the full web platform for an internal EdTech product supporting 200+ concurrent users, including role-based access controls, content management, analytics dashboards, and API performance optimization.</li>
+                <li>Managed the complete hardware-to-cloud data pipeline — sensor data collection, real-time telemetry, and web dashboard visualization — bridging embedded C++ systems with web-based interfaces.</li>
+                <span class="tech-stack">Tech: C/C++, ESP32, FreeRTOS, MQTT, Python, Next.js, Node.js, Cloudflare, Time-Series DBs</span>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Project (Verified):</strong><br>
+                <a href="https://node-x-frontend.vercel.app/" target="_blank">node-x-frontend.vercel.app</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Shuri Education</span> — <span class="role-title">Full Stack Developer</span>
+                </div>
+                <div class="date-location">Client Work</div>
+            </div>
+            <ul>
+                <li>Architected a UK-based ed-tech content platform from the ground up. Built the CMS, content publishing workflows, and user-facing interfaces that allowed educators to manage and distribute course materials at scale.</li>
+                <li>Managed server traffic surges during launch month — optimized database queries, API response times, and static asset delivery to maintain reliable performance under sudden load.</li>
+                <li>Worked directly with stakeholders from design, marketing, and education teams to translate business requirements into clean technical solutions.</li>
+                <span class="tech-stack">Tech: Next.js, Node.js, PostgreSQL, Cloudinary, Vercel</span>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Project (Verified):</strong><br>
+                <a href="https://www.shurieducation.com" target="_blank">shurieducation.com</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">The Offshore Lab</span> — <span class="role-title">Full Stack Developer</span>
+                </div>
+                <div class="date-location">Client Work</div>
+            </div>
+            <ul>
+                <li>Delivered a scalable enterprise web platform for a Nigerian/UK integrated services company. Built the frontend interfaces, backend APIs, and content management features. Featured in TechCabal and national media.</li>
+                <span class="tech-stack">Tech: Next.js, Node.js, Vercel</span>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Project (Verified):</strong><br>
+                <a href="https://www.theoffshorelab.com" target="_blank">theoffshorelab.com</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Lunar Finance</span> — <span class="role-title">Backend & Performance Engineer</span>
+                </div>
+                <div class="date-location">2025 – 2026</div>
+            </div>
+            <ul>
+                <li>Built backend routing services for a high-traffic web application (multi-chain DEX aggregator) processing $1M+ daily volume with 350k+ active users.</li>
+                <li>Optimized database queries and built high-throughput RPC indexers in Rust, cutting cross-chain transaction latency by 40%. Direct experience with performance-critical, high-traffic web platforms.</li>
+                <span class="tech-stack">Tech: Rust, Go, Node.js, Redis, Web3 APIs</span>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Project (Verified):</strong><br>
+                <a href="https://lunarfinance.io" target="_blank">lunarfinance.io</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Pivot Technical</span> — <span class="role-title">Software Engineer</span>
+                </div>
+                <div class="date-location">Client Work</div>
+            </div>
+            <ul>
+                <li>Built core platform features and scalable technical infrastructure for an enterprise operations platform.</li>
+                <span class="tech-stack">Tech: React, Node.js, Next.js, PostgreSQL</span>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Project (Verified):</strong><br>
+                <a href="https://pivottechnical.com" target="_blank">pivottechnical.com</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-grid">
+            <div>
+                <span class="skill-category">Frontend:</span> HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS, MUI
+            </div>
+            <div>
+                <span class="skill-category">Backend:</span> Node.js, Express, Go, Python, REST APIs, WebSockets
+            </div>
+            <div>
+                <span class="skill-category">Systems Integration:</span> C/C++, Rust, ESP32, FreeRTOS, MQTT
+            </div>
+            <div>
+                <span class="skill-category">Databases:</span> PostgreSQL, MongoDB, Redis, Time-Series DBs
+            </div>
+            <div>
+                <span class="skill-category">Frontend Tools:</span> Tailwind CSS, Alpine.js (familiar), Figma, Responsive Design
+            </div>
+            <div>
+                <span class="skill-category">DevOps & CI/CD:</span> Docker, GitHub Actions, Fastlane, Vercel, AWS
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Languages</div>
+        <p>English (Native) · German (A1 — actively accelerating via intensive daily study toward B1/B2)</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        <div class="experience-item" style="margin-bottom: 5px;">
+            <div class="experience-header">
+                <span class="company-title">BSc. Computer Science</span>
+                <span class="date-location">2020 – 2024</span>
+            </div>
+            <ul>
+                <li><strong>Visa Note:</strong> I hold 4+ years of verified software engineering experience (verified via official Corporate Affairs Commission documentation), qualifying for the German IT Specialist Visa / EU Blue Card independently of degree requirements.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
