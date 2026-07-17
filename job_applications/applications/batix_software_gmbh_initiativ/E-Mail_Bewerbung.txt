@@ -1,0 +1,26 @@
+Betreff: Initiativbewerbung (Express) – Full-Stack & IoT Softwareentwickler (Englisch / A1 Deutsch)
+
+Sehr geehrtes Batix-Team,
+
+ich habe gesehen, dass Sie "Ideenoffene" und "Technikbesessene" Entwickler suchen, die an innovativen IoT-, Smart Factory- und KI-Lösungen arbeiten. Genau das treibt mich an.
+
+Als englischsprachiger Full-Stack- und Mobile-Entwickler mit starkem Hintergrund in Embedded Systems (IoT) und mehr als vier Jahren nachweisbarer Berufserfahrung entwickle ich nicht nur Code, sondern komplette, produktionsreife End-to-End-Lösungen. Ich bin es gewohnt, völlig eigenständig und remote zu arbeiten, skalierbare Architekturen zu entwerfen und Asynchronität im Team zu managen.
+
+Ein konkretes Beispiel meiner Arbeit ist Lupply: Eine Live-Applikation, für die ich als alleiniger Entwickler Frontend, Backend, die CI/CD-Pipelines (Fastlane) und das Admin-Dashboard aufgebaut habe. 
+- Lupply Web: https://app.lupply.com
+- Lupply iOS: https://apps.apple.com/us/app/lupply/id6743771090
+- Lupply Android: https://play.google.com/store/apps/details?id=com.cpx.lupply
+
+Ihre Arbeit bei Batix – insbesondere im Bereich IoT und Smart Factory – fasziniert mich, da ich die Brücke zwischen Hardware (Sensoren/Microcontroller wie ESP32 mit C/C++) und benutzerfreundlichen digitalen Dashboards (Web/Mobile) schlagen kann. Dies habe ich bereits bei NodeX iHub als Lead Engineer beim Aufbau von Smart-Home-Devices und automatisierten Farm-Systemen erfolgreich umgesetzt.
+
+Zu meinen Sprachkenntnissen: Meine Arbeitssprache ist aktuell fließendes Englisch, was mir erlaubt, komplexe technische Dokumentationen und Architekturen präzise umzusetzen. Mein Deutsch ist derzeit auf dem A1-Niveau, jedoch lerne ich intensiv und täglich, um so schnell wie möglich B1/B2 zu erreichen.
+
+Anbei finden Sie meinen Lebenslauf als PDF sowie den Link zu meinem GitHub-Profil: https://github.com/collinpowell. Falls Sie Hardware-Prototypen von mir sehen möchten, sende ich Ihnen gerne Bilder oder Videos meiner Embedded-Systems-Builds.
+
+Ich freue mich auf die Gelegenheit, mit Ihnen über mögliche Schnittstellen zu sprechen.
+
+Mit freundlichen Grüßen,
+
+Collins Krubu
+collinskrubu723@gmail.com
+https://collins-olive.vercel.app

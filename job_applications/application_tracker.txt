@@ -7,11 +7,13 @@ This file tracks the status of your job applications.
 
 | Date | Company / Role | Type | Status | Links / Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| 2026-07-16 | Wolt / Senior Software Engineer (Data DX) | Direct / Visa | Pre-Interview | App in `applications/wolt_senior_software_engineer` |
-| 2026-07-16 | think-cell / (Senior) Full Stack Developer - Web | Direct / Visa | Ready to Submit | App in `applications/thinkcell_senior_fullstack_developer` |
-| 2026-07-16 | Hedge Your Fun / Full Stack Solana Developer | Superteam Earn | Ready to Submit | App in `applications/hedge_your_fun_superteam` |
+| 2026-07-16 | Wolt / Senior Software Engineer (Data DX) | Direct / Visa | Submitted | App in `applications/wolt_senior_software_engineer` |
+| 2026-07-16 | think-cell / (Senior) Full Stack Developer - Web | Direct / Visa | Submitted | App in `applications/thinkcell_senior_fullstack_developer` |
+| 2026-07-16 | Hedge Your Fun / Full Stack Solana Developer | Superteam Earn | Submitted | App in `applications/hedge_your_fun_superteam` |
+| 2026-07-16 | PPRO / Staff Frontend Engineer | Direct / Visa | Submitted | App in `applications/ppro_staff_frontend` |
 | (example) | (example) | Ausbildung | Sent | (example: Need to verify B1 German level) |
 | (example) | (example) | IT Specialist | Sent | (example: Emphasize 2 years verified exp) |
 
 *Instructions for AI:*
 When a new application is submitted, add a row to this table.
+2026-07-17 - Batix Software GmbH - Initiativbewerbung (Express) - Drafted

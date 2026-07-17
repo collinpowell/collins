@@ -1,20 +1,17 @@
 Hi Hedge Your Fun Team,
 
-I'm Collins, a Full Stack Solana Developer. I've spent the last few years building and shipping production-grade platforms — from multi-chain DEX aggregators handling $1M+ daily volume (Lunar Finance) to cross-platform consumer apps (Lupply) live on Web, iOS, and Android. 
+I'm Collins, a Full Stack Solana Developer. Taking a functional MVP to a scalable production app is exactly my sweet spot. 
 
-Taking a functional MVP to a robust, scalable production app is exactly my sweet spot. Here’s why I'm a direct fit for your scope of work:
+Here's why I can execute your exact scope:
+- **Solana/Web3:** Deep experience with web3.js, SPL tokens, and Privy embedded wallets. Handled on-chain settlement for platforms like Solvux (https://solvux-frontend.vercel.app) and Kitty Couture (https://www.kittycouturememe.com).
+- **API & Data:** Built DEX aggregators handling $1M+ daily volume like Lunar Finance (https://lunarfinance.io). Replacing your mocked data with live Kalshi/Polymarket endpoints, and migrating from localStorage to a proper database with WebSocket P&L updates is standard protocol for me.
+- **Mobile Readiness:** Built Crifs Wallet in Flutter (with built-in swapping and cross-chain bridging) and solely shipped the Lupply ecosystem (https://app.lupply.com) across Web, iOS, and Android. I can confidently wrap your Next.js app in a PWA or native shell.
 
-1. Solana & Web3 Depth: I've built heavily on Solana (web3.js, SPL tokens, Rust, Anchor). Implementing Privy embedded wallets and real-time USDC/SOL balance reads is standard protocol for me. I've handled on-chain settlement for platforms like Solvux and Kitty Couture.
-2. 3rd-Party API Integrations (Kalshi/Polymarket): At Lunar Finance, I built high-throughput RPC indexers and integrated external liquidity providers (like Jupiter API). Replacing your mocked data with live Kalshi/Polymarket endpoints, handling rate limits, and implementing secure key rotation is right in my wheelhouse.
-3. Persistent Data & P&L Updates: I've built scalable backends using Node.js, Next.js, and PostgreSQL/Redis for time-series data. I can easily transition your localStorage setup to a proper database and replace the 30-second polling with real-time WebSockets for instant P&L updates.
-4. Mobile Readiness & Wallets: I am the sole architect of Lupply, which I shipped across the Web, Google Play Store, and Apple App Store. I've also built Crifs Wallet, a mobile wallet engineered in Flutter with built-in swapping and cross-chain bridging features. I can confidently wrap your Next.js app in a PWA or React Native/Flutter shell and manage the entire distribution pipeline.
-
-I move exceptionally fast because I utilize Agentic Coding workflows to handle boilerplate, test scaffolding, and CI/CD pipelines, allowing me to focus entirely on core business logic, API robustness, and UX. 
-
-I'm ready to dive into the prompt pipeline and get this MVP primed for prime time. Let's chat.
+I utilize Agentic Coding workflows to automate boilerplate, allowing me to move extremely fast on core business logic and API robustness. Let's get this MVP primed for prime time.
 
 Portfolio: https://collins-olive.vercel.app
 GitHub: https://github.com/collinpowell
+Resume: https://collins-olive.vercel.app/solana_resume.html
 
 Best,
 Collins Krubu

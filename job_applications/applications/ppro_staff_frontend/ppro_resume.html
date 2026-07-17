@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collins Krubu - Staff Frontend Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #ffffff;
+            font-size: 10pt;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 9.5pt;
+            }
+            @page {
+                size: A4;
+                margin: 1.5cm;
+            }
+            a {
+                text-decoration: none;
+                color: #e63946; /* PPRO-ish red accent */
+            }
+            .proof-links {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        h1 {
+            font-size: 24pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 12pt;
+            font-weight: 500;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 15px;
+            font-size: 9pt;
+            color: #555;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .contact-info a:hover {
+            color: #e63946;
+            border-bottom: 1px solid #e63946;
+        }
+
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 5px;
+            margin-bottom: 14px;
+            color: #333;
+        }
+
+        .experience-item {
+            margin-bottom: 18px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .company-title {
+            font-weight: 700;
+            font-size: 11pt;
+            color: #000;
+        }
+
+        .role-title {
+            font-weight: 600;
+            font-size: 10pt;
+            color: #444;
+        }
+
+        .date-location {
+            font-size: 9pt;
+            color: #666;
+            font-weight: 500;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .tech-stack {
+            font-family: monospace;
+            font-size: 8.5pt;
+            color: #e63946;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .proof-links {
+            background: #fff5f6;
+            padding: 8px 14px;
+            border-left: 3px solid #e63946;
+            margin-top: 6px;
+            font-size: 8.5pt;
+        }
+
+        .proof-links a {
+            color: #e63946;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .highlight {
+            background: #fff0f1;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #e63946;
+            font-weight: 500;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Collins Krubu</h1>
+    <div class="subtitle">Staff Frontend Engineer & Platform Architect</div>
+    
+    <div class="contact-info">
+        <span>📍 Munich, Germany (Relocating)</span>
+        <a href="mailto:collinskrubu723@gmail.com">✉️ collinskrubu723@gmail.com</a>
+        <a href="https://github.com/collinpowell">🐙 github.com/collinpowell</a>
+        <a href="https://collins-olive.vercel.app">🌐 Portfolio Website</a>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Summary</div>
+        <p>Frontend Platform Engineer with 4+ years of verified experience designing, scaling, and maintaining distributed frontend architectures. Sole architect of Lupply, a production-grade multi-platform ecosystem where I established the shared UI contracts, dependency strategies, and independently deployable web frontends. Deeply proficient in <span class="highlight">React, TypeScript, Next.js</span>, and modern build tooling (Webpack/Vite). I treat frontend development as systems engineering—focusing on Developer Experience (DX), CI/CD pipelines for UIs, and cloud-native infrastructure (Docker/Kubernetes). I utilize Agentic Coding workflows to accelerate cross-team technical delivery without breaking runtime contracts.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Professional Experience</div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Lupply</span> — <span class="role-title">Founder & Lead Frontend Architect</span>
+                </div>
+                <div class="date-location">Jan 2023 – Present</div>
+            </div>
+            <ul>
+                <li>Architected a distributed frontend ecosystem serving business operations, a food marketplace, and logistics tracking. Designed the runtime boundaries allowing each frontend application to be built and deployed independently while sharing a unified design system.</li>
+                <li>Established cross-team UI contracts and shared dependency strategies, mitigating conflicts across the multi-platform frontend topology (Web, iOS, Android, Windows).</li>
+                <li>Owned the end-to-end frontend build and deployment pipelines. Engineered automated CI/CD workflows (GitHub Actions, Fastlane) targeting cloud-native systems (Docker, AWS) to ensure reliable, zero-downtime releases.</li>
+                <li>Drove frontend performance standards, optimizing Core Web Vitals, CDN delivery, and API payload efficiency across complex, dynamic dashboards.</li>
+                <span class="tech-stack">Tech: React, TypeScript, Next.js, Webpack, Tailwind CSS, Docker, GitHub Actions, AWS</span>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Independently Deployed Frontends:</strong><br>
+                <a href="https://app.lupply.com" target="_blank">Business Dashboard</a>
+                <a href="https://food.lupply.com" target="_blank">Marketplace App</a>
+                <a href="https://store.lupply.com" target="_blank">Consumer Store</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Shuri Education</span> — <span class="role-title">Lead Frontend Engineer</span>
+                </div>
+                <div class="date-location">Client Work</div>
+            </div>
+            <ul>
+                <li>Designed the frontend architecture for a high-traffic UK-based ed-tech platform. Implemented scalable component libraries to ensure visual consistency across multiple educational modules.</li>
+                <li>Led performance optimization initiatives to handle massive traffic surges during launch month, specifically tuning static asset delivery and React re-rendering bottlenecks.</li>
+                <span class="tech-stack">Tech: Next.js, React, TypeScript, Vercel (CDN Deployment)</span>
+            </ul>
+            <div class="proof-links">
+                <a href="https://www.shurieducation.com" target="_blank">Live: shurieducation.com</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">NodeX iHub</span> — <span class="role-title">Co-Founder & Full Stack Engineer</span>
+                </div>
+                <div class="date-location">Jan 2020 – Dec 2023</div>
+            </div>
+            <ul>
+                <li>Led the engineering team in building an internal EdTech platform supporting 200+ concurrent users, setting frontend best practices and shaping the engineering culture.</li>
+                <li>Integrated complex real-time data visualizations in React, subscribing to high-frequency IoT sensor data pipelines via WebSockets and MQTT.</li>
+                <li>Mentored junior developers through pair programming and code reviews, driving a culture of clean code principles and pragmatic problem-solving.</li>
+                <span class="tech-stack">Tech: React, JavaScript, Node.js, Cloudflare, WebSockets</span>
+            </ul>
+            <div class="proof-links">
+                <a href="https://node-x-frontend.vercel.app/" target="_blank">Live: node-x-frontend.vercel.app</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Additional Frontend Platforms</span> — <span class="role-title">Lead Frontend Developer</span>
+                </div>
+                <div class="date-location">Client & Personal Projects</div>
+            </div>
+            <ul>
+                <li><strong>The Offshore Lab:</strong> Delivered scalable frontend interfaces for a Nigerian/UK integrated services enterprise using Next.js. (<a href="https://www.theoffshorelab.com" target="_blank">Live: theoffshorelab.com</a>)</li>
+                <li><strong>NodeX iHub:</strong> Developed a high-performance EdTech platform frontend supporting 200+ concurrent users with real-time WebSocket UIs. (<a href="https://node-x-frontend.vercel.app" target="_blank">Live: node-x-frontend.vercel.app</a>)</li>
+                <li><strong>Pivot Technical:</strong> Built core platform UI features for enterprise operations using React and Next.js. (<a href="https://pivottechnical.com" target="_blank">Live: pivottechnical.com</a>)</li>
+                <li><strong>Primesources Limited:</strong> Engineered the corporate web presence for a major Oil & Gas enterprise. (<a href="https://psl-website-omega.vercel.app" target="_blank">Live: psl-website-omega.vercel.app</a>)</li>
+                <li><strong>Derek Decor Global:</strong> Built the digital storefront and service portfolio for a construction firm. (<a href="https://derekdecor.org" target="_blank">Live: derekdecor.org</a>)</li>
+                <li><strong>Findam:</strong> Developed the frontend for a local services and freelancer marketplace. (<a href="https://sabi-work-nine.vercel.app" target="_blank">Live: sabi-work-nine.vercel.app</a>)</li>
+                <li><strong>Cereloop:</strong> Created the UI architecture for a dynamic tech community and event platform. (<a href="https://deep-fusion-main.vercel.app" target="_blank">Live: deep-fusion-main.vercel.app</a>)</li>
+                <li><strong>Mama Luxury Homes:</strong> Developed a luxury real estate digital portfolio platform. (<a href="https://mlh-website.vercel.app" target="_blank">Live: mlh-website.vercel.app</a>)</li>
+                <li><strong>Solvux:</strong> Developed a cross-chain DeFi frontend supporting 50+ networks with complex state management. (<a href="https://solvux-frontend.vercel.app/" target="_blank">Live: solvux-frontend.vercel.app</a>)</li>
+                <li><strong>Kitty Couture:</strong> Built an intuitive wallet and digital collectible Web3 frontend in Next.js. (<a href="https://www.kittycouturememe.com" target="_blank">Live: kittycouturememe.com</a>)</li>
+                <li><strong>Minto NFT:</strong> Designed and implemented a React-based NFT marketplace interface. (<a href="https://minto-ui.vercel.app" target="_blank">Live: minto-ui.vercel.app</a>)</li>
+                <li><strong>Snooker App:</strong> Engineered a progressive web application for tracking snooker games. (<a href="https://snooker-app.vercel.app" target="_blank">Live: snooker-app.vercel.app</a>)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Technical Expertise</div>
+        <div class="skills-grid">
+            <div>
+                <span class="skill-category">Frontend & Architecture:</span> React, TypeScript, Next.js, JavaScript (ES6+)
+            </div>
+            <div>
+                <span class="skill-category">Micro Frontends & Tooling:</span> Webpack, Vite, Module Federation Concepts, Design Systems
+            </div>
+            <div>
+                <span class="skill-category">Cloud & Delivery (CI/CD):</span> AWS, Vercel, Kubernetes, Docker, GitHub Actions, Fastlane
+            </div>
+            <div>
+                <span class="skill-category">Methodologies:</span> Agile, Pair Programming, Agentic Coding Workflows
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education & Visa Status</div>
+        <div class="experience-item" style="margin-bottom: 5px;">
+            <div class="experience-header">
+                <span class="company-title">BSc. Computer Science</span>
+                <span class="date-location">2020 – 2024</span>
+            </div>
+            <ul>
+                <li><strong>German Visa Status:</strong> I possess 4+ years of verified software engineering experience (verified via official Corporate Affairs Commission documentation), fully satisfying the requirements for the German IT Specialist Visa independently of degree equivalency.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -10,14 +10,15 @@ When generating resumes or cover letters for Collins, strictly adhere to the fol
 1. **Ausbildung (Vocational Training):** Specifically targeting "Fachinformatiker Anwendungsentwicklung" (IT Specialist in Application Development).
    - **Language:** Applications must be in **German** (B1/B2 level focus).
    - **Strategy:** Highlight Collins' fast-learning capability, current intense study of German (aiming for B1/B2), and the massive advantage of already having 2 years of verified coding experience.
-2. **IT Specialist (Direct Employment - Germany / Finland / EU):** 
+2. **IT Specialist (Direct Employment - Germany / Finland / EU / Remote):** 
    - **Language:** English.
-   - **Strategy:** Highlight 2+ years of *verified* work history to bypass degree requirements under the German Skilled Immigration Act or similar EU tech visa schemes (e.g., Finland's Specialist Residence Permit). Focus on the ability to ship production-ready code immediately and architect scalable platforms.
+   - **Strategy:** Highlight 2+ years of *verified* work history to bypass degree requirements under the German Skilled Immigration Act or similar EU tech visa schemes (e.g., Finland's Specialist Residence Permit). **Heavily emphasize Remote work capabilities and independent execution.** Focus on the ability to ship production-ready code immediately, manage asynchronous communication, and architect scalable platforms.
 
 ### File Formats
 - **PDF Requirement:** Always ensure the final Resume and Cover Letter are delivered in **PDF format** (or as a beautifully formatted Markdown/Word document accompanied by instructions to explicitly save as PDF) because German and Finnish employers expect standard, unalterable PDF attachments.
 
 ### Key Details to Include
+- **Achievement-Focused Resume Format:** Resumes must heavily emphasize concrete achievements and business impact over generic job responsibilities (e.g., use metrics, system performance improvements, and user growth data).
 - **Experience:** Diverse background including Blockchain, App (Flutter/React Native), Web (Frontend/Backend), and Embedded Systems/IoT.
 - **Verification:** Emphasize **2 years of verified work experience** (vital for the IT Specialist Visa).
 - **Language:** English (Native/Fluent), German (currently A1 basic, actively learning).
