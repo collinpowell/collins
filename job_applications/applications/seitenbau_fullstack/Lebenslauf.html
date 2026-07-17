@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collins Krubu - Lebenslauf (SEITENBAU)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #ffffff;
+            font-size: 10pt;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 9.5pt;
+            }
+            @page {
+                size: A4;
+                margin: 1.5cm;
+            }
+            a {
+                text-decoration: none;
+                color: #1a6b3c;
+            }
+            .proof-links {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .highlight {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        h1 {
+            font-size: 24pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 12pt;
+            font-weight: 500;
+            color: #1a6b3c;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 15px;
+            font-size: 9pt;
+            color: #555;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .contact-info a:hover {
+            color: #1a6b3c;
+            border-bottom: 1px solid #1a6b3c;
+        }
+
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 5px;
+            margin-bottom: 14px;
+            color: #333;
+        }
+
+        .experience-item {
+            margin-bottom: 18px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .company-title {
+            font-weight: 700;
+            font-size: 11pt;
+            color: #000;
+        }
+
+        .role-title {
+            font-weight: 600;
+            font-size: 10pt;
+            color: #444;
+        }
+
+        .date-location {
+            font-size: 9pt;
+            color: #666;
+            font-weight: 500;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .tech-stack {
+            font-family: monospace;
+            font-size: 8.5pt;
+            color: #1a6b3c;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .proof-links {
+            background: #f5faf7;
+            padding: 8px 14px;
+            border-left: 3px solid #1a6b3c;
+            margin-top: 6px;
+            font-size: 8.5pt;
+        }
+
+        .proof-links a {
+            color: #1a6b3c;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .highlight {
+            background: #edf7f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #1a6b3c;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Collins Krubu</h1>
+    <div class="subtitle">Full-Stack Entwickler (Schwerpunkt: Frontend & CI/CD)</div>
+    
+    <div class="contact-info">
+        <span>📍 Berlin, Germany</span>
+        <a href="mailto:collinskrubu723@gmail.com">✉️ collinskrubu723@gmail.com</a>
+        <a href="https://github.com/collinpowell">🐙 github.com/collinpowell</a>
+        <a href="https://collins-olive.vercel.app">🌐 Portfolio</a>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Kurzprofil (Remote & Autonom)</div>
+        <p>Ergebnisorientierter Full-Stack-Entwickler mit über <span class="highlight">4 Jahren verifizierter Erfahrung</span> im Aufbau skalierbarer Web- und Mobile-Anwendungen. Starker Fokus auf Frontend-Technologien (React, Next.js, TypeScript), automatisierte Deployments (CI/CD) und die Entwicklung barrierefreier (a11y) Benutzeroberflächen. Als polyglotter Entwickler (Node.js, Go, Rust) zeichne ich mich durch eine extrem schnelle Auffassungsgabe für neue Backend-Ökosysteme (wie Java/Spring Boot) aus. Gewohnt, völlig eigenverantwortlich und remote in agilen, crossfunktionalen Teams zu arbeiten.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Verifizierte Berufserfahrung & Erfolge</div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Lupply</span> — <span class="role-title">Founder & Lead Full Stack Engineer</span>
+                </div>
+                <div class="date-location">Jan 2023 – Heute | Remote</div>
+            </div>
+            <ul>
+                <li><strong>Frontend & UX:</strong> Entwicklung komplexer, responsiver und barrierefreier Web- und Mobile-Dashboards (React, Next.js, TypeScript, Tailwind).</li>
+                <li><strong>CI/CD & Automatisierung:</strong> Alleiniger Verantwortlicher für die gesamte CI/CD- und Release-Pipeline mittels GitHub Actions, Docker und Fastlane.</li>
+                <li><strong>End-to-End Architektur:</strong> Konzeption und Umsetzung des gesamten Software-Lebenszyklus, von User Stories über Pair-Programming-Praktiken (mit externen Designern/Testern) bis zum Production-Deployment.</li>
+                <span class="tech-stack">Tech: React, Next.js, TypeScript, Node.js, Go, PostgreSQL, GitHub Actions, Docker</span>
+            </ul>
+            <div class="proof-links">
+                <strong>Live-Systeme (Verifiziert):</strong><br>
+                <a href="https://app.lupply.com" target="_blank">Web App</a>
+                <a href="https://apps.apple.com/us/app/lupply/id6743771090" target="_blank">App Store</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Lunar Finance</span> — <span class="role-title">Backend & Performance Engineer</span>
+                </div>
+                <div class="date-location">2025 – 2026</div>
+            </div>
+            <ul>
+                <li><strong>Skalierung & Performance:</strong> Entwicklung von hochperformanten Backend-Routing-Services für einen DEX-Aggregator mit über 350.000 aktiven Nutzern.</li>
+                <li><strong>System-Optimierung:</strong> Einsatz von Rust und Go für RPC-Indexer, wodurch die Latenzzeit drastisch gesenkt und System-Tests (Unit/Integration) automatisiert wurden.</li>
+                <span class="tech-stack">Tech: Rust, Go, Node.js, Redis, Web3 APIs</span>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">NodeX iHub</span> — <span class="role-title">Co-Founder & Lead Engineer</span>
+                </div>
+                <div class="date-location">Jan 2020 – Dez 2023</div>
+            </div>
+            <ul>
+                <li><strong>Crossfunktionale Führung:</strong> Leitung eines agilen Teams bei der Entwicklung von Smart-Home- und Automatisierungslösungen (IoT).</li>
+                <li><strong>Datenvisualisierung:</strong> Entwicklung von Frontend-Schnittstellen (Next.js/React) zur Echtzeit-Visualisierung von Sensordaten und Systemzuständen.</li>
+                <span class="tech-stack">Tech: C/C++, MQTT, Python, React, Next.js</span>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Shuri Education / The Offshore Lab / Pivot</span> — <span class="role-title">Full Stack Developer</span>
+                </div>
+                <div class="date-location">Client Work</div>
+            </div>
+            <ul>
+                <li>Analyse fachlicher Kundenanforderungen und Überführung in skalierbare Web-Applikationen (CMS-Systeme, Enterprise-Plattformen).</li>
+                <li>Sicherstellung von Code-Qualität durch Reviews, Testing und enge Zusammenarbeit im agilen Setup.</li>
+                <span class="tech-stack">Tech: Next.js, Node.js, PostgreSQL, Vercel</span>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Technische Kernkompetenzen</div>
+        <div class="skills-grid">
+            <div>
+                <span class="skill-category">Frontend:</span> React, Next.js, Vue, TypeScript, Tailwind CSS, Barrierefreiheit (a11y)
+    </div>
+            <div>
+                <span class="skill-category">Backend:</span> Node.js, Go, Rust, Python (schnelle Einarbeitung in Java / Spring Boot)
+            </div>
+            <div>
+                <span class="skill-category">Testing & QA:</span> Unit-Tests, Playwright, CI/CD, Code Reviews
+            </div>
+            <div>
+                <span class="skill-category">DevOps & Tools:</span> Docker, GitHub Actions, Git, Vercel, AWS, Agile/Scrum
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Sprachkenntnisse</div>
+        <p><strong>Englisch:</strong> Muttersprache / Verhandlungssicher (Arbeitssprache)<br>
+        <strong>Deutsch:</strong> A1 – Aktives und intensives tägliches Studium mit dem Ziel B1/B2</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Bildung</div>
+        <div class="experience-item" style="margin-bottom: 5px;">
+            <div class="experience-header">
+                <span class="company-title">B.Sc. in Computer Science</span>
+                <span class="date-location">2020 – 2024</span>
+            </div>
+            <ul>
+                <li><strong>Hinweis für Visum:</strong> Ich verfüge über mehr als 4 Jahre verifizierte Berufserfahrung im Software Engineering, was mich unabhängig vom Studienabschluss für das Visum als IT-Spezialist in Deutschland qualifiziert.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

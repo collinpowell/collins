@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anschreiben - Collins Krubu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #ffffff;
+            font-size: 10pt;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 10pt;
+            }
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+            a {
+                text-decoration: none;
+                color: #1a6b3c;
+            }
+        }
+
+        .header {
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 20pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .contact-info {
+            font-size: 9pt;
+            color: #555;
+            display: flex;
+            gap: 15px;
+        }
+
+        .address-block {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .recipient {
+            font-size: 10pt;
+        }
+
+        .date {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .subject {
+            font-weight: 700;
+            font-size: 11pt;
+            margin-bottom: 25px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .signature {
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Collins Krubu</h1>
+        <div class="contact-info">
+            <span>📍 Berlin, Germany</span> | 
+            <span>✉️ collinskrubu723@gmail.com</span> | 
+            <span>🌐 https://collins-olive.vercel.app</span>
+        </div>
+    </div>
+
+    <div class="address-block">
+        <div class="recipient">
+            <strong>SEITENBAU GmbH</strong><br>
+            z.Hd. Andre Lämmlen, Jonas Moser, Marie Braun<br>
+            HR Management<br>
+            Seilerstraße 7<br>
+            78467 Konstanz
+        </div>
+        <div class="date">
+            Berlin, den <span id="current-date"></span>
+        </div>
+    </div>
+
+    <div class="subject">
+        Bewerbung als Fullstack Developer (Frontend Schwerpunkt) – Remote
+    </div>
+
+    <p>Sehr geehrtes SEITENBAU-Team (Hallo Andre, Jonas und Marie),</p>
+
+    <p>ich bin auf Ihre offene Position als Fullstack Developer gestoßen und war sofort begeistert von Ihrem Fokus auf agile Prozesse, Open Source und gesellschaftlich relevante Softwareprojekte.</p>
+
+    <p>Als Full-Stack-Entwickler mit über vier Jahren nachweisbarer Erfahrung (insbesondere mit React, Next.js und TypeScript) baue ich nicht nur isolierte Features, sondern komplette End-to-End-Lösungen. Ein konkretes Beispiel ist meine Plattform <strong>Lupply</strong>, für die ich als alleiniger Entwickler das Frontend (React/Next.js), das Backend, die CI/CD-Pipelines (Fastlane/GitHub Actions) und die Cloud-Infrastruktur aufgebaut habe. Diese Erfahrung passt perfekt zu Ihrem Bedarf an Frontend-Architektur, Test-Automatisierung und barrierefreien (a11y) Anwendungen.</p>
+
+    <p>Zu Ihrem Backend-Stack: Mein bisheriger Schwerpunkt lag auf Node.js, Go und hochperformanten Systemen in Rust (z.B. für Lunar Finance, einen DEX-Aggregator mit 350.000 Nutzern). Ich bin ein polyglotter Entwickler und arbeite mich derzeit mit großer Motivation in das <strong>Java/Spring Boot</strong> Ökosystem ein. Durch mein tiefes Verständnis für Systemarchitektur und Backend-Routing fällt mir dieser Technologiewechsel sehr leicht. Zudem integriere ich aktiv KI-gestützte Tools in meinen Workflow, was perfekt zu Ihrem Interesse an künstlicher Intelligenz in der Softwareentwicklung passt.</p>
+
+    <p><strong>Zu meinen Sprachkenntnissen:</strong> Ich spreche fließend Englisch (Muttersprache), was mir bei technischer Architektur und Dokumentation im Team sehr hilft. Mein Deutsch ist aktuell auf dem A1-Niveau, ich absolviere jedoch ein intensives tägliches Studium, um schnellstmöglich B1/B2 zu erreichen.</p>
+
+    <p>Ich bin es gewohnt, völlig eigenständig, asynchron und remote zu arbeiten, stehe aber von Berlin aus gerne für Präsenztermine zur Verfügung.</p>
+
+    <p>Anbei finden Sie meinen Lebenslauf. Ich freue mich sehr über die Gelegenheit, in einem Gespräch zu zeigen, wie ich Ihr crossfunktionales Team verstärken kann.</p>
+
+    <div class="signature">
+        Mit freundlichen Grüßen,<br><br><br>
+        <strong>Collins Krubu</strong>
+    </div>
+
+    <script>
+        // Set current date in German format
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = today.toLocaleDateString('de-DE', options);
+    </script>
+</body>
+</html>

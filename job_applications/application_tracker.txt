@@ -17,3 +17,4 @@ This file tracks the status of your job applications.
 *Instructions for AI:*
 When a new application is submitted, add a row to this table.
 2026-07-17 - Batix Software GmbH - Initiativbewerbung (Express) - Drafted
+SEITENBAU (Fullstack Frontend) - Status: Application Prepared

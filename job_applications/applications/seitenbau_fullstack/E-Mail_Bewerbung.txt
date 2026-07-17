@@ -1,0 +1,28 @@
+Betreff: Bewerbung als Fullstack Developer (Frontend) – Remote / Berlin (Englisch / A1 Deutsch)
+
+Sehr geehrtes SEITENBAU-Team (Hallo Andre, Jonas und Marie),
+
+ich bin auf Ihre offene Position als Fullstack Developer gestoßen und war sofort begeistert von Ihrem Fokus auf agile Prozesse, Open Source und gesellschaftlich relevante Softwareprojekte.
+
+Als Full-Stack-Entwickler mit über vier Jahren nachweisbarer Erfahrung (insbesondere mit React, Next.js und TypeScript) baue ich nicht nur isolierte Features, sondern End-to-End-Lösungen. Ein konkretes Beispiel ist meine Plattform "Lupply", für die ich als alleiniger Entwickler das Frontend (React/Next.js), das Backend, die CI/CD-Pipelines (Fastlane/GitHub Actions) und die Cloud-Infrastruktur aufgebaut habe. 
+
+Zu Ihren Anforderungen:
+- Frontend & Barrierefreiheit: Mein Fokus liegt stark auf modernen, responsiven und barrierefreien UIs mittels React und TypeScript.
+- Backend (Java/Spring Boot): Mein bisheriger Backend-Schwerpunkt lag auf Node.js, Go und Hochleistungs-Systemen in Rust (Lunar Finance). Ich bin ein polyglotter Entwickler und arbeite mich derzeit mit großer Motivation in das Java/Spring Boot Ökosystem ein.
+- KI-Interesse: Als technikbesessener Entwickler integriere ich aktiv KI-gestützte Tools und LLM-Workflows in meine Entwicklungsprozesse, um effizienteren und sichereren Code zu schreiben.
+
+Zu meinen Sprachkenntnissen: Ich spreche fließend Englisch (Muttersprache/Arbeitssprache), was mir bei technischer Architektur und Dokumentation sehr hilft. Mein Deutsch ist aktuell auf dem A1-Niveau, ich absolviere jedoch ein intensives tägliches Studium, um schnellstmöglich B1/B2 zu erreichen.
+
+Ich bin es gewohnt, völlig eigenständig, asynchron und remote zu arbeiten. Mit meinem Wohnsitz in Berlin stehe ich auch gerne für Präsenztermine vor Ort zur Verfügung.
+
+Anbei finden Sie meinen Lebenslauf als PDF. Meine Projekte und meinen Code finden Sie unter:
+- Portfolio: https://collins-olive.vercel.app
+- GitHub: https://github.com/collinpowell
+
+Ich freue mich sehr über die Gelegenheit, in einem kurzen Call zu besprechen, wie ich Ihr crossfunktionales Team verstärken kann.
+
+Mit freundlichen Grüßen,
+
+Collins Krubu
+collinskrubu723@gmail.com
+https://collins-olive.vercel.app
