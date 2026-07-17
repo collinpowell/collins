@@ -1,178 +1,125 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
-function useInView(threshold = 0.2) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          obs.disconnect();
-        }
-      },
-      { threshold }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [threshold]);
-
-  return { ref, inView };
-}
+const journeySteps = [
+  {
+    title: "The Hardware Foundation",
+    description: "It all started with bare metal. Before scaling cloud architectures, I spent years writing C/C++ firmware for ESP32 and Arduino, building tangible hardware products. From smart parking systems to custom PCBs, I learned to optimize for extreme resource constraints.",
+    image: "/proofs/Hardware_Prototyping_Workstation.jpeg",
+    year: "2018 - 2020",
+    tags: ["Embedded C++", "IoT", "PCB Design", "Sensors"]
+  },
+  {
+    title: "Building NodeX iHub",
+    description: "Co-founding NodeX iHub forced me to evolve from a solo engineer to a technical leader. We scaled physical tech solutions across Nigeria, including government contracts for traffic infrastructure and commercial snooker vending systems.",
+    image: "/proofs/NodeX_Team_Group.jpeg",
+    year: "2020 - 2023",
+    tags: ["Leadership", "B2G Contracts", "Hardware Production", "System Design"]
+  },
+  {
+    title: "Empowering the Next Generation",
+    description: "Engineering isn't just about building things; it's about building people. I've dedicated significant time to STEM outreach, teaching hardware and software principles to both kids and adults, refining my ability to communicate complex concepts simply.",
+    image: "/proofs/STEM_Outreach_Kids.jpeg",
+    year: "Ongoing",
+    tags: ["Mentorship", "Public Speaking", "Community", "Education"]
+  },
+  {
+    title: "The Web3 & Full-Stack Era",
+    description: "Today, I leverage my deep systems knowledge to build scalable SaaS products like Lupply and decentralized financial infrastructure on Solana and Ethereum. From hardware interrupts to smart contract state transitions, the core engineering principles remain the same.",
+    image: "/proofs/Software_Development_Desk.jpeg",
+    year: "Present",
+    tags: ["Solana", "Rust", "Next.js", "Smart Contracts"]
+  }
+];
 
 export default function AboutSection() {
-  const { ref, inView } = useInView();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
 
   return (
-    <section id="about" className="relative">
-      <div className="gradient-divider" />
-      <div className="section-container" ref={ref}>
-        <div className="grid md:grid-cols-[1fr_1.5fr] gap-12 items-start">
-          {/* Left column */}
-          <div
-            className={`${
-              inView ? "animate-slide-in-left" : "opacity-0"
-            }`}
-          >
-            <div className="section-label">
-              <svg
-                width="14"
-                height="14"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-              About
-            </div>
-            <h2 className="section-title">
-              Crafting the{" "}
-              <span className="gradient-text">future of finance</span>
-            </h2>
-            <div className="available-badge mt-6">
-              <span className="pulse-dot" />
-              Currently Available
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              {[
-                { value: "6+", label: "Years Exp." },
-                { value: "10+", label: "Projects Shipped" },
-                { value: "5+", label: "Countries Served" },
-                { value: "3+", label: "Blockchains" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="glass-card p-4 text-center"
-                >
-                  <div className="text-2xl font-black gradient-text">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-text-muted mt-1">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+    <section id="about" className="relative py-24 bg-bg-primary overflow-hidden" ref={containerRef}>
+      <div className="section-container relative z-10">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-24"
+        >
+          <div className="section-label mx-auto mb-6">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            The Journey
           </div>
+          <h2 className="section-title">
+            From <span className="gradient-text">Bare Metal</span> to <span className="gradient-text">Web3</span>
+          </h2>
+          <p className="section-subtitle mx-auto">
+            My engineering path wasn't traditional. It started with soldering irons and microcontrollers, evolving into building high-performance decentralized systems.
+          </p>
+        </motion.div>
 
-          {/* Right column — Bio */}
-          <div
-            className={`${
-              inView ? "animate-fade-in-up delay-300" : "opacity-0"
-            }`}
-          >
-            <div className="space-y-5 text-text-secondary leading-relaxed">
-              <p className="text-lg">
-                Collin Powell is a senior full-stack and embedded systems engineer
-                based in Lagos, Nigeria. Over 6+ years he&apos;s shipped everything from
-                C/C++ firmware on ESP32 microcontrollers and IoT hardware products
-                to DEX aggregators, DeFi platforms, SaaS products,
-                mobile apps, and enterprise websites for clients across Nigeria,
-                the UK, the Philippines, India, and the US.
-              </p>
-              <p>
-                As co-founder of{" "}
-                <span className="text-white font-medium">NodeX iHub</span>, he led
-                the engineering of real hardware — smart home devices, automated
-                farm irrigation systems, and coin-operated vending machines — before
-                transitioning to building{" "}
-                <span className="text-accent-cyan-light font-medium">Lupply</span>,
-                a multi-platform SaaS and logistics ecosystem deployed across Web,
-                iOS, Android, and Windows.
-              </p>
-              <p>
-                He builds with AI-assisted workflows using{" "}
-                <span className="text-accent-purple-light font-medium">
-                  Agentic Coding
-                </span>{" "}
-                to move faster without cutting corners. He&apos;s available for{" "}
-                <span className="text-accent-cyan-light font-medium">
-                  full-time remote roles
-                </span>
-                , contracts, and part-time consulting worldwide.
-              </p>
-            </div>
-
-            {/* Location & contact pills */}
-            <div className="flex flex-wrap gap-3 mt-8">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-bg-card border border-[rgba(124,58,237,0.1)] text-sm text-text-secondary">
-                <svg
-                  width="16"
-                  height="16"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+        <div className="space-y-32">
+          {journeySteps.map((step, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div key={index} className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 lg:gap-24 items-center`}>
+                
+                {/* Image Column */}
+                <motion.div 
+                  initial={{ opacity: 0, x: isEven ? -50 : 50, rotate: isEven ? -2 : 2 }}
+                  whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="w-full md:w-1/2 relative"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                Lagos, Nigeria — Remote Worldwide
+                  <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden glass-card p-2 group">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-accent-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                    <Image 
+                      src={step.image} 
+                      alt={step.title}
+                      fill
+                      className="object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                </motion.div>
+
+                {/* Text Column */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="w-full md:w-1/2 flex flex-col justify-center"
+                >
+                  <span className="text-accent-cyan-light font-mono text-sm tracking-wider mb-2 block">{step.year}</span>
+                  <h3 className="text-3xl font-bold mb-4 text-text-primary">{step.title}</h3>
+                  <p className="text-lg text-text-secondary leading-relaxed mb-6">
+                    {step.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {step.tags.map(tag => (
+                      <span key={tag} className="tech-badge">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+
               </div>
-              <a
-                href="mailto:collinskrubu723@gmail.com"
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-bg-card border border-[rgba(124,58,237,0.1)] text-sm text-text-secondary hover:text-accent-purple-light hover:border-accent-purple transition-all"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                collinskrubu723@gmail.com
-              </a>
-            </div>
-          </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

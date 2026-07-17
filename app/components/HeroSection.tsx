@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 function ParticleField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -108,7 +109,7 @@ const techStack = [
   "Solidity",
   "Next.js",
   "Go",
-  "Flutter",
+  "TypeScript",
 ];
 
 export default function HeroSection() {
@@ -124,7 +125,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-primary"
     >
       {/* Background effects */}
       <div className="hero-bg">
@@ -151,64 +152,95 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-[900px] mx-auto px-8 sm:px-12 lg:px-16 text-center pt-24 sm:pt-0">
-        {/* Available badge */}
-        <div className="animate-fade-in-up mb-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-8"
+        >
           <div className="available-badge mx-auto w-fit">
             <span className="pulse-dot" />
             Available for Opportunities
           </div>
-        </div>
+        </motion.div>
 
         {/* Headline */}
-        <div className="min-h-[120px] sm:min-h-[150px] md:min-h-[180px] lg:min-h-[200px] flex flex-col justify-center mb-6">
-          <h1
+        <div className="min-h-[160px] sm:min-h-[180px] md:min-h-[220px] lg:min-h-[250px] flex flex-col justify-center mb-4">
+          <motion.h1
             key={titleIndex}
-            className={`animate-fade-in-up text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-black tracking-tight leading-[1.1] ${
-              titleIndex === 0 ? "delay-200" : ""
-            }`}
+            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -40, filter: "blur(10px)" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[3.5rem] sm:text-6xl md:text-7xl lg:text-[6rem] font-black tracking-tighter leading-[1.05]"
           >
             {titleIndex === 0 ? (
               <>
-                I Build the{" "}
-                <span className="gradient-text-hero">Infrastructure</span>
+                <span className="text-white">I Build the</span>{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-purple-light via-accent-cyan to-accent-purple">
+                  Infrastructure
+                </span>
                 <br />
-                of <span className="gradient-text-hero">Web3</span>
+                <span className="text-white">of</span>{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-cyan-light to-accent-green">
+                  Web3
+                </span>
               </>
             ) : (
               <>
-                I Build{" "}
-                <span className="gradient-text-hero">Enterprise Apps</span>
+                <span className="text-white">I Build</span>{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-purple-light via-accent-cyan to-accent-purple">
+                  Enterprise Apps
+                </span>
                 <br />
-                & <span className="gradient-text-hero">SaaS</span>
+                <span className="text-white">&amp;</span>{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-cyan-light to-accent-green">
+                  SaaS
+                </span>
               </>
             )}
-          </h1>
+          </motion.h1>
         </div>
 
         {/* Tech stack row */}
-        <div className="animate-fade-in-up delay-300 flex flex-wrap items-center justify-center gap-3 mb-6">
-          {techStack.map((tech) => (
-            <span
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-wrap items-center justify-center gap-3 mb-8"
+        >
+          {techStack.map((tech, i) => (
+            <motion.span
               key={tech}
-              className="tech-badge !text-sm !px-4 !py-1.5"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + i * 0.1 }}
+              className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-sm font-mono text-white/80 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-white transition-all cursor-default"
             >
               {tech}
-            </span>
+            </motion.span>
           ))}
-        </div>
+        </motion.div>
 
         {/* Sub-headline */}
-        <p className="animate-fade-in-up delay-400 text-lg sm:text-xl text-text-secondary max-w-[650px] mx-auto mb-4 leading-relaxed">
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-lg sm:text-xl text-text-secondary max-w-[700px] mx-auto mb-10 leading-relaxed font-light"
+        >
           6+ years shipping DeFi protocols, DEX aggregators, and full-stack
-          products.
-        </p>
-        <p className="animate-fade-in-up delay-500 text-base text-text-muted max-w-[550px] mx-auto mb-10">
-          AI-assisted development with Claude Opus. Available for remote or relocation worldwide.
-        </p>
+          products from <span className="font-semibold text-white/90">hardware prototypes</span> to <span className="font-semibold text-white/90">blockchain mainnets</span>.
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="animate-fade-in-up delay-600 flex flex-wrap items-center justify-center gap-4">
-          <a href="#projects" className="btn-primary">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="flex flex-wrap items-center justify-center gap-4 mt-8"
+        >
+          <a href="#about" className="btn-primary">
             <span className="flex items-center gap-2">
               <svg
                 width="18"
@@ -221,33 +253,11 @@ export default function HeroSection() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M4 6h16M4 12h16m-7 6h7"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
                 />
               </svg>
-              View My Work
+              Discover the Journey
             </span>
-          </a>
-          <a
-            href="/Collins_Krubu_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline"
-          >
-            <svg
-              width="18"
-              height="18"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-            Download Resume
           </a>
           <a
             href="mailto:collinskrubu723@gmail.com"
@@ -269,33 +279,7 @@ export default function HeroSection() {
             </svg>
             Let&apos;s Talk
           </a>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="animate-fade-in delay-800 mt-16">
-          <a
-            href="#about"
-            className="inline-flex flex-col items-center gap-2 text-text-muted hover:text-accent-purple-light transition-colors"
-            aria-label="Scroll to about section"
-          >
-            <span className="text-xs tracking-widest uppercase">Scroll</span>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              className="animate-bounce"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

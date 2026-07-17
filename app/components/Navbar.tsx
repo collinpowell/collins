@@ -9,34 +9,15 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-function SunIcon() {
-  return (
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <circle cx="12" cy="12" r="5" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-    </svg>
-  );
-}
 
-function MoonIcon() {
-  return (
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-    </svg>
-  );
-}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-
-  // On mount, read saved preference
   useEffect(() => {
-    const saved = localStorage.getItem("theme") as "light" | "dark" | null;
-    const initial = saved ?? "light";
-    setTheme(initial);
-    document.documentElement.setAttribute("data-theme", initial);
+    // Force dark mode
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
   }, []);
 
   useEffect(() => {
@@ -44,13 +25,6 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const next = theme === "light" ? "dark" : "light";
-    setTheme(next);
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-  };
 
   return (
     <nav
@@ -84,15 +58,7 @@ export default function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-accent-purple to-accent-cyan group-hover:w-full transition-all duration-300" />
             </a>
           ))}
-          {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="theme-toggle"
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-            id="theme-toggle-btn"
-          >
-            {theme === "light" ? <MoonIcon /> : <SunIcon />}
-          </button>
+
           <a
             href="mailto:collinskrubu723@gmail.com"
             className="btn-primary text-sm !py-2.5 !px-5"
@@ -103,13 +69,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center gap-3">
-          <button
-            onClick={toggleTheme}
-            className="theme-toggle"
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-          >
-            {theme === "light" ? <MoonIcon /> : <SunIcon />}
-          </button>
+
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="flex flex-col gap-1.5 p-2"

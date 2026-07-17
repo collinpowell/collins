@@ -84,6 +84,8 @@ const jsonLd = {
   ],
 };
 
+import SmoothScroll from "./components/SmoothScroll";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -92,7 +94,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="light"
+      data-theme="dark"
       className={`${inter.variable} ${firaCode.variable} h-full antialiased`}
     >
       <head>
@@ -102,8 +104,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <div className="noise-overlay" aria-hidden="true" />
-        {children}
+        <SmoothScroll>
+          <div className="noise-overlay" aria-hidden="true" />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
