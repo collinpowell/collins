@@ -21,7 +21,7 @@ Ergebnisorientierter Full-Stack-Entwickler mit über 4 Jahren verifizierter Erfa
 
 ## Verifizierte Berufserfahrung & Erfolge
 
-**Lupply** — *Founder & Lead Full Stack Engineer*  
+**Lupply** — *Lead Full Stack Engineer*  
 *Jan 2023 – Heute | Remote*
 - **Frontend & UX:** Entwicklung komplexer, responsiver und barrierefreier Web- und Mobile-Dashboards (React, Next.js, TypeScript, Tailwind).
 - **CI/CD & Automatisierung:** Alleiniger Verantwortlicher für die gesamte CI/CD- und Release-Pipeline mittels GitHub Actions, Docker und Fastlane.
@@ -35,8 +35,8 @@ Ergebnisorientierter Full-Stack-Entwickler mit über 4 Jahren verifizierter Erfa
 - **System-Optimierung:** Einsatz von Rust und Go für RPC-Indexer, wodurch die Latenzzeit drastisch gesenkt und System-Tests (Unit/Integration) automatisiert wurden.
 - **Tech-Stack:** Rust, Go, Node.js, Redis, Web3 APIs
 
-**NodeX iHub** — *Co-Founder & Lead Engineer*  
-*Jan 2020 – Dez 2023*
+**NodeX iHub** — *Lead Engineer*  
+*Jan 2020 – Jan 2023*
 - **Crossfunktionale Führung:** Leitung eines agilen Teams bei der Entwicklung von Smart-Home- und Automatisierungslösungen (IoT).
 - **Datenvisualisierung:** Entwicklung von Frontend-Schnittstellen (Next.js/React) zur Echtzeit-Visualisierung von Sensordaten und Systemzuständen.
 - **Hardware-Software-Integration:** C/C++, MQTT, Python.

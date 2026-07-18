@@ -21,7 +21,7 @@ Technikbesessener und ergebnisorientierter Full-Stack- und Mobile-Entwickler mit
 
 ## Verifizierte Berufserfahrung & Erfolge
 
-**Lupply** — *Founder & Lead Full Stack Engineer*  
+**Lupply** — *Lead Full Stack Engineer*  
 *Jan 2023 – Heute | Remote*
 - **End-to-End Produktentwicklung:** Alleinige Entwicklung, Architektur und Bereitstellung einer produktionsreifen Plattform (Mobile & Web) für ein komplettes Ökosystem (SaaS-Dashboard, Food Marketplace, Online-Store).
 - **CI/CD & Automatisierung:** Alleiniger Verantwortlicher für die gesamte CI/CD- und Deployment-Infrastruktur – GitHub Actions, Fastlane für automatisierte Mobile-Releases (iOS/Android) und Docker-Containerisierung.
@@ -29,8 +29,8 @@ Technikbesessener und ergebnisorientierter Full-Stack- und Mobile-Entwickler mit
 - **Live-Systeme:** [Web App](https://app.lupply.com) | [App Store](https://apps.apple.com/us/app/lupply/id6743771090) | [Google Play](https://play.google.com/store/apps/details?id=com.cpx.lupply)
 - **Tech-Stack:** Next.js, React, Node.js, Go, TypeScript, PostgreSQL, Docker, Fastlane, AWS
 
-**NodeX iHub** — *Co-Founder & Lead Engineer*  
-*Jan 2020 – Dez 2023*
+**NodeX iHub** — *Lead Engineer*  
+*Jan 2020 – Jan 2023*
 - **C/C++ Systems Integration (IoT):** Entwicklung von Firmware in C/C++ auf ESP32-Mikrocontrollern (FreeRTOS) für Smart-Home-Geräte, automatisierte Farm-Bewässerungssysteme und Münzautomaten – alles via MQTT/TLS an Cloud-Dienste angebunden.
 - **Hardware-Software-Brücke:** Verwaltung der kompletten Datenpipeline von der Hardware zur Cloud (Sensordatenerfassung, Echtzeittelemetrie, Web-Dashboard-Visualisierung).
 - **Live-System:** [NodeX Frontend](https://node-x-frontend.vercel.app/)

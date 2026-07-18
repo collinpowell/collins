@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
-type FilterTag = "All" | "Founder" | "Client Work" | "Personal / Web3";
+type FilterTag = "All" | "Lead Engineer" | "Client Work" | "Marketplaces & UI";
 
 interface Project {
   name: string;
@@ -25,10 +25,10 @@ const projects: Project[] = [
     image: "/projects/lupply.png", // Keep if exists, otherwise fallback to color
     description:
       "Multi-platform SaaS ecosystem — Business Management, POS, food delivery, and logistics. Serving 5+ enterprise clients. Solely built, deployed, and maintained.",
-    role: "Founder & Lead Engineer",
+    role: "Lead Full-Stack Engineer",
     stack: ["Next.js", "Node.js", "Flutter", "Go", "Docker"],
-    tag: "Founder · SaaS · Cloud-Native",
-    filter: ["All", "Founder"],
+    tag: "Lead Engineer · SaaS · Cloud-Native",
+    filter: ["All", "Lead Engineer"],
   },
   {
     name: "Lupply App (iOS/Android)",
@@ -36,10 +36,10 @@ const projects: Project[] = [
     image: "/proofs/Lupply_App_Store_Deployment.jpeg",
     description:
       "Mobile application for the Lupply Business ecosystem. Live on Google Play Store and Apple App Store. CI/CD managed via Fastlane.",
-    role: "Founder & Lead Engineer",
+    role: "Lead Mobile Engineer",
     stack: ["Flutter", "Fastlane", "iOS", "Android"],
-    tag: "Founder · Mobile App",
-    filter: ["All", "Founder"],
+    tag: "Lead Engineer · Mobile App",
+    filter: ["All", "Lead Engineer"],
   },
   {
     name: "NodeX iHub",
@@ -47,10 +47,10 @@ const projects: Project[] = [
     image: "/proofs/Hardware_Prototyping_Workstation.jpeg",
     description:
       "EdTech & IoT product studio. Delivered ESP32-based smart home devices, a sensor-driven farm irrigation system, and a coin-operated vending device. Also served 200+ active students.",
-    role: "Co-Founder & Lead Engineer",
+    role: "Lead Embedded Engineer",
     stack: ["C/C++", "ESP32", "FreeRTOS", "Next.js", "Node.js"],
-    tag: "Co-Founder · IoT · EdTech",
-    filter: ["All", "Founder"],
+    tag: "Lead Engineer · IoT · EdTech",
+    filter: ["All", "Lead Engineer"],
   },
   {
     name: "Lupply Food",
@@ -59,32 +59,34 @@ const projects: Project[] = [
     placeholderClass: "lupply-food",
     description:
       "Food delivery marketplace app. Live on Google Play Store and Apple App Store with active daily orders.",
-    role: "Founder & Lead Engineer",
+    role: "Lead Mobile Engineer",
     stack: ["Flutter", "Node.js", "Fastlane"],
-    tag: "Founder · Mobile · Food Delivery",
-    filter: ["All", "Founder"],
+    tag: "Lead Engineer · Mobile · Food Delivery",
+    filter: ["All", "Lead Engineer"],
   },
   {
-    name: "Lunar Finance",
-    url: "https://lunarfinance.io",
-    image: "/projects/lunar-finance.png",
+    name: "Findam",
+    url: "https://sabi-work-nine.vercel.app",
+    image: null,
+    placeholderClass: "lunar",
     description:
-      "Multi-chain DEX aggregator processing over $1M+ in trading volume and serving 350k+ users with high-throughput cross-chain routing.",
-    role: "Backend Engineer",
-    stack: ["Rust", "Go", "Solana", "Jupiter API", "Node.js"],
-    tag: "DeFi · DEX · High-Throughput",
-    filter: ["All", "Personal / Web3"],
+      "Local services and freelancer marketplace platform. Engineered complex search indexing, location-based querying, and real-time interactive UIs.",
+    role: "Lead Frontend Engineer",
+    stack: ["React", "Node.js", "MongoDB", "Express"],
+    tag: "Marketplace · Local Services",
+    filter: ["All", "Marketplaces & UI"],
   },
   {
-    name: "Solvux",
-    url: "https://solvux-frontend.vercel.app/",
-    image: "/projects/solvux.png",
+    name: "Cereloop",
+    url: "https://deep-fusion-main.vercel.app",
+    image: null,
+    placeholderClass: "solvux",
     description:
-      "Cross-chain DeFi platform supporting 50+ networks. Optimized swap and bridge routing for scalable Web3 infrastructure.",
+      "Dynamic tech community and event platform. Built interactive maps, user dashboards, and real-time messaging interfaces.",
     role: "Solo Builder — Full Stack",
-    stack: ["Next.js", "Rust", "Solana", "Solidity", "Node.js"],
-    tag: "Personal Project · DeFi · DEX",
-    filter: ["All", "Personal / Web3"],
+    stack: ["React", "Firebase", "TailwindCSS", "Node.js"],
+    tag: "Community Platform · Real-Time",
+    filter: ["All", "Marketplaces & UI"],
   },
   {
     name: "Shuri Education",
@@ -109,19 +111,20 @@ const projects: Project[] = [
     filter: ["All", "Client Work"],
   },
   {
-    name: "Kitty Couture",
-    url: "https://www.kittycouturememe.com",
-    image: "/projects/kitty-couture.png",
+    name: "Mama Luxury Homes",
+    url: "https://mlh-website.vercel.app",
+    image: null,
+    placeholderClass: "kitty",
     description:
-      "Solana ecosystem for Digital Collectibles. Successfully deployed smart contracts and token economics, enabling the project to raise significant seed funding.",
-    role: "Solana Developer + Frontend",
-    stack: ["Next.js", "Rust", "Solana", "Token Deployment"],
-    tag: "Client Work · Web3 · Smart Contracts",
-    filter: ["All", "Personal / Web3"],
+      "Premium luxury real estate portfolio storefront. Delivered an animation-rich, visually stunning corporate presence achieving a 90+ Lighthouse performance score.",
+    role: "Frontend UI Developer",
+    stack: ["Next.js", "TailwindCSS", "Framer Motion", "Vercel"],
+    tag: "Client Work · Premium UI · Real Estate",
+    filter: ["All", "Client Work", "Marketplaces & UI"],
   }
 ];
 
-const FILTER_TABS: FilterTag[] = ["All", "Founder", "Client Work", "Personal / Web3"];
+const FILTER_TABS: FilterTag[] = ["All", "Lead Engineer", "Client Work", "Marketplaces & UI"];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
@@ -217,7 +220,7 @@ export default function ProjectsSection() {
             Projects that <span className="gradient-text">ship &amp; scale</span>
           </h2>
           <p className="section-subtitle mx-auto">
-            From IoT hardware to DeFi protocols processing millions to enterprise platforms featured in national media.
+            From IoT hardware to high-traffic SaaS products to enterprise platforms featured in national media.
           </p>
         </motion.div>
 

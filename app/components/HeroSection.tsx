@@ -104,10 +104,10 @@ function ParticleField() {
 }
 
 const techStack = [
-  "Solana",
-  "Rust",
-  "Solidity",
+  "React",
   "Next.js",
+  "Node.js",
+  "Flutter",
   "Go",
   "TypeScript",
 ];
@@ -181,9 +181,9 @@ export default function HeroSection() {
                   Infrastructure
                 </span>
                 <br />
-                <span className="text-white">of</span>{" "}
+                <span className="text-white">the</span>{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-cyan-light to-accent-green">
-                  Web3
+                  Modern Web
                 </span>
               </>
             ) : (
@@ -229,8 +229,8 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-lg sm:text-xl text-text-secondary max-w-[700px] mx-auto mb-10 leading-relaxed font-light"
         >
-          6+ years shipping DeFi protocols, DEX aggregators, and full-stack
-          products from <span className="font-semibold text-white/90">hardware prototypes</span> to <span className="font-semibold text-white/90">blockchain mainnets</span>.
+          6+ years shipping Enterprise platforms, Marketplaces, and full-stack
+          products from <span className="font-semibold text-white/90">hardware prototypes</span> to <span className="font-semibold text-white/90">global production</span>.
         </motion.p>
 
         {/* CTA Buttons */}

@@ -1,0 +1,19 @@
+Subject: Frontend Developer - Relocating to Lisbon
+
+Hi Filipe,
+
+I saw Air Apps is building out the web platform for the new Resource Planner and looking for a frontend developer. I know you guys are a massive mobile publisher with 100M+ downloads, so bridging that gap to the web has to be seamless.
+
+I'm a lead full-stack engineer and I just spent the last couple of years building out Lupply from scratch. I handled the React/Next.js web dashboards, the complex state management for real-time logistics, and solely managed the end-to-end app builds and deployments across Web, Windows, macOS, iOS (App Store), and Android (Play Store). Because I've built both the mobile and web sides of a product, I know exactly how to architect web UIs that keep up with mobile-first users.
+
+I saw the role is tagged as Remote. I've spent the last 6 years successfully building and shipping complex frontend architectures entirely remotely for international clients, so I am fully equipped to hit the ground running from day one in a remote capacity.
+
+My portfolio and live links are here:
+Lupply Web Dashboard: https://app.lupply.com
+Lupply App: https://play.google.com/store/apps/details?id=com.cpx.lupply
+Shuri Education (UK platform I built in Next.js): https://www.shurieducation.com
+
+I've attached my resume. I'd love to jump on a quick call this week to talk about the React architecture you're planning for the PRP.
+
+Best,
+Collins Krubu

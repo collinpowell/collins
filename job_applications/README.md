@@ -30,6 +30,13 @@ German employers heavily value concrete, undeniable proof of technical competenc
 - **Personal/Other Projects:** Treat all portfolio projects similarly. Ensure every project mentioned on the CV or Cover Letter includes a direct hyperlink to the live site, the Play Store, or the public GitHub repository. Do not list a project without its corresponding undeniable proof.
 - **Embedded Systems Proof:** If an application heavily involves embedded systems, hardware, or IoT, **explicitly ask Collins to provide pictures or video proof of his hardware builds** so they can be bundled with the application. He has them ready.
 
+## German Tech Culture & Strategy
+When applying to companies in Germany (or Dutch/European scale-ups with heavy German presence), adapt strictly to these cultural realities:
+- **The "3-Page Resume" Myth:** Traditional German corporate roles expect a long, highly structured *Lebenslauf* (3 pages, photo, marital status). **Ignore this for tech startups.** In the modern Berlin/Munich tech scene, they strongly prefer a 1-2 page US-style resume. Emphasize speed and impact.
+- **Sachlichkeit (Directness & Objectivity):** Germans hate "fluff" and US-style hype words (e.g., "I single-handedly revolutionized..."). Stick to cold, hard numbers, tech stacks, and direct results (e.g., "Reduced latency by 40% using Rust").
+- **The Obsession with "Zeugnisse" (Certificates/Proof):** German HR relies heavily on certificates. To combat the lack of a formal Computer Science degree transcript, deploy the **"Embedded Systems Shield"**: Put the Embedded Systems certificate and ALX software engineering certificate right at the top of the resume. 
+- **Bypass HR via Open Source / CTO Outreach:** Because traditional HR might auto-reject non-traditional backgrounds, the primary strategy is cold-emailing CTOs with highly technical, zero-fluff emails, or volunteering via Open Source PRs to build relationships.
+
 ## Tactical Application Tips (From Gemini Consult)
 When writing application materials or advising Collins, strictly adhere to the following playbook:
 - **CV Structure (Direct Jobs):** Lead with the GitHub and Portfolio links at the *very top* of the CV. Without a formal degree, German hiring managers must immediately see the code structure and deployed apps.
@@ -41,13 +48,24 @@ When writing application materials or advising Collins, strictly adhere to the f
 
 ## Instructions for AI Agents
 
-Whenever you are asked to create a new resume, cover letter, or start a job application process:
+Whenever Collins provides a new job description or company target, **STOP** and strictly execute the following Two-Phase Framework:
 
-1. **Check for Proof:** If the application requires verifying his 2 years of experience or co-foundership, immediately **notify Collins** to ensure he attaches or uploads the relevant proof from the `proof_documents/` folder.
-2. **Create a New Folder:** Inside `collins/job_applications/applications/`, create a new folder named after the company or role (e.g., `company_name_role/`).
-2. **Generate Documents:** Create the tailored resume and/or cover letter inside this new folder.
-3. **Create a README:** Inside the new folder, create a `README.md` that explains the strategy used for that specific application, which template was used, and any specific notes (e.g., "Tailored for IT Specialist emphasizing 2 years experience").
-4. **Update Tracker:** Add an entry to the `application_tracker.txt` file in the root of this directory.
+### Phase 1: Due Diligence & Strategic Advice
+Before creating any documents, you must run an analysis:
+1. **Auto-Search the Company:** Use your web search tools to research the company. Understand their core product, recent funding, tech stack, and company culture.
+2. **Identify Target Contacts:** Search for the CEO, CTO, or Lead Engineers. Collins prefers to bypass HR and cold-email leadership directly. Find their names, LinkedIn profiles, or potential email formats.
+3. **Strategic Go/No-Go Advice:** Cross-reference the role with Collins' Nigerian citizenship and remote/visa requirements. 
+   - *Red Flags:* Defense contractors requiring security clearance, roles demanding fluent German immediately (if not Ausbildung), or rigid corporate roles.
+   - *Green Flags:* Modern tech startups, IoT/Hardware companies, Web3 protocols, companies with a history of international hiring (Highly Skilled Migrant visas).
+4. **Present the Analysis:** Give Collins a concrete recommendation (Go or No-Go). If "Go", suggest which **Executive Archetype** from the `career_profile_master.md` fits best.
+
+### Phase 2: Execution (If Approved)
+Once Collins approves the target:
+1. **Check for Proof:** If the application requires verifying his 2 years of experience or hardware skills, ensure he attaches proof from the `proof_documents/` folder.
+2. **Create a New Folder:** Inside `collins/job_applications/applications/`, create a new folder named `company_name_role/`.
+3. **Generate Documents:** Pull the correct Archetype from `career_profile_master.md` and create the tailored resume, cover letter, and cold email.
+4. **Create a Strategy README:** Inside the new folder, create a `strategy.md` explaining why this angle was chosen.
+5. **Update Tracker:** Add an entry to `application_tracker.txt`.
 
 ### The "Wiki Technique" for Writing
 When generating any application materials (cover letters, resumes, emails), you MUST use the **Wiki Technique**:
@@ -55,6 +73,12 @@ When generating any application materials (cover letters, resumes, emails), you 
 - **Do not use** cliché AI transition phrases (e.g., "It's important to note," "Furthermore," "In conclusion").
 - **Do not use** overused AI vocabulary (e.g., "Delve," "Leverage," "Tapestry," "Testament").
 - Keep the writing clear, concise, direct, and human-sounding. Emulate a professional yet straightforward tone.
+
+## Key Reference Documents
+- **[Career Profile Master](file:///Users/collinpowell/Desktop/Collins-Portfolio/collins/job_applications/career_profile_master.md):** The definitive source of truth for Collins' career history, 5 Executive Archetypes, master skills inventory, and comprehensive project portfolio. **Always check this document first to align the narrative.**
+- **[All Portfolio Links](file:///Users/collinpowell/Desktop/Collins-Portfolio/collins/job_applications/all_portfolio_links.md):** A raw list of all live project links and their context.
+- **[Open Source Networking Strategy](file:///Users/collinpowell/Desktop/Collins-Portfolio/collins/job_applications/applications/open_source_networking_strategy.md):** The playbook for contributing to German open-source startups to bypass HR.
+- **Portfolio Source Code (`../app/components/ProjectsSection.tsx`):** The live portfolio data acts as the absolute ground truth for project descriptions and stacks.
 
 ## Directory Structure
 - `archive/`: Contains old resumes, cover letters, and reports.

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter - Picnic</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.7; background: #ffffff; font-size: 11pt; padding: 40px; max-width: 800px; margin: 0 auto; }
+        @media print { body { padding: 0; } @page { margin: 2cm; } }
+        .header { margin-bottom: 40px; border-bottom: 2px solid #eaeaea; padding-bottom: 20px; }
+        h1 { font-size: 22pt; font-weight: 600; margin-bottom: 5px; color: #000; }
+        .contact-info { color: #555; font-size: 10pt; display: flex; gap: 15px; flex-wrap: wrap; }
+        .contact-info a { color: #555; text-decoration: none; border-bottom: 1px solid transparent; }
+        .contact-info a:hover { color: #c4261d; border-bottom: 1px solid #c4261d; }
+        .date { margin-bottom: 20px; font-weight: 500; }
+        .salutation { margin-bottom: 20px; }
+        .paragraph { margin-bottom: 15px; }
+        .signature { margin-top: 40px; }
+        .highlight { font-weight: 600; color: #c4261d; } /* Picnic Red */
+        .proof-links { font-size: 10pt; line-height: 1.5; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Collins Krubu</h1>
+        <div class="contact-info">
+            <span>collinskrubu723@gmail.com</span> | 
+            <a href="https://github.com/collinpowell">github.com/collinpowell</a> | 
+            <a href="https://www.linkedin.com/in/collins-krubu-a0a90a216">linkedin.com/in/collins-krubu</a> | 
+            <a href="https://collins-olive.vercel.app/">collins-olive.vercel.app</a> | 
+            <span>Port Harcourt, Nigeria</span>
+        </div>
+    </div>
+    <div class="date" id="current-date">July 18, 2026</div>
+    <div class="salutation">Dear Picnic Technologies,</div>
+    <div class="paragraph">
+        I am writing to apply for the Software Engineer position. When I read that Picnic recently raised €430M to scale its automated fulfillment centers and is looking for product-minded engineers to solve complex supply chain problems, I knew I had to apply. I have spent the last 5 years doing exactly that: building logistics, delivery, and IoT platforms from the ground up.
+    </div>
+    <div class="paragraph">
+        As the lead software engineer for <span class="highlight">Lupply</span>, I architected and shipped a comprehensive SaaS platform that includes a dedicated food delivery routing application and a scalable B2B logistics system. I owned this product entirely from concept to delivery—designing the MongoDB schemas, building the native apps, and deploying the backend microservices (in Go) via Docker and AWS. I understand firsthand the complexities of routing optimization, inbound/outbound product execution, and managing massive, asynchronous event loads.
+    </div>
+    <div class="paragraph">
+        Furthermore, my work at <span class="highlight">NodeX iHub</span> involved deploying real-world IoT hardware (smart traffic light systems) and handling real-time data ingestion. I wrote the firmware in C/C++ and built the pipelines that bridged the gap between physical logistics hardware and backend software. This experience translates directly to Picnic’s electric vehicle and automated warehouse supply chains.
+    </div>
+    <div class="paragraph">
+        I am a true polyglot systems engineer. While my recent backend architectures have utilized Go, C, and TypeScript, <span class="highlight">Java was my first language.</span> I am deeply rooted in core software engineering principles, compiled languages, distributed systems, and message brokers (RabbitMQ). I am highly comfortable with React, PostgreSQL, Docker, and AWS—core pillars of your tech stack. As an engineer with a true product mindset, I thrive on picking up paradigms quickly and am more than ready to dive into Java 21 and Spring Boot 3 to optimize Picnic's logistics domain.
+    </div>
+    <div class="paragraph">
+        I am highly motivated by your mission to create a sustainable food supply chain. Given my experience running my own remote infrastructure, I am highly open to starting immediately as a remote B2B contractor to ensure I can make an impact from day one. I am also fully prepared to relocate to the Netherlands (I qualify for the Highly Skilled Migrant visa) once the necessary paperwork is processed.
+    </div>
+    <div class="paragraph">
+        I would welcome the opportunity to discuss how my hands-on experience building delivery and hardware logistics platforms can contribute to Picnic.
+    </div>
+    <div class="paragraph">
+        I have included links to my portfolio and live applications below. Thank you for your time and consideration.
+    </div>
+    <div class="signature">
+        Best regards,<br><br>
+        <strong>Collins Krubu</strong>
+        <div class="proof-links">
+            <br><strong>Live Apps & Portfolio:</strong><br>
+            • <a href="https://lupply.com">Lupply Web</a><br>
+            • <a href="https://play.google.com/store/apps/details?id=com.cpx.lupply">Lupply App on Google Play</a><br>
+            • <a href="https://play.google.com/store/apps/details?id=com.lupply.lupply_food">Lupply Food on Google Play</a><br>
+            • <a href="https://apps.microsoft.com/store/search?q=Lupply">Lupply on Microsoft Store (CPX Limited)</a><br>
+            • <a href="https://collins-olive.vercel.app/">Portfolio: collins-olive.vercel.app</a>
+        </div>
+    </div>
+    <script>
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', dateOptions);
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Picnic Technologies - Target Emails
+
+Based on the standard Picnic email format (firstname.lastname@teampicnic.com), here are the scraped emails from leadership and the recruiters visible on your LinkedIn search:
+
+## Leadership / Founders (Primary Targets)
+- Daniel Gebler (CTO): daniel.gebler@teampicnic.com
+- Joris Beckers (CEO): joris.beckers@teampicnic.com
+- Michiel Muller (Co-Founder): michiel.muller@teampicnic.com
+- Frederik Nieuwenhuys (Co-Founder): frederik.nieuwenhuys@teampicnic.com
+
+## Tech Recruiters / Talent Acquisition
+- Carolina Gonzalez (Tech Recruiter): carolina.gonzalez@teampicnic.com
+- Frankie Prina (Tech Recruiter): frankie.prina@teampicnic.com
+- Nadja Feykes (Talent Acquisition Specialist): nadja.feykes@teampicnic.com

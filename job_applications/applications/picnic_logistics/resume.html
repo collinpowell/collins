@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collins Krubu - Software Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; background: #ffffff; font-size: 10pt; padding: 40px; max-width: 800px; margin: 0 auto; }
+        @media print { body { padding: 0; font-size: 9.5pt; } @page { size: A4; margin: 1.5cm; } a { text-decoration: none; color: #c4261d; } .proof-links { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+        h1 { font-size: 24pt; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 5px; color: #000; }
+        .subtitle { font-size: 12pt; font-weight: 500; color: #c4261d; margin-bottom: 15px; } /* Picnic Red */
+        .contact-info { display: flex; gap: 15px; font-size: 9pt; color: #555; margin-bottom: 25px; flex-wrap: wrap; }
+        .contact-info a { color: #555; text-decoration: none; border-bottom: 1px solid transparent; }
+        .contact-info a:hover { color: #c4261d; border-bottom: 1px solid #c4261d; }
+        .section { margin-bottom: 22px; }
+        .section-title { font-size: 11pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #eaeaea; padding-bottom: 5px; margin-bottom: 14px; color: #333; }
+        .experience-item { margin-bottom: 18px; }
+        .experience-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+        .job-title { font-weight: 600; font-size: 11pt; color: #000; }
+        .company { font-weight: 500; color: #c4261d; }
+        .date { font-size: 9pt; color: #666; font-weight: 500; }
+        ul { padding-left: 18px; margin-bottom: 8px; }
+        li { margin-bottom: 4px; }
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .skill-category { margin-bottom: 8px; }
+        .skill-name { font-weight: 600; color: #333; }
+        .profile-text { margin-bottom: 15px; }
+        .proof-links { background: #fdf2f2; padding: 6px 12px; border-left: 3px solid #c4261d; margin-top: 6px; font-size: 8.5pt; }
+        .proof-links a { color: #c4261d; font-weight: 600; text-decoration: none; margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <h1>Collins Krubu</h1>
+    <div class="subtitle">Software Engineer</div>
+    <div class="contact-info">
+        <span>collinskrubu723@gmail.com</span> |
+        <span>+234 8107111396</span> |
+        <a href="https://github.com/collinpowell">github.com/collinpowell</a> |
+        <a href="https://www.linkedin.com/in/collins-krubu-a0a90a216">linkedin.com/in/collins-krubu</a> |
+        <a href="https://collins-olive.vercel.app/">collins-olive.vercel.app</a> |
+        <a href="https://lupply.com">lupply.com</a>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Profile</div>
+        <div class="profile-text">
+            Polyglot Software Engineer with 5+ years of experience architecting end-to-end logistics platforms, automated inventory systems, and IoT hardware integrations. Deeply rooted in compiled systems languages (Java, C, Rust, Go) and highly proficient in modern web ecosystems. Proven track record of bridging the gap between high-performance backend infrastructure and physical hardware, with multiple live applications deployed across Google Play and Microsoft Store.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-grid">
+            <div class="skill-category"><span class="skill-name">Languages:</span> Java, C/C++, Rust, Go (Golang), JavaScript/TypeScript.</div>
+            <div class="skill-category"><span class="skill-name">Backend & Infra:</span> Spring Boot, Node.js, Docker, AWS (EC2, S3), RabbitMQ.</div>
+            <div class="skill-category"><span class="skill-name">Databases:</span> PostgreSQL, MongoDB, Redis.</div>
+            <div class="skill-category"><span class="skill-name">Frontend & Mobile:</span> React, Next.js, React Native, Redux.</div>
+            <div class="skill-category" style="grid-column: span 2;"><span class="skill-name">Hardware / IoT:</span> Embedded C, ESP32, FreeRTOS, Sensor Integration, Traffic Systems.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Professional Experience</div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="job-title">Lead Software Engineer <span class="company">| CPX Limited (Lupply)</span></div>
+                <div class="date">Jan 2021 – Present</div>
+            </div>
+            <ul>
+                <li>Architected and deployed <strong>Lupply</strong>, a comprehensive B2B SaaS logistics platform managing food delivery routing and scalable vendor inventory.</li>
+                <li>Built highly concurrent backend infrastructure in Go (Golang) and Node.js, managing complex driver routing state and real-time inventory updates.</li>
+                <li>Designed scalable NoSQL database schemas using MongoDB to handle thousands of asynchronous delivery events.</li>
+                <li>Successfully published and maintained native applications across the Google Play Store (Lupply App, Lupply Food) and the Microsoft Store.</li>
+                <li>Managed all infrastructure orchestration utilizing Docker containerization and AWS deployments.</li>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Deployments:</strong><br>
+                <a href="https://lupply.com" target="_blank">Lupply Web</a>
+                <a href="https://play.google.com/store/apps/details?id=com.cpx.lupply" target="_blank">Google Play (App)</a>
+                <a href="https://play.google.com/store/apps/details?id=com.lupply.lupply_food" target="_blank">Google Play (Food)</a>
+                <a href="https://apps.microsoft.com/store/search?q=Lupply" target="_blank">Microsoft Store</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="job-title">Software Engineer (IoT & Logistics Infrastructure) <span class="company">| NodeX iHub</span></div>
+                <div class="date">Jan 2020 – Jan 2024</div>
+            </div>
+            <ul>
+                <li>Developed and deployed real-world IoT hardware infrastructure, including a sensor-driven agricultural system and physical smart traffic lights.</li>
+                <li>Wrote low-level firmware in C/C++ (FreeRTOS) to interface with physical logistics hardware.</li>
+                <li>Built the backend data ingestion pipelines capable of receiving and processing real-time telemetry from distributed hardware nodes.</li>
+                <li>Bridged the gap between physical machine execution and web dashboards, providing clients with real-time operational oversight.</li>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Project:</strong><br>
+                <a href="https://node-x-frontend.vercel.app/" target="_blank">node-x-frontend.vercel.app</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="job-title">Backend & Performance Engineer <span class="company">| Lunar Finance</span></div>
+                <div class="date">2025 – 2026</div>
+            </div>
+            <ul>
+                <li>Built backend routing services for a high-traffic web application (multi-chain DEX aggregator) processing $1M+ daily volume with 350k+ active users.</li>
+                <li>Optimized PostgreSQL database queries and built high-throughput RPC indexers in Rust, cutting cross-chain transaction latency by 40%. Direct experience with performance-critical, high-traffic distributed platforms.</li>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Project:</strong><br>
+                <a href="https://lunarfinance.io" target="_blank">lunarfinance.io</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="job-title">Full Stack Developer <span class="company">| Shuri Education & The Offshore Lab</span></div>
+                <div class="date">2021 – 2023</div>
+            </div>
+            <ul>
+                <li>Delivered scalable enterprise web platforms and core software infrastructures for multiple B2B clients.</li>
+                <li>Led full-stack development lifecycles using React, Next.js, and Node.js, ensuring high performance and responsive user experiences.</li>
+            </ul>
+            <div class="proof-links">
+                <strong>Live Projects:</strong><br>
+                <a href="https://www.shurieducation.com" target="_blank">shurieducation.com</a>
+                <a href="https://www.theoffshorelab.com" target="_blank">theoffshorelab.com</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        <ul>
+            <li><strong>Certificate in Embedded Systems</strong> (2019)</li>
+            <li><strong>Self-Taught Engineering / Entrepreneurship</strong> (Focused on Systems Engineering, IoT, and Full-Stack Architecture)</li>
+            <li><strong>O-Level / SSCE Certification</strong></li>
+        </ul>
+    </div>
+</body>
+</html>
