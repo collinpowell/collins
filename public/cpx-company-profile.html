@@ -26,11 +26,12 @@
 
     /* ── Header ── */
     .header {
-      background: #111827;
-      color: #ffffff;
+      background: #f9fafb;
+      color: #111827;
       padding: 48px 56px;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid #e5e5e5;
     }
 
     .header::after {
@@ -40,7 +41,7 @@
       right: 0;
       width: 200px;
       height: 100%;
-      background: linear-gradient(135deg, transparent 40%, rgba(37, 99, 235, 0.15));
+      background: linear-gradient(135deg, transparent 40%, rgba(37, 99, 235, 0.05));
     }
 
     .header-top {
@@ -60,7 +61,7 @@
     .logo-sub {
       font-size: 12px;
       font-weight: 500;
-      color: rgba(255,255,255,0.5);
+      color: #737373;
       letter-spacing: 1px;
       text-transform: uppercase;
       margin-top: 2px;
@@ -69,16 +70,17 @@
     .rc-badge {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
-      color: rgba(255,255,255,0.4);
+      color: #737373;
       padding: 4px 10px;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid #e5e5e5;
       border-radius: 4px;
+      background: #ffffff;
     }
 
     .tagline {
       font-size: 20px;
       font-weight: 400;
-      color: rgba(255,255,255,0.75);
+      color: #404040;
       margin-top: 20px;
       position: relative;
       z-index: 1;
@@ -94,11 +96,11 @@
 
     .header-bar-item {
       font-size: 12px;
-      color: rgba(255,255,255,0.45);
+      color: #737373;
     }
 
     .header-bar-item strong {
-      color: rgba(255,255,255,0.8);
+      color: #111827;
       font-weight: 600;
     }
 
@@ -360,7 +362,7 @@
   <div class="header">
     <div class="header-top">
       <div style="display:flex;align-items:center;gap:16px;">
-        <img src="/cpx.png" alt="CPX Limited" style="height:52px;width:auto;border-radius:8px;" />
+        <img src="../public/cpx.png" alt="CPX Limited" style="height:52px;width:auto;border-radius:8px;" />
         <div>
           <div class="logo-text">CPX Limited</div>
           <div class="logo-sub">Collin Powell Xpress Limited</div>
