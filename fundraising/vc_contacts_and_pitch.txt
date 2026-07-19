@@ -1,0 +1,57 @@
+VC Outreach Strategy & Contact Details
+
+This document contains the verified contact information and pitch templates for the top Nigerian/African VC funds that specifically invest in B2B SaaS, Logistics, and Infrastructure.
+
+1. Voltron Capital
+* Focus: Pre-seed / Seed (Fintech, SaaS, Logistics, Enterprise).
+* How to pitch: They accept cold emails.
+* Primary Email: hello@voltron.africa
+* Founders Email: founders@voltronvc.com
+* Website: https://voltron.africa
+
+2. Future Africa
+* Focus: Early-stage infrastructure, SaaS, and logistics (e.g., Moove, Sabi).
+* How to pitch: They strongly prefer you apply through their website portal, but you can also send introductory emails.
+* General Email: hello@future.africa
+* Application Portal: https://www.future.africa
+* Strategy: Submit via the portal first, then send a short follow-up email to hello@future.africa mentioning you've applied via the portal and attaching your deck.
+
+3. Microtraction
+* Focus: Pre-seed technical founders building high-growth tech in billion-dollar markets.
+* How to pitch: They explicitly want direct applications through their portal. No warm intro needed.
+* General Email: team@microtraction.com (for press/inquiries, not pitches)
+* Application Portal: https://microtraction.com (Click "Apply for funding")
+* Strategy: Apply directly on their site. They are known for moving fast with technical founders who have real traction.
+
+--------------------------------------------------------------------------------
+
+Cold Email Template (For Voltron Capital / General Outreach)
+
+Subject: Lupply: Bootstrapped to ₦367M GMV in the Niger Delta 
+
+Hi [Investor Name / Team],
+
+I’m Collins, founder of Lupply (CPX Limited) — an all-in-one business operating system and logistics network built for SMEs in the Niger Delta. We are officially registered and hold the Nigeria Startup Act Label.
+
+While most platforms fight over Lagos, we focused on underserved Tier-2 cities (Warri, Asaba, Benin). Since launching our core POS, e-commerce, and food delivery modules in January 2025, we have:
+- Onboarded 123 active businesses 
+- Processed 42,000+ orders
+- Facilitated ₦367M+ in GMV
+- Done this completely bootstrapped with a team of 3.
+
+We are currently raising a pre-seed round to scale merchant acquisition across the South-South region and expand our rider network. 
+
+I’ve attached our pitch deck and company profile. Are you open to a 15-minute intro call next week?
+
+Best,
+Collins Krubu
+Founder, Lupply
+[Link to your Pitch Deck]
+[Link to your Company Profile]
+
+--------------------------------------------------------------------------------
+
+What You Need Before You Hit Send:
+1. Pitch Deck Link: https://lupply.com/lupply-pitch-deck.html (or your Vercel domain). Better yet, attach the PDF version.
+2. Company Profile Link: https://lupply.com/cpx-company-profile.html
+3. Your LinkedIn: Ensure your LinkedIn is up to date and linked in your email signature.
