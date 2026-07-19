@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPX Limited — Company Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
+      line-height: 1.6;
+      background: #f5f5f0;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: #111827;
+      color: #ffffff;
+      padding: 48px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(37, 99, 235, 0.15));
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-sub {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .rc-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+    }
+
+    .tagline {
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-bar {
+      display: flex;
+      gap: 24px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-bar-item {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .header-bar-item strong {
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+    }
+
+    /* ── Content ── */
+    .content {
+      padding: 40px 56px 48px;
+    }
+
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #2563eb;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #111827;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    p {
+      color: #404040;
+      line-height: 1.7;
+    }
+
+    .small { font-size: 13px; }
+    .muted { color: #737373; }
+    .bold { font-weight: 600; }
+
+    /* ── Info Grid ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .info-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      gap: 8px;
+    }
+
+    .info-item:nth-child(odd) {
+      padding-right: 20px;
+      border-right: 1px solid #f0f0f0;
+    }
+
+    .info-item:nth-child(even) {
+      padding-left: 20px;
+    }
+
+    .info-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #a3a3a3;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      min-width: 90px;
+    }
+
+    .info-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    /* ── Product Cards ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .product-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .product-card .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .tag-blue { background: #dbeafe; color: #1e40af; }
+    .tag-green { background: #dcfce7; color: #16a34a; }
+    .tag-orange { background: #fef3c7; color: #b45309; }
+    .tag-purple { background: #ede9fe; color: #6d28d9; }
+    .tag-pink { background: #fce7f3; color: #be185d; }
+
+    .product-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .product-card p {
+      font-size: 13px;
+      color: #737373;
+      line-height: 1.5;
+    }
+
+    /* ── Metrics Row ── */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .metric-box {
+      text-align: center;
+      padding: 16px 12px;
+      background: #f9fafb;
+      border-radius: 8px;
+      border: 1px solid #f0f0f0;
+    }
+
+    .metric-box .val {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1;
+    }
+
+    .metric-box .lbl {
+      font-size: 11px;
+      color: #737373;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Team ── */
+    .team-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .team-row:last-child { border-bottom: none; }
+
+    .team-avatar {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 10px;
+      background: #111827;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .team-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .team-role {
+      font-size: 13px;
+      color: #737373;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 24px 56px;
+      background: #f9fafb;
+      border-top: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-item {
+      font-size: 13px;
+      color: #737373;
+    }
+
+    .footer-item strong {
+      color: #404040;
+    }
+
+    /* ── Contact Bar ── */
+    .contact-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .contact-box {
+      padding: 14px 16px;
+      background: #f9fafb;
+      border-radius: 8px;
+      border: 1px solid #f0f0f0;
+    }
+
+    .contact-box .label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #a3a3a3;
+      margin-bottom: 2px;
+    }
+
+    .contact-box .value {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media (max-width: 640px) {
+      .header, .content { padding-left: 24px; padding-right: 24px; }
+      .footer { padding-left: 24px; padding-right: 24px; }
+      .info-grid, .product-grid { grid-template-columns: 1fr; }
+      .info-item:nth-child(odd) { padding-right: 0; border-right: none; }
+      .info-item:nth-child(even) { padding-left: 0; }
+      .metrics-row { grid-template-columns: 1fr 1fr; }
+      .contact-bar { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="logo-text">CPX Limited</div>
+        <div class="logo-sub">Collin Powell Xpress Limited</div>
+      </div>
+      <div class="rc-badge">RC 7714274</div>
+    </div>
+    <div class="tagline">Building tomorrow's solutions today.</div>
+    <div class="header-bar">
+      <div class="header-bar-item"><strong>Founded:</strong> 2024</div>
+      <div class="header-bar-item"><strong>Location:</strong> Warri, Delta State</div>
+      <div class="header-bar-item"><strong>Industry:</strong> Technology / SaaS</div>
+      <div class="header-bar-item"><strong>Team:</strong> 3</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── ABOUT ── -->
+    <div class="section">
+      <div class="section-title">About Us</div>
+      <p>
+        CPX Limited (Collin Powell Xpress Limited) is a technology company headquartered in Warri, Delta State, Nigeria. We design, build, and deploy software solutions that help businesses operate more efficiently in underserved markets.
+      </p>
+      <p style="margin-top:12px;">
+        Our flagship product, <strong>Lupply</strong>, is a multi-platform business operating system that provides SMEs with integrated tools for business management, point-of-sale, e-commerce, food delivery, gas delivery, hotel management, and last-mile logistics — all accessible from a single mobile app and web platform. We serve businesses across the Niger Delta region, with our apps live on both Google Play Store and Apple App Store.
+      </p>
+    </div>
+
+    <!-- ── MISSION / VISION ── -->
+    <div class="section">
+      <div class="section-title">Mission & Vision</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div>
+          <h3>Our Mission</h3>
+          <p class="small">To provide affordable, integrated digital infrastructure that empowers small and medium-sized businesses in the Niger Delta and beyond to operate, sell, and deliver with confidence.</p>
+        </div>
+        <div>
+          <h3>Our Vision</h3>
+          <p class="small">To become the default business operating system for every SME in Nigeria's underserved regions — replacing fragmented manual processes with one powerful, easy-to-use platform.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COMPANY INFO ── -->
+    <div class="section">
+      <div class="section-title">Company Information</div>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Legal Name</span>
+          <span class="info-value">Collin Powell Xpress Limited</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Trading As</span>
+          <span class="info-value">CPX Limited / Lupply</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">RC Number</span>
+          <span class="info-value">7714274</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Incorporated</span>
+          <span class="info-value">July 2024</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">State</span>
+          <span class="info-value">Delta State</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Address</span>
+          <span class="info-value">Ugbomor, Uvwie LGA, Warri</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Company Size</span>
+          <span class="info-value">3 (Small)</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Industry</span>
+          <span class="info-value">Technology / SaaS / Logistics</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TRACTION ── -->
+    <div class="section">
+      <div class="section-title">Key Metrics</div>
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="val">123</div>
+          <div class="lbl">Businesses</div>
+        </div>
+        <div class="metric-box">
+          <div class="val">157</div>
+          <div class="lbl">Users</div>
+        </div>
+        <div class="metric-box">
+          <div class="val">601</div>
+          <div class="lbl">Products</div>
+        </div>
+        <div class="metric-box">
+          <div class="val">3</div>
+          <div class="lbl">Marketplaces</div>
+        </div>
+      </div>
+      <p class="small muted" style="text-align:center;">All achieved with zero external funding since product launch in January 2025.</p>
+    </div>
+
+    <!-- ── PRODUCTS ── -->
+    <div class="section">
+      <div class="section-title">Products & Services</div>
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="tag tag-blue">Core Platform</span>
+          <h4>Lupply Business Management</h4>
+          <p>POS, inventory tracking, sales analytics, expense management, invoicing, and customer records. The digital backbone for any SME.</p>
+        </div>
+        <div class="product-card">
+          <span class="tag tag-purple">Commerce</span>
+          <h4>Lupply Store</h4>
+          <p>Instant online storefront for businesses to list products and accept orders. No website or developer required.</p>
+        </div>
+        <div class="product-card">
+          <span class="tag tag-orange">Food Delivery</span>
+          <h4>Lupply Food</h4>
+          <p>Food ordering marketplace with integrated rider delivery. Restaurants list menus, customers order, riders deliver.</p>
+        </div>
+        <div class="product-card">
+          <span class="tag tag-green">Essentials</span>
+          <h4>Lupply Gas</h4>
+          <p>On-demand cooking gas delivery from verified local vendors. Order from your phone, delivered to your door.</p>
+        </div>
+        <div class="product-card">
+          <span class="tag tag-pink">Hospitality</span>
+          <h4>Hotel Management Suite</h4>
+          <p>Room bookings, bar sales, equipment tracking, maintenance logs. Currently deployed at Raymilton Hotel, Warri.</p>
+        </div>
+        <div class="product-card">
+          <span class="tag tag-blue">Logistics</span>
+          <h4>Rider & Delivery Network</h4>
+          <p>Built-in rider management, real-time dispatch, route assignment, and delivery tracking across all verticals.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TEAM ── -->
+    <div class="section">
+      <div class="section-title">Leadership</div>
+      <div class="team-row">
+        <div class="team-avatar">CK</div>
+        <div>
+          <div class="team-name">Collins Osemidiame Krubu</div>
+          <div class="team-role">Founder & Lead Engineer — 6+ years full-stack experience across embedded systems, mobile, web, and Web3. Previously co-founded NodeX iHub. Solely architected and maintains the entire Lupply ecosystem.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTACT ── -->
+    <div class="section" style="margin-bottom:0;">
+      <div class="section-title">Contact</div>
+      <div class="contact-bar">
+        <div class="contact-box">
+          <div class="label">Phone</div>
+          <div class="value">+234 810 711 1396</div>
+        </div>
+        <div class="contact-box">
+          <div class="label">Email</div>
+          <div class="value">collinpowellxyz@gmail.com</div>
+        </div>
+        <div class="contact-box">
+          <div class="label">Website</div>
+          <div class="value">www.lupply.com</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <div class="footer-item"><strong>CPX Limited</strong> — Collin Powell Xpress Limited</div>
+    <div class="footer-item">RC 7714274 · Warri, Delta State, Nigeria</div>
+  </div>
+
+</div>
+
+</body>
+</html>
