@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lupply — Pitch Deck</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --bg-alt: #f5f5f0;
+      --surface: #ffffff;
+      --ink: #1a1a1a;
+      --ink-2: #404040;
+      --ink-3: #737373;
+      --ink-4: #a3a3a3;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --accent-dark: #1e40af;
+      --green: #16a34a;
+      --green-soft: #dcfce7;
+      --red: #dc2626;
+      --red-soft: #fee2e2;
+      --border: #e5e5e5;
+      --border-light: #f0f0f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .mono { font-family: 'DM Mono', monospace; }
+
+    .slide {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 80px;
+      position: relative;
+      page-break-after: always;
+    }
+
+    .slide-inner {
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Footer */
+    .slide-footer {
+      position: absolute;
+      bottom: 28px;
+      left: 80px;
+      right: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--ink-4);
+      letter-spacing: 0.5px;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--ink);
+    }
+
+    h2 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .overline {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .lead {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--ink-2);
+      max-width: 640px;
+    }
+
+    .muted { color: var(--ink-3); }
+    .small { font-size: 14px; }
+    .xs { font-size: 12px; }
+    .bold { font-weight: 600; }
+    .accent { color: var(--accent); }
+
+    /* Layout */
+    .cols {
+      display: grid;
+      gap: 32px;
+    }
+    .cols-2 { grid-template-columns: 1fr 1fr; }
+    .cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .cols-60-40 { grid-template-columns: 3fr 2fr; }
+    .cols-40-60 { grid-template-columns: 2fr 3fr; }
+
+    .mt-8 { margin-top: 8px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .mt-32 { margin-top: 32px; }
+    .mt-40 { margin-top: 40px; }
+    .mt-48 { margin-top: 48px; }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .card-flat {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .card-flat:last-child { border-bottom: none; }
+
+    /* Metric */
+    .metric-val {
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -1px;
+      color: var(--ink);
+    }
+
+    .metric-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-3);
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--bg-alt);
+      color: var(--ink-2);
+      border: 1px solid var(--border);
+    }
+
+    .tag-blue {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border-color: transparent;
+    }
+
+    .tag-green {
+      background: var(--green-soft);
+      color: var(--green);
+      border-color: transparent;
+    }
+
+    /* Divider */
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 20px 0;
+    }
+
+    /* Table */
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .comp-table th {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--ink-3);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .comp-table th.highlight {
+      color: var(--accent);
+    }
+
+    .comp-table td {
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--ink-2);
+    }
+
+    .comp-table tr:last-child td { border-bottom: none; }
+
+    .check { color: var(--green); font-weight: 700; }
+    .cross { color: var(--ink-4); }
+
+    /* Bar chart */
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .bar-label {
+      width: 200px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-2);
+      flex-shrink: 0;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 28px;
+      background: var(--bg-alt);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .bar-amount {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-3);
+      width: 80px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Callout */
+    .callout {
+      padding: 16px 20px;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      font-size: 15px;
+      color: var(--ink-2);
+    }
+
+    /* Contact row */
+    .contact-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      font-size: 15px;
+      color: var(--ink-2);
+    }
+
+    .contact-item span {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--ink-4);
+      margin-bottom: 2px;
+    }
+
+    /* Print */
+    @media print {
+      .slide { height: 100vh; page-break-after: always; page-break-inside: avoid; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media (max-width: 768px) {
+      .slide { padding: 32px 20px; }
+      h1 { font-size: 36px; }
+      h2 { font-size: 28px; }
+      .cols-2, .cols-3, .cols-60-40, .cols-40-60 { grid-template-columns: 1fr; }
+      .slide-footer { left: 20px; right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── SLIDE 1: COVER ─── -->
+<div class="slide" style="justify-content:flex-end;padding-bottom:120px;">
+  <div class="slide-inner">
+    <span class="overline">Niger Delta Digital Summit 2026</span>
+    <h1 style="margin-bottom:24px;">
+      Lupply
+    </h1>
+    <div class="divider"></div>
+    <p class="lead" style="margin-bottom:32px;">
+      The business operating system for Niger Delta SMEs. Inventory, POS, online store, food delivery, gas delivery, hotel management, and logistics — in one app.
+    </p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span class="tag">Mobile App — iOS & Android</span>
+      <span class="tag">Web Platform</span>
+      <span class="tag">3 Marketplaces</span>
+      <span class="tag">Live on Play Store & App Store</span>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>01 / 10</span>
+  </div>
+</div>
+
+
+<!-- ─── SLIDE 2: THE PROBLEM ─── -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="overline">The Problem</span>
+    <h2>Running a business in the Niger Delta<br>shouldn't require 5 different apps</h2>
+    <p class="lead mt-16">
+      Most SMEs here still manage everything by hand. Paper receipts. WhatsApp orders. Phone-call dispatch. No inventory system. No analytics. No visibility.
+    </p>
+
+    <div class="cols cols-60-40 mt-40">
+      <div>
+        <div class="card-flat">
+          <h3>Fragmented tools, fragmented revenue</h3>
+          <p class="small muted">Separate systems for POS, inventory, ordering, and delivery means data doesn't talk. Business owners fly blind.</p>
+        </div>
+        <div class="card-flat">
+          <h3>No local delivery infrastructure</h3>
+          <p class="small muted">There's no reliable last-mile delivery platform built for cities like Warri, Asaba, or Sapele. Businesses either self-deliver or don't deliver at all.</p>
+        </div>
+        <div class="card-flat">
+          <h3>Existing solutions are Lagos-first</h3>
+          <p class="small muted">Platforms like Bumpa and Sabi are built for Lagos and charge premiums that don't match Niger Delta budgets. None of them do food delivery or logistics.</p>
+        </div>
+        <div class="card-flat">
+          <h3>Hospitality has no tools</h3>
+          <p class="small muted">Hotels and restaurants in this region have zero access to affordable management software — most still use physical logbooks.</p>
+        </div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
+        <div class="metric-val" style="color:var(--red);">80%</div>
+        <p class="small muted mt-8">of Nigerian SMEs fail within 5 years, primarily due to poor operational management.</p>
+        <p class="xs muted mt-16">Source: SMEDAN National Survey</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>02 / 10</span>
+  </div>
+</div>
+
+
+<!-- ─── SLIDE 3: THE SOLUTION ─── -->
+<div class="slide" style="background:var(--surface);">
+  <div class="slide-inner">
+    <span class="overline">What We Built</span>
+    <h2>One app that replaces five</h2>
+    <p class="lead mt-8">
+      Lupply gives any business — from a local restaurant to a hotel — a complete digital backend from day one. No technical knowledge needed.
+    </p>
+
+    <div class="cols cols-3 mt-40">
+      <div class="card">
+        <span class="tag-blue tag" style="margin-bottom:12px;">Core</span>
+        <h3>Business Management & POS</h3>
+        <p class="small muted">Point-of-sale, inventory, expenses, invoicing, customer records, sales analytics. The backbone of every Lupply business.</p>
+      </div>
+      <div class="card">
+        <span class="tag-blue tag" style="margin-bottom:12px;">Commerce</span>
+        <h3>Lupply Store</h3>
+        <p class="small muted">Instant online storefront. List products, accept orders, manage fulfillment — no website or developer needed.</p>
+      </div>
+      <div class="card">
+        <span class="tag-blue tag" style="margin-bottom:12px;">Food</span>
+        <h3>Lupply Food</h3>
+        <p class="small muted">Food ordering marketplace with integrated delivery. Restaurants list menus, customers order, riders deliver.</p>
+      </div>
+      <div class="card">
+        <span class="tag-green tag" style="margin-bottom:12px;">Essentials</span>
+        <h3>Lupply Gas</h3>
+        <p class="small muted">On-demand cooking gas delivery from verified local vendors. Order from your phone, get it delivered to your door.</p>
+      </div>
+      <div class="card">
+        <span class="tag-green tag" style="margin-bottom:12px;">Hospitality</span>
+        <h3>Hotel Management</h3>
+        <p class="small muted">Room bookings, bar sales, equipment tracking, maintenance logs, expense management. Already deployed at Raymilton Hotel.</p>
+      </div>
+      <div class="card">
+        <span class="tag-green tag" style="margin-bottom:12px;">Logistics</span>
+        <h3>Rider Network</h3>
+        <p class="small muted">Built-in rider management with real-time dispatch, route assignment, and delivery tracking across all marketplace verticals.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>03 / 10</span>
+  </div>
+</div>
+
+
+<!-- ─── SLIDE 4: TRACTION ─── -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="overline">Traction</span>
+    <h2>We're not pitching an idea.<br>We're pitching a running business.</h2>
+    <p class="lead mt-8">
+      Everything below is from our production database — real merchants, real orders, real money moved. All achieved with zero external funding.
+    </p>
+
+    <div class="cols cols-3 mt-40">
+      <div class="card" style="text-align:center;">
+        <div class="metric-val">&#8358;367M+</div>
+        <div class="metric-label">Gross Merchandise Value</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="metric-val">42,556</div>
+        <div class="metric-label">Orders Processed</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="metric-val">123</div>
+        <div class="metric-label">Businesses Registered</div>
+      </div>
+    </div>
+
+    <div class="cols cols-3 mt-16">
+      <div class="card" style="text-align:center;">
+        <div class="metric-val" style="font-size:36px;">601</div>
+        <div class="metric-label">Products Listed</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="metric-val" style="font-size:36px;">157</div>
+        <div class="metric-label">Platform Users</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="metric-val" style="font-size:36px;">99.8%</div>
+        <div class="metric-label">Delivery Success Rate</div>
+        <p class="xs muted mt-8">42,473 of 42,556 orders delivered</p>
+      </div>
+    </div>
+
+    <div class="callout mt-32">
+      Built and maintained by a 3-person team. Bootstrapped. No VC money. No grants. Just shipped product and paying merchants.
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>04 / 10</span>
+  </div>
+</div>
+
+
+<!-- ─── SLIDE 5: BUSINESS MODEL ─── -->
+<div class="slide" style="background:var(--surface);">
+  <div class="slide-inner">
+    <span class="overline">Business Model</span>
+    <h2>How Lupply makes money</h2>
+    <p class="lead mt-8">
+      Diversified revenue across subscriptions, commissions, and delivery fees — all recurring and scaling with merchant activity.
+    </p>
+
+    <div class="cols cols-2 mt-40">
+      <div class="card">
+        <p class="xs muted bold" style="text-transform:uppercase;letter-spacing:1px;">SaaS Subscriptions</p>
+        <div class="divider" style="margin:12px 0;"></div>
+        <p style="font-size:28px;font-weight:700;margin-bottom:4px;">&#8358;1,500<span class="small muted" style="font-weight:400;">/month</span></p>
+        <p class="small muted">Starter plan — POS, inventory, analytics, e-commerce, invoicing, order management. Annual at &#8358;12,000 (33% savings).</p>
+        <p class="small mt-16" style="color:var(--green);">Freemium tier available for onboarding</p>
+      </div>
+      <div class="card">
+        <p class="xs muted bold" style="text-transform:uppercase;letter-spacing:1px;">Marketplace Commissions</p>
+        <div class="divider" style="margin:12px 0;"></div>
+        <p style="font-size:28px;font-weight:700;margin-bottom:4px;">5–10%</p>
+        <p class="small muted">Per-order commission on Lupply Store, Lupply Food, and Lupply Gas transactions. Revenue scales directly with GMV.</p>
+        <p class="small mt-16 muted">Current GMV: &#8358;367M+ and growing</p>
+      </div>
+      <div class="card">
+        <p class="xs muted bold" style="text-transform:uppercase;letter-spacing:1px;">Delivery Fees</p>
+        <div class="divider" style="margin:12px 0;"></div>
+        <p class="small muted">Per-trip delivery charges across all marketplace verticals. Revenue split between platform and riders.</p>
+      </div>
+      <div class="card">
+        <p class="xs muted bold" style="text-transform:uppercase;letter-spacing:1px;">Enterprise / White-Label</p>
+        <div class="divider" style="margin:12px 0;"></div>
+        <p class="small muted">Custom deployments for larger businesses. Hotel management suite currently deployed at Raymilton Hotel with room bookings, bar POS, and equipment tracking.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>05 / 10</span>
+  </div>
+</div>
+
+
+<!-- ─── SLIDE 6: MARKET ─── -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="overline">Market Opportunity</span>
+    <h2>41.5 million businesses.<br>Almost none have proper tools.</h2>
+
+    <div class="cols cols-60-40 mt-40">
+      <div>
+        <div class="card-flat">
+          <div class="metric-val" style="font-size:32px;">&#8358;138T</div>
+          <p class="small muted mt-8">Annual MSME contribution to Nigeria's economy. The Niger Delta's share of this is massively underserved by existing tech platforms.</p>
+        </div>
+        <div class="card-flat">
+          <div class="metric-val" style="font-size:32px;">96.7%</div>
+          <p class="small muted mt-8">of Nigerian businesses are micro-enterprises — small shops, restaurants, market traders — with no digital infrastructure at all.</p>
+        </div>
+        <div class="card-flat">
+          <div class="metric-val" style="font-size:32px;">9 states</div>
+          <p class="small muted mt-8">The Niger Delta region: Abia, Akwa Ibom, Bayelsa, Cross River, Delta, Edo, Imo, Ondo, Rivers. Major trade hubs across all of them.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="height:100%;display:flex;flex-direction:column;justify-content:center;">
+          <h3 style="margin-bottom:16px;">Why start here?</h3>
+          <div style="margin-bottom:14px;">
+            <p class="small bold">We live here</p>
+            <p class="xs muted">Based in Warri, Delta State. We know the merchants, the roads, the market dynamics.</p>
+          </div>
+          <div style="margin-bottom:14px;">
+            <p class="small bold">No real competition</p>
+            <p class="xs muted">Bumpa, Sabi, Chowdeck — all focused on Lagos and Abuja. The Niger Delta is open territory.</p>
+          </div>
+          <div style="margin-bottom:14px;">
+            <p class="small bold">High density of trade</p>
+            <p class="xs muted">Warri, Port Harcourt, Benin, Calabar — some of Nigeria's busiest commercial cities, all underserved.</p>
+          </div>
+          <div>
+            <p class="small bold">Smartphone adoption is rising</p>
+            <p class="xs muted">The region is increasingly mobile-first, ready for a platform like Lupply.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>06 / 10</span>
+  </div>
+</div>
+
+
+<!-- ─── SLIDE 7: COMPETITIVE LANDSCAPE ─── -->
+<div class="slide" style="background:var(--surface);">
+  <div class="slide-inner">
+    <span class="overline">Landscape</span>
+    <h2>Where we sit versus alternatives</h2>
+    <p class="lead mt-8">
+      Nobody else bundles all of this into one platform — especially not at our price point.
+    </p>
+
+    <div class="mt-32" style="border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th style="width:35%;">Capability</th>
+            <th class="highlight" style="text-align:center;">Lupply</th>
+            <th style="text-align:center;">Bumpa</th>
+            <th style="text-align:center;">Sabi</th>
+            <th style="text-align:center;">Manual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Business management + POS</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="cross">No</td>
+          </tr>
+          <tr>
+            <td>Online storefront</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="cross">No</td>
+          </tr>
+          <tr>
+            <td>Food delivery marketplace</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="cross">No</td>
+          </tr>
+          <tr>
+            <td>Gas delivery marketplace</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="cross">No</td>
+          </tr>
+          <tr>
+            <td>Integrated logistics & riders</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="cross">No</td>
+          </tr>
+          <tr>
+            <td>Hotel management suite</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="cross">No</td>
+          </tr>
+          <tr>
+            <td>Niger Delta presence</td>
+            <td style="text-align:center;" class="check">Yes</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;" class="cross">No</td>
+            <td style="text-align:center;color:var(--ink-4);">—</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Entry price</td>
+            <td style="text-align:center;font-weight:600;color:var(--green);">Free</td>
+            <td style="text-align:center;color:var(--ink-3);">&#8358;3,900/mo</td>
+            <td style="text-align:center;color:var(--ink-3);">&#8358;5K+/mo</td>
+            <td style="text-align:center;color:var(--ink-3);">&#8358;0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>07 / 10</span>
+  </div>
+</div>
+
+
+<!-- ─── SLIDE 8: TEAM ─── -->
+<div class="slide">
+  <div class="slide-inner">
+    <span class="overline">Team</span>
+    <h2>Who's behind this</h2>
+
+    <div class="cols cols-40-60 mt-40">
+      <div>
+        <div style="width:100%;aspect-ratio:1;border-radius:16px;background:linear-gradient(135deg, #2563eb, #1e40af);display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:72px;font-weight:800;color:white;letter-spacing:-2px;">CK</span>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:28px;margin-bottom:2px;">Collins Osemidiame Krubu</h3>
+        <p class="accent bold small">Founder & Lead Engineer</p>
+        <div class="divider"></div>
+
+        <p class="small muted" style="line-height:1.7;">
+          6+ years building across the full stack — from writing C++ firmware for ESP32 microcontrollers to deploying SaaS on AWS. Previously co-founded NodeX iHub, where I led B2G contracts for traffic infrastructure, built IoT hardware products, and ran STEM programs for 200+ students.
+        </p>
+
+        <p class="small muted mt-16" style="line-height:1.7;">
+          I solely architected, built, deployed, and maintain the entire Lupply ecosystem — 5 platforms, 3 marketplaces, mobile apps on both app stores, backend infrastructure, and the rider dispatch system.
+        </p>
+
+        <p class="small mt-16" style="line-height:1.7;">
+          <span class="bold">Previous work:</span> <span class="muted">Shuri Education (UK), The Offshore Lab (Lagos/UK), Raymilton Hotel, and 120+ SME clients.</span>
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:20px;">
+          <span class="tag">Next.js</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Flutter</span>
+          <span class="tag">Go</span>
+          <span class="tag">Docker</span>
+          <span class="tag">C/C++</span>
+          <span class="tag">Solana/Rust</span>
+          <span class="tag">MongoDB</span>
+        </div>
+
+        <div class="callout mt-24">
+          <span class="small bold">Current team: 3 people.</span><br>
+          <span class="small muted">Plan to grow to 5 with funding — adding a marketer and BD lead for merchant acquisition.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>08 / 10</span>
+  </div>
+</div>
+
+
+<!-- ─── SLIDE 9: USE OF FUNDS ─── -->
+<div class="slide" style="background:var(--surface);">
+  <div class="slide-inner">
+    <span class="overline">The Ask</span>
+    <h2>How we'll use &#8358;1,000,000</h2>
+    <p class="lead mt-8">
+      Every naira goes toward getting more merchants on the platform and building out our delivery network.
+    </p>
+
+    <div class="mt-40">
+      <div class="bar-row">
+        <div class="bar-label">Merchant acquisition</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:35%;background:#2563eb;">35%</div>
+        </div>
+        <div class="bar-amount">&#8358;350,000</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Logistics expansion</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:25%;background:#1e40af;">25%</div>
+        </div>
+        <div class="bar-amount">&#8358;250,000</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Infrastructure & cloud</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:20%;background:#3b82f6;">20%</div>
+        </div>
+        <div class="bar-amount">&#8358;200,000</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Team & operations</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:20%;background:#60a5fa;">20%</div>
+        </div>
+        <div class="bar-amount">&#8358;200,000</div>
+      </div>
+    </div>
+
+    <div class="cols cols-2 mt-32">
+      <div class="card">
+        <h3>Merchant acquisition — &#8358;350K</h3>
+        <p class="small muted">On-ground onboarding campaigns across Warri, Asaba, Benin, and Port Harcourt. Social media ads, market activations, referral incentives. Target: 500 businesses within 6 months.</p>
+      </div>
+      <div class="card">
+        <h3>Logistics expansion — &#8358;250K</h3>
+        <p class="small muted">Onboard 15+ riders. Deploy rider kits (branded bags, helmets, phone mounts). Establish pickup hubs in key commercial areas to cut delivery times.</p>
+      </div>
+      <div class="card">
+        <h3>Infrastructure — &#8358;200K</h3>
+        <p class="small muted">Server scaling, database optimization, CDN, SMS and push notification infrastructure. We need to handle 10x current order volume without downtime.</p>
+      </div>
+      <div class="card">
+        <h3>Team & ops — &#8358;200K</h3>
+        <p class="small muted">Hire a marketing associate and BD rep. Cover 3 months of workspace, internet, and communication costs during aggressive expansion phase.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>09 / 10</span>
+  </div>
+</div>
+
+
+<!-- ─── SLIDE 10: CLOSE ─── -->
+<div class="slide">
+  <div class="slide-inner" style="text-align:center;max-width:720px;">
+    <span class="overline">Thank You</span>
+    <h2 style="font-size:36px;">
+      &#8358;367M in GMV. 42,000+ orders. 123 businesses.<br>
+      All bootstrapped. All real.
+    </h2>
+    <div class="divider" style="margin:24px auto;"></div>
+    <p class="lead" style="margin:0 auto 40px;text-align:center;">
+      With &#8358;1M in seed funding, we'll 10x our merchant base and become the default operating system for every SME in the Niger Delta.
+    </p>
+
+    <div class="contact-row" style="justify-content:center;">
+      <div class="contact-item">
+        <span>Email</span>
+        collinskrubu723@gmail.com
+      </div>
+      <div class="contact-item">
+        <span>Phone</span>
+        +234 810 711 1396
+      </div>
+      <div class="contact-item">
+        <span>Web</span>
+        lupply.com
+      </div>
+    </div>
+
+    <div style="margin-top:40px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;">
+      <span class="tag">Google Play Store</span>
+      <span class="tag">Apple App Store</span>
+      <span class="tag">lupply.com</span>
+    </div>
+
+    <p class="xs muted mt-32">
+      Collins Osemidiame Krubu · Founder · Warri, Delta State
+    </p>
+  </div>
+  <div class="slide-footer">
+    <span>LUPPLY</span>
+    <span>10 / 10</span>
+  </div>
+</div>
+
+</body>
+</html>
