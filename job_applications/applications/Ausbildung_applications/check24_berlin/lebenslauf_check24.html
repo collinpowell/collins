@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebenslauf - Collins Krubu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #ffffff;
+            font-size: 10pt;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 9.5pt;
+            }
+            @page {
+                size: A4;
+                margin: 1.5cm;
+            }
+            a {
+                text-decoration: none;
+                color: #0047FF;
+            }
+        }
+
+        h1 {
+            font-size: 24pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 12pt;
+            font-weight: 500;
+            color: #0047FF;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 15px;
+            font-size: 9pt;
+            color: #555;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span, .contact-info a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .company-title {
+            font-weight: 700;
+            font-size: 11pt;
+            color: #000;
+        }
+
+        .role-title {
+            font-weight: 600;
+            font-size: 10pt;
+            color: #444;
+        }
+
+        .date-location {
+            font-size: 9pt;
+            color: #666;
+            font-weight: 500;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin-top: 8px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .tech-stack {
+            font-family: monospace;
+            font-size: 8.5pt;
+            color: #0047FF;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Collins Krubu</h1>
+    <div class="subtitle">Bewerber: Ausbildung zum Fachinformatiker für Anwendungsentwicklung</div>
+    
+    <div class="contact-info">
+        <span>📍 Berlin, Deutschland (Umzug geplant) / Port Harcourt, Nigeria</span>
+        <span>📞 +234 810 711 1396</span>
+        <a href="mailto:collinskrubu723@gmail.com">✉️ collinskrubu723@gmail.com</a>
+        <a href="https://github.com/collinpowell">🐙 github.com/collinpowell</a>
+        <a href="https://collins-portfolio.vercel.app/">🌐 Portfolio</a>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Kurzprofil</div>
+        <p>Autodidaktischer und hochmotivierter Softwareentwickler mit starkem Fokus auf Full-Stack- (React, Go, Node.js) und Cross-Platform-App-Entwicklung (Flutter). Ich bringe mehrjährige, praktische Erfahrung in der eigenständigen Entwicklung und dem Deployment von Web- und Mobile-Applikationen mit. Aktuell strebe ich eine Ausbildung an, um meine umfassenden praktischen Kenntnisse mit dem formalen, theoretischen Fundament und deutschen Engineering-Standards zu vereinen.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Praktische Projekt- & Entwicklungserfahrung (Autodidaktisch)</div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Lupply / Collin Powell Xpress</span> - <span class="role-title">Gründer & Lead Developer</span>
+                </div>
+                <div class="date-location">Jan 2021 – Heute</div>
+            </div>
+            <ul>
+                <li>Eigenständige Architektur und Entwicklung einer Multi-Plattform-SaaS-Lösung für B2B-Logistik.</li>
+                <li>Backend-Entwicklung in Go zur Verarbeitung komplexer asynchroner Routing-Prozesse.</li>
+                <li>Entwicklung und Veröffentlichung der mobilen Applikationen für iOS (Apple App Store) und Android (Google Play) mittels Flutter und Fastlane CI/CD.</li>
+                <li>Setup und Management der Infrastruktur über AWS und Docker.</li>
+                <span class="tech-stack">Tech: Go (Golang), React, Node.js, Flutter, MongoDB, AWS, Docker</span>
+            </ul>
+            <div class="proof-links" style="background: #f8faFC; padding: 10px 15px; border-left: 3px solid #0047FF; margin-top: 8px; font-size: 8.5pt;">
+                <strong>Live Projekte (Verifizierter Nachweis):</strong><br>
+                <a href="https://app.lupply.com" target="_blank" style="margin-right: 15px;">Web App</a>
+                <a href="https://play.google.com/store/apps/details?id=com.cpx.lupply" target="_blank" style="margin-right: 15px;">Google Play Store</a>
+                <a href="https://apps.microsoft.com/detail/9nxv0wn9cznn" target="_blank" style="margin-right: 15px;">Microsoft Store</a>
+                <a href="https://food.lupply.com" target="_blank" style="margin-right: 15px;">Lupply Food Web</a>
+                <a href="https://play.google.com/store/apps/details?id=com.lupply.lupply_food" target="_blank" style="margin-right: 15px;">Lupply Food Android</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Lunar Finance</span> - <span class="role-title">Backend & Performance Developer (Freelance)</span>
+                </div>
+                <div class="date-location">2025 – 2026</div>
+            </div>
+            <ul>
+                <li>Entwicklung hochperformanter Backend-Routing-Services für eine Web3-Applikation.</li>
+                <li>Optimierung komplexer PostgreSQL-Datenbankabfragen und Bau von RPC-Indexern in Rust, um Latenzen drastisch zu reduzieren.</li>
+                <span class="tech-stack">Tech: Rust, PostgreSQL, Next.js</span>
+            </ul>
+            <div class="proof-links" style="background: #f8faFC; padding: 10px 15px; border-left: 3px solid #0047FF; margin-top: 8px; font-size: 8.5pt;">
+                <strong>Live Projekt (Verifizierter Nachweis):</strong><br>
+                <a href="https://lunarfinance.io" target="_blank" style="margin-right: 15px;">lunarfinance.io</a>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <span class="company-title">Shuri Education & The Offshore Lab</span> - <span class="role-title">Full-Stack Developer (Projektbasis)</span>
+                </div>
+                <div class="date-location">2021 – 2023</div>
+            </div>
+            <ul>
+                <li>Full-Stack-Entwicklung für B2B-Kundenplattformen im Enterprise-Sektor.</li>
+                <li>Bau und Optimierung von skalierbaren Kunden-Dashboards.</li>
+                <span class="tech-stack">Tech: React, Next.js, Node.js, PostgreSQL</span>
+            </ul>
+            <div class="proof-links" style="background: #f8faFC; padding: 10px 15px; border-left: 3px solid #0047FF; margin-top: 8px; font-size: 8.5pt;">
+                <strong>Live Projekte (Verifizierter Nachweis):</strong><br>
+                <a href="https://www.theoffshorelab.com" target="_blank" style="margin-right: 15px;">theoffshorelab.com</a>
+                <a href="https://www.shurieducation.com" target="_blank" style="margin-right: 15px;">shurieducation.com</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">IT-Kenntnisse & Tech-Stack</div>
+        <div class="skills-grid">
+            <div>
+                <span class="skill-category">Programmiersprachen:</span> Go (Golang), Rust, JavaScript / TypeScript, C/C++, Dart
+            </div>
+            <div>
+                <span class="skill-category">Web & Frontend:</span> React, Next.js, TailwindCSS, HTML5/CSS3
+            </div>
+            <div>
+                <span class="skill-category">Mobile App Development:</span> Flutter, React Native, iOS/Android Deployment
+            </div>
+            <div>
+                <span class="skill-category">Backend & Infra:</span> Node.js, PostgreSQL, Docker, AWS (EC2, S3), Git
+            </div>
+            <div>
+                <span class="skill-category">Sprachen:</span> Englisch (Muttersprache), Deutsch (B2)
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Schulbildung</div>
+        <div class="experience-item" style="margin-bottom: 5px;">
+            <div class="experience-header">
+                <span class="company-title">High School (WAEC)</span>
+                <span class="date-location">2017</span>
+            </div>
+            <ul>
+                <li><strong>Abschluss:</strong> High School Diploma (West African Senior School Certificate)</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

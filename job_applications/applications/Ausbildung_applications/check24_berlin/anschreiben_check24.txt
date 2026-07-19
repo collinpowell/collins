@@ -1,0 +1,17 @@
+Sehr geehrte Frau Meier,
+
+CHECK24 verbindet Start-up-Dynamik mit der Skalierbarkeit eines Konzerns – genau das Umfeld, in dem ich meine Zukunft als Softwareentwickler sehe. Ich bewerbe mich bei Ihnen nicht als klassischer Anfänger, sondern als leidenschaftlicher, autodidaktischer Entwickler mit fundierter Praxiserfahrung in Go, React und der App-Entwicklung, der nun sein Fundament durch eine formelle Ausbildung bei den Besten der Branche festigen möchte.
+
+In den letzten Jahren habe ich mir die Programmierung selbst beigebracht und eigene, reale Projekte umgesetzt. So habe ich beispielsweise eigenständig eine SaaS-Plattform mit Backend in Go sowie das Frontend in React entwickelt und Cross-Platform-Apps gebaut. Dabei habe ich gelernt, wie man funktionierende digitale Produkte baut. 
+
+Was mir jedoch als Autodidakt fehlt – und weshalb ich diese Ausbildung bei CHECK24 unbedingt absolvieren möchte – ist die formelle theoretische Basis, das tiefgehende Verständnis für professionelle IT-Infrastrukturen in großem Maßstab und das Erlernen sauberer Software-Engineering-Prozesse in agilen Teams. Ich möchte nicht nur Code schreiben, sondern bei Ihnen lernen, wie moderne Architektur, AI-gestützte Entwicklung und Automatisierung auf Enterprise-Level funktionieren.
+
+Sie fordern in Ihrer Ausschreibung C1-Deutschkenntnisse. Mein aktuelles Niveau ist ein starkes B2 und ich arbeite intensiv daran, dies weiter zu verbessern. Da ich die Konzepte und Fachterminologie in Go, React und Web-Architektur bereits fließend beherrsche, werde ich mich vom ersten Tag an nahtlos in Code-Reviews, Pair-Programming-Sessions und Tech-Talks einbringen können, ohne dass Sprachbarrieren die fachliche Arbeit bremsen.
+
+Mit mir gewinnen Sie einen Auszubildenden, der keine Einarbeitung in grundlegende Programmierkonzepte wie Schleifen oder Variablen benötigt. Ich kann das Team vom ersten Tag an bei echten Features unterstützen, während ich gleichzeitig die IHK-Standards und Ihre internen Best Practices aufgierig lerne.
+
+Ich freue mich sehr auf die Gelegenheit, Sie in einem persönlichen Gespräch (gerne auch bei einem technischen Assessment) von meiner hohen Motivation und meinen Fähigkeiten zu überzeugen.
+
+Mit freundlichen Grüßen,
+
+Collins Krubu
