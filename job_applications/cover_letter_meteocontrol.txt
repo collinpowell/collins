@@ -1,0 +1,21 @@
+Subject: Application for Data Architecture & Software Development Role
+
+Dear Sabrina Guffler,
+
+Please accept my application for the Software Development and Data Architecture position at meteocontrol. With a strong background in building highly available backend systems and real-time data streaming architectures, I am very excited about the opportunity to contribute to meteocontrol's mission in the renewable energy sector.
+
+As a Lead Engineer and Systems Architect, I have extensive experience designing scalable data infrastructures. At Lunar Finance, I architected high-throughput backend routing services and RPC indexers in Rust and PostgreSQL that processed over $1M+ in daily trading volume, reducing cross-chain latency by 40%. This required a deep analytical mindset and the ability to process extremely large datasets efficiently.
+
+Furthermore, my work as Lead Embedded Engineer at NodeX iHub directly aligns with your need for data streaming and IoT. I designed real-time data ingestion pipelines using WebSockets, MQTT, and C/C++ firmware to bridge physical hardware (like sensor-driven farm irrigation systems) with cloud dashboards. I am highly proficient in modern deployment pipelines, embracing a "you build it, you own it" mentality using Docker, AWS, and Fastlane CI/CD. 
+
+While my primary stacks heavily feature Go, Rust, and Node.js, my experience with diverse ecosystems allows me to adapt quickly to environments utilizing Kotlin, PHP, or any time-series database your infrastructure demands. 
+
+Please note that I am a Nigerian citizen currently based in Lagos, and I would require employer sponsorship for a work visa/permit to relocate to Germany. I am highly motivated, ready to relocate, and eager to bring my expertise in robust data pipelines to your team.
+
+Thank you for your time and consideration. I look forward to the possibility of discussing how I can help drive the future of renewable energies with meteocontrol.
+
+Sincerely,
+
+Collins Krubu Osemudiame
+https://github.com/collinpowell
++234 810 711 1396

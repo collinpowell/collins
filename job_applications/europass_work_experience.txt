@@ -1,0 +1,103 @@
+=====================================================================
+EXPERIENCE 1
+=====================================================================
+Occupation or position held: Full-Stack Developer
+Employer: Shuri Education
+From: 01-01-2026
+To: 
+Ongoing: Yes
+City: Remote
+Country: Nigeria
+
+Main activities and responsibilities:
+- Led full-stack development lifecycles for an educational technology platform.
+- Developed responsive frontends and reliable backends using React and Node.js.
+- Designed proprietary dashboards to optimize administrative operations for the platform.
+
+=====================================================================
+EXPERIENCE 2
+=====================================================================
+Occupation or position held: Backend & Performance Engineer
+Employer: Lunar Finance
+From: 01-01-2025
+To: 01-06-2026
+Ongoing: No
+City: Remote
+Country: Remote / Global
+
+Main activities and responsibilities:
+- Built backend routing services for a high-traffic Web3 multi-chain DEX aggregator application serving over 350,000 active users.
+- Optimized PostgreSQL database queries and built high-throughput RPC indexers using Rust.
+- Successfully reduced cross-chain transaction latency by 40% for a platform processing over $1M+ daily trading volume.
+
+=====================================================================
+EXPERIENCE 3
+=====================================================================
+Occupation or position held: Founder & Lead Engineer
+Employer: Collin Powell Xpress (CPX) Limited / Lupply
+From: 01-01-2024
+To: 
+Ongoing: Yes
+City: Lagos
+Country: Nigeria
+
+Main activities and responsibilities:
+- Architected the backend infrastructure in Go and Node.js for a multi-platform SaaS ecosystem for B2B logistics and food delivery.
+- Managed complex driver routing state, real-time inventory updates, and designed scalable NoSQL MongoDB schemas handling thousands of asynchronous events.
+- Solely managed end-to-end deployments across Web, Windows, macOS, iOS (App Store), and Android (Play Store) using Flutter and Fastlane CI/CD.
+- Orchestrated all cloud infrastructure utilizing Docker and AWS.
+
+=====================================================================
+EXPERIENCE 4 (Freelance Contract)
+=====================================================================
+Occupation or position held: Freelance Backend Developer
+Employer: Startwithgenesis (Thrifty Software Private Limited)
+From: 31-05-2022
+To: 15-06-2022
+Ongoing: No
+City: Remote
+Country: India
+
+Main activities and responsibilities:
+- Contracted to develop the backend infrastructure for the Minto NFT Marketplace.
+- Developed and delivered the complete suite of Admin Panel APIs according to strict API specifications.
+- Successfully met tight, milestone-driven deadlines (15-day turnaround) for a Web3/NFT platform.
+
+=====================================================================
+EXPERIENCE 5 (Ongoing / Intermittent)
+=====================================================================
+Occupation or position held: Full-Stack Developer
+Employer: The Offshore Lab
+From: 01-01-2021
+To: 
+Ongoing: Yes
+City: Remote
+Country: United Kingdom
+
+Main activities and responsibilities:
+- Built and actively maintain full-stack enterprise platforms for integrated services.
+- Utilized React, Next.js, Node.js, and PostgreSQL to deliver robust B2B client solutions.
+- Managed server loads during peak launch periods and optimized operations through proprietary APIs.
+
+=====================================================================
+EXPERIENCE 6
+=====================================================================
+Occupation or position held: Lead Embedded Engineer
+Employer: NodeX iHub
+From: 01-01-2021
+To: 31-12-2024
+Ongoing: No
+City: Remote
+Country: Nigeria
+
+Main activities and responsibilities:
+- Led the embedded engineering efforts for an EdTech and IoT product studio.
+- Designed and deployed real-world IoT hardware using ESP32 microcontrollers and FreeRTOS.
+- Wrote robust C/C++ firmware for smart home devices, sensor-driven farm irrigation systems, and coin-operated vending devices.
+- Engineered real-time data ingestion pipelines using WebSockets to seamlessly bridge physical hardware with Next.js and Node.js cloud dashboards.
+
+=====================================================================
+DESIRED OCCUPATION SECTION 
+=====================================================================
+Desired occupation: Senior Software Developer
+Country: Malta

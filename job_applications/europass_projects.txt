@@ -1,0 +1,89 @@
+=====================================================================
+PROJECT 1
+=====================================================================
+Title: Solvux (OKX Solana Accelerate Hackathon)
+Ongoing: No
+Description: 
+An AI-powered interstellar bridge designed for seamless cross-chain interactions across all blockchains. Recognized by OKX for outstanding UI/UX design. Built using Next.js, Rust, and Solana.
+Link: https://solvux-frontend.vercel.app/
+
+=====================================================================
+PROJECT 2
+=====================================================================
+Title: Kitty Couture
+Ongoing: No
+Description: 
+A comprehensive Solana ecosystem for Digital Collectibles. Designed and deployed smart contracts that enabled the project to secure significant seed funding. Built using Next.js, Rust, and Solana.
+Link: https://www.kittycouturememe.com
+
+=====================================================================
+PROJECT 3
+=====================================================================
+Title: Cereloop
+Ongoing: No
+Description: 
+A dynamic tech community and event management platform.
+Link: https://deep-fusion-main.vercel.app
+
+=====================================================================
+PROJECT 4
+=====================================================================
+Title: Findam
+Ongoing: No
+Description: 
+A local services and freelancer marketplace platform designed to connect service providers with clients.
+Link: https://sabi-work-nine.vercel.app
+
+=====================================================================
+PROJECT 5
+=====================================================================
+Title: Pivot Technical
+Ongoing: No
+Description: 
+Developed an Enterprise Operations UI to manage technical business workflows.
+Link: https://pivottechnical.com
+
+=====================================================================
+PROJECT 6
+=====================================================================
+Title: Primesources Limited
+Ongoing: No
+Description: 
+Developed and deployed the corporate web presence for an Oil & Gas company.
+Link: https://psl-website-omega.vercel.app
+
+=====================================================================
+PROJECT 7
+=====================================================================
+Title: Derek Decor Global Services
+Ongoing: No
+Description: 
+Built a digital storefront and portfolio website for a Construction and Interior Design agency.
+Link: https://derekdecor.org
+
+=====================================================================
+PROJECT 8
+=====================================================================
+Title: Mama Luxury Homes
+Ongoing: No
+Description: 
+Developed a luxury real estate portfolio and property showcase platform.
+Link: https://mlh-website.vercel.app
+
+=====================================================================
+PROJECT 9
+=====================================================================
+Title: Snooker Management System
+Ongoing: No
+Description: 
+A comprehensive Snooker Management System featuring a Progressive Web App (PWA) for tracking games, seamlessly integrated with custom IoT hardware and embedded systems for automated snooker table vending and access control.
+Link: https://snooker-app.vercel.app
+
+=====================================================================
+PROJECT 10
+=====================================================================
+Title: NodeX iHub LMS
+Ongoing: No
+Description: 
+Developed the frontend for a comprehensive Learning Management System (LMS) and tutoring platform for NodeX iHub.
+Link: https://node-x-frontend.vercel.app

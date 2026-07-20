@@ -1,0 +1,19 @@
+Subject: Application for (Senior) Software Developer – BAS (Business Administration Systems)
+
+Dear Hiring Manager,
+
+Please find attached my Europass CV for the (Senior) Software Developer – BAS position at OpenIIoT.
+
+I am a Lead Engineer with extensive experience building scalable, broker-based microservices and business administration platforms. My background aligns perfectly with your requirements: I am highly proficient in Python, SQL/NoSQL, and Docker, and I have hands-on experience writing C/C++ firmware for IoT hardware. 
+
+At CPX Limited, I architected high-throughput backend infrastructure handling thousands of asynchronous events. At NodeX iHub, I built real-time data ingestion pipelines bridging physical hardware with cloud dashboards—skills that directly translate to your work with UNS and MQTT architectures.
+
+Please note that I am a Nigerian citizen based in Lagos and would require employer sponsorship for a work visa in Malta. I am highly motivated, ready to relocate, and eager to bring my expertise in clean, testable code to OpenIIoT.
+
+Thank you for your time. I look forward to discussing how I can contribute to your team.
+
+Sincerely,
+
+Collins Krubu Osemudiame
+[Link to your Portfolio/GitHub]
+[Your Phone Number]
