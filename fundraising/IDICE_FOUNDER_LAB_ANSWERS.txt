@@ -39,7 +39,7 @@ Proposed Solution:
 CPX Limited solves this by building and deploying "Lupply" — an all-in-one business operating system and marketplace for SMEs. We bundle POS, inventory management, e-commerce storefronts, food delivery, and local logistics into a single, unified platform. 
 
 How it addresses the problem:
-Instead of a local merchant managing WhatsApp for orders, a paper book for inventory, and phone calls for dispatch riders, they use Lupply. A merchant downloads the Lupply app, instantly gets a digital storefront, manages their offline inventory via our POS, and can automatically dispatch local riders for online orders. It gives micro-enterprises the operational infrastructure of a massive corporation from their smartphone.
+Instead of a local merchant managing WhatsApp for orders, a paper book for inventory, and phone calls for dispatch riders, they use Lupply. A merchant downloads the Lupply app, instantly gets a digital storefront, manages their offline inventory via our POS, and can automatically dispatch local riders for online orders. Beyond solving immediate logistical bottlenecks, this allows Lupply to serve as a localized economic data layer, capturing structured transaction histories from the informal sector that can power future credit-scoring and micro-lending capabilities.
 
 --------------------------------------------------
 Question 4: Value Proposition - Who are your customers, and why would they choose you over alternatives?
@@ -60,11 +60,7 @@ Select: "Early Stage / Revenue Generating" (If available, otherwise select "MVP 
 --------------------------------------------------
 Question 6: What is the technology or digital component of your business?
 
-Lupply is a cross-platform digital ecosystem. The technology component includes:
-1. Mobile Infrastructure: Native iOS and Android applications built using Flutter, allowing merchants to manage operations directly from their smartphones.
-2. Web Dashboards: High-performance administrative and enterprise dashboards built with Next.js and React.
-3. Backend & Logistics: A robust microservices architecture powered by Node.js and Go, utilizing MongoDB for scalable data storage and Docker for containerized deployment. This backend handles complex, real-time rider dispatching algorithms and marketplace routing.
-4. Fintech Integration: Deep integration with local payment gateways (like Paystack) for seamless settlement of marketplace transactions and subscription billing.
+Lupply is a cross-platform digital ecosystem comprising native Flutter mobile apps and Next.js web dashboards, powered by a highly scalable Node.js/Go microservices backend (featuring real-time rider dispatch algorithms and native Paystack integration), which ultimately serves as a localized economic data layer capturing structured transaction histories from the informal sector.
 
 --------------------------------------------------
 Question 7: Is your business registered with the CAC?
