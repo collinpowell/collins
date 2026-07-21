@@ -1,0 +1,92 @@
+iDICE Founder Lab Application
+Company: COLLIN POWELL XPRESS (CPX) LIMITED (RC 7714274)
+Applicant: Collins Krubu
+
+--------------------------------------------------
+Question 1: What are your key skills and relevant experiences?
+
+I am a self-taught Full-Stack Software Developer and the Managing Director of COLLIN POWELL XPRESS (CPX) LIMITED (RC 7714274), an indigenous tech enterprise based in Delta State. My core expertise lies in building scalable, modern web applications from the ground up, translating complex business problems into automated digital solutions.
+
+My Key Skills:
+- Technical Engineering: Advanced proficiency in modern web stacks, specifically Next.js, React, TypeScript, Node.js, and API integrations. I do not just manage products; I write the code that powers them.
+- Product Development & UI/UX: Ability to take a product from raw concept to a polished, high-conversion user interface. 
+- Agile Problem Solving: As a self-taught developer who built a registered enterprise, my strongest skill is rapid learning and autonomous problem-solving under resource constraints.
+
+Relevant Experience:
+- B2B Software Delivery: I have architected and deployed custom platforms across various sectors. Most recently, I engineered Lupply, a comprehensive business operating system and multi-vendor marketplace that provides point-of-sale, inventory, and online storefronts tailored specifically for SMEs in the Niger Delta.
+- Business Operations: Through running CPX Limited, I have hands-on experience navigating the realities of the Nigerian business landscape, from corporate registration to client acquisition and project delivery.
+- Capacity Building: Beyond writing code, I actively mentor young Nigerians transitioning into tech, teaching them modern web development frameworks and helping them secure their first roles in the digital economy.
+
+My unique advantage as a founder is my ability to act as both the strategic visionary and the lead technical engineer. I can iterate on product feedback immediately without relying on expensive outsourced development agencies, allowing CPX Limited to remain incredibly agile.
+
+--------------------------------------------------
+Question 2: What problem does your business solve, and who has this problem?
+
+Problem: 
+Nigerian SMEs rely heavily on fragmented, manual processes or expensive foreign SaaS tools (which are priced in USD and lack local context) to manage their operations, inventory, and customer data. 
+
+Who has this problem:
+1. Retail businesses and service providers who need affordable, customized automation (e.g., POS, inventory tracking, local payment integration) to scale without hiring massive administrative teams.
+2. Hospitality and local logistics businesses that currently have zero access to affordable digital infrastructure.
+
+Market Gap: 
+There is a massive gap for a local tech partner that delivers enterprise-grade, highly customized web applications at a price point that makes sense for the Nigerian economy, fully integrated with local solutions like Paystack/Flutterwave.
+
+--------------------------------------------------
+Question 3: What is your proposed solution and how does it address the problem you've described?
+
+Proposed Solution:
+CPX Limited solves this by building and deploying "Lupply" — an all-in-one business operating system and marketplace for SMEs. We bundle POS, inventory management, e-commerce storefronts, food delivery, and local logistics into a single, unified platform. 
+
+How it addresses the problem:
+Instead of a local merchant managing WhatsApp for orders, a paper book for inventory, and phone calls for dispatch riders, they use Lupply. A merchant downloads the Lupply app, instantly gets a digital storefront, manages their offline inventory via our POS, and can automatically dispatch local riders for online orders. It gives micro-enterprises the operational infrastructure of a massive corporation from their smartphone.
+
+--------------------------------------------------
+Question 4: Value Proposition - Who are your customers, and why would they choose you over alternatives?
+
+Customers: 
+Nigerian SMEs, retail merchants, and independent service businesses transitioning to digital-first operations.
+
+Why choose us (Value Proposition):
+1. The "All-in-One" Bundle: We are the only platform in our region that bundles business management (POS, inventory) with an active consumer marketplace (Food & Gas ordering). Merchants don't need a separate app for accounting and another for food delivery.
+2. Integrated Logistics: Unlike standard POS software (like Bumpa), Lupply comes with a built-in dispatch rider network. When a customer orders food or products, our algorithm automatically routes it to the nearest Lupply rider for last-mile delivery.
+3. Hyper-Local Focus: Foreign and Lagos-based tools ignore the Niger Delta. We are building specifically for the commercial realities of cities like Warri, Asaba, and Port Harcourt, offering extreme local relevance and lower entry costs.
+
+--------------------------------------------------
+Question 5: What stage is your business at?
+
+Select: "Early Stage / Revenue Generating" (If available, otherwise select "MVP / Prototype stage")
+
+--------------------------------------------------
+Question 6: What is the technology or digital component of your business?
+
+Lupply is a cross-platform digital ecosystem. The technology component includes:
+1. Mobile Infrastructure: Native iOS and Android applications built using Flutter, allowing merchants to manage operations directly from their smartphones.
+2. Web Dashboards: High-performance administrative and enterprise dashboards built with Next.js and React.
+3. Backend & Logistics: A robust microservices architecture powered by Node.js and Go, utilizing MongoDB for scalable data storage and Docker for containerized deployment. This backend handles complex, real-time rider dispatching algorithms and marketplace routing.
+4. Fintech Integration: Deep integration with local payment gateways (like Paystack) for seamless settlement of marketplace transactions and subscription billing.
+
+--------------------------------------------------
+Question 7: Is your business registered with the CAC?
+
+Select: YES (RC 7714274)
+
+--------------------------------------------------
+Question 8: Describe your business traction - what progress have you made so far?
+
+We have successfully incorporated CPX Limited with the CAC and established our core development infrastructure. On the product delivery side, we have successfully built and deployed Lupply, our flagship business operating system for the Niger Delta. To date, Lupply has onboarded over 120 local businesses, processed over 42,000 orders, and handled over ₦360M in Gross Merchandise Value. Our current focus is securing capital to aggressively scale our merchant acquisition and expand our local logistics network.
+
+--------------------------------------------------
+Question 9: How do you make money or intend to make money? (Max 150 words)
+
+We utilize a diversified, highly scalable revenue model with five core pillars:
+1. SaaS Subscriptions: Merchants pay a flat ₦1,500/month (or ₦12,000/year) for our core business operating system (POS, inventory, analytics, and invoicing), with a freemium tier for easy onboarding.
+2. Marketplace Commissions: We charge a 5–10% commission on all transactions processed through Lupply Store, Lupply Food, and Lupply Gas.
+3. User Platform Fees: We charge a flat platform convenience fee (as low as ₦200) directly to the end consumer on every order placed through our marketplaces.
+4. Delivery Fees: We collect per-trip delivery charges across our integrated logistics network, splitting the revenue with our rider fleet.
+5. Enterprise / White-Label: We charge premium deployment fees for larger institutional clients (e.g., our full Hotel Management Suite currently deployed for local hospitality businesses).
+
+--------------------------------------------------
+Question 10: Why are you applying to Founders Lab? (50 words maximum)
+
+I want to aggressively scale Lupply’s merchant acquisition across the Niger Delta. Having validated our product with over 120 local businesses, I am applying to secure the capital, network, and strategic mentorship required to transition from an early-stage startup into a scalable, venture-backed enterprise.

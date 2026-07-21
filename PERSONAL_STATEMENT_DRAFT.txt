@@ -1,0 +1,17 @@
+I'm a self-taught full-stack engineer and founder. Over the last seven years, I've built a career around solving hard technical problems - whether that's scaling B2B SaaS platforms, deploying embedded IoT hardware, or writing smart contracts. I work heavily with Node.js, Next.js, Rust, and Go. 
+
+My plan is to move to London or Manchester. I've already had a taste of the UK tech ecosystem by working as the Lead Engineer for Shuri Education, a London-based EdTech company. Building their core infrastructure showed me how fast the UK market moves, and it convinced me that the UK is where I want to put down roots. When I arrive, my goal is to join a high-growth SaaS or Fintech startup as a Lead Engineer or Technical Architect. Down the line, I plan to launch a new UK-based tech startup bridging European software with emerging markets.
+
+Here is exactly what I will bring to the UK digital technology sector:
+
+1. Experience handling massive transactional scale
+A lot of startups struggle when it's time to scale from an MVP to an enterprise-grade product. I've already navigated that phase as a founder. I built Lupply, a B2B SaaS e-commerce platform, entirely from scratch. I designed the cloud architecture, microservices, and databases that successfully processed over 367,000,000 NGN in Gross Merchandise Value (GMV) across 123 active businesses. I know how to build systems that don't break when money and high-volume traffic are on the line. At The Offshore Lab, I did the same thing, architecting complex enterprise systems that handle heavy data loads. I want to bring this hands-on scaling experience to UK engineering teams.
+
+2. Practical innovation in Hardware and Web3
+I don't just write web apps; I build physical and decentralized infrastructure. Through my hardware company, NodeX, I designed proprietary embedded systems and smart hardware to fulfill government contracts in the Niger Delta. On the decentralized side, I built "Solvux", a Solana-based project that won recognition at the global OKX Solana Accelerate Hackathon, and I've built core infrastructure for Lunar Finance. The UK is pushing hard into deep-tech and Web3, and I bring battle-tested experience in merging physical hardware with blockchain networks.
+
+3. Growing the local engineering community
+Tech isn't just my job; it's a community effort. In Nigeria, I used NodeX iHub as a physical space to train and mentor junior developers in modern web technologies. I intend to keep that same energy in the UK. Outside of my day job, I plan to mentor junior devs through UK bootcamps, compete in local hackathons, and continue pushing open-source commits in the Rust and Node ecosystems. 
+
+Summary
+I have spent the last seven years building software that processes real money, running hardware companies, and delivering value to international clients like Shuri Education. I'm applying for the Global Talent visa because I want to bring that exact same builder mentality, technical depth, and commercial drive directly into the UK tech ecosystem.

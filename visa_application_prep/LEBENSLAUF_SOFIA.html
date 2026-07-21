@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebenslauf - Collins Krubu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.55;
+            color: #1a1a1a;
+            background: #fff;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm 18mm;
+        }
+
+        @media print { body { padding: 15mm 18mm; } }
+
+        .header {
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 14px;
+            margin-bottom: 22px;
+        }
+
+        .header h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+            font-size: 9.5pt;
+            color: #444;
+        }
+
+        .header-contact a { color: #444; text-decoration: none; }
+
+        .section { margin-bottom: 18px; }
+
+        .section-title {
+            font-size: 9.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 3px;
+            margin-bottom: 10px;
+        }
+
+        .entry { margin-bottom: 12px; }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .entry-title { font-weight: 600; font-size: 10.5pt; }
+        .entry-date { font-size: 9.5pt; color: #555; white-space: nowrap; }
+        .entry-org { font-style: italic; color: #444; font-size: 10pt; }
+        .entry-location { color: #666; font-size: 9.5pt; }
+
+        .entry ul { margin-top: 4px; padding-left: 18px; }
+        .entry li { margin-bottom: 2px; font-size: 10pt; color: #333; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 3px 12px;
+            font-size: 10pt;
+        }
+
+        .grid .label { font-weight: 500; color: #555; }
+        .grid .value { color: #1a1a1a; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Collins Osemudiame Krubu</h1>
+        <div class="header-contact">
+            <span>Port Harcourt, Nigeria</span>
+            <span>+234 810 711 1396</span>
+            <span>collinskrubu723@gmail.com</span>
+            <span><a href="https://github.com/collinpowell">github.com/collinpowell</a></span>
+        </div>
+    </div>
+
+    <!-- PERSONAL -->
+    <div class="section">
+        <div class="section-title">Persönliche Daten</div>
+        <div class="grid">
+            <span class="label">Geburtsdatum:</span>
+            <span class="value">01.11.2001</span>
+            <span class="label">Geburtsort:</span>
+            <span class="value">Nigeria</span>
+            <span class="label">Staatsangehörigkeit:</span>
+            <span class="value">Nigerianisch</span>
+            <span class="label">Familienstand:</span>
+            <span class="value">Ledig</span>
+            <span class="label">Konfession:</span>
+            <span class="value">Evangelisch</span>
+        </div>
+    </div>
+
+    <!-- VOLUNTEER WORK -->
+    <div class="section">
+        <div class="section-title">Ehrenamtliche Tätigkeit / Volunteer Work</div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Volunteer Web Developer</span>
+                <span class="entry-date">May 2022 - Present</span>
+            </div>
+            <div class="entry-org">Dorcas Krubu International Foundation (DKIF)</div>
+            <div class="entry-location">Nigeria</div>
+            <ul>
+                <li>Designed and built the official website for the NGO pro bono (dkif-ngo.vercel.app)</li>
+                <li>Helped the foundation increase its online visibility and reach more donors and beneficiaries</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Mentor &mdash; Digital Education for Youth</span>
+                <span class="entry-date">2020 - Present</span>
+            </div>
+            <div class="entry-org">NodeX iHub</div>
+            <div class="entry-location">Ugbomro, Delta State, Nigeria</div>
+            <ul>
+                <li>Trained and mentored young people in web development, IoT, and digital literacy</li>
+                <li>Organized coding workshops and hackathon preparation sessions for university students</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- WORK EXPERIENCE -->
+    <div class="section">
+        <div class="section-title">Berufserfahrung / Work Experience</div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Full-Stack Developer</span>
+                <span class="entry-date">2022 - 2024</span>
+            </div>
+            <div class="entry-org">Shuri Education</div>
+            <div class="entry-location">London, United Kingdom (Remote)</div>
+            <ul>
+                <li>Built the web application and backend for a UK-based education platform</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Full-Stack Developer</span>
+                <span class="entry-date">2023 - 2024</span>
+            </div>
+            <div class="entry-org">The Offshore Lab</div>
+            <div class="entry-location">Nigeria (Remote)</div>
+            <ul>
+                <li>Developed enterprise management systems for international clients</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Backend &amp; Performance Engineer</span>
+                <span class="entry-date">2025 - 2026</span>
+            </div>
+            <div class="entry-org">Lunar Finance</div>
+            <div class="entry-location">Remote</div>
+            <ul>
+                <li>Developed backend routing services for a web application with over 350,000 active users</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">Full-Stack Developer</span>
+                <span class="entry-date">2020 - 2022</span>
+            </div>
+            <div class="entry-org">Freelance</div>
+            <div class="entry-location">Nigeria</div>
+            <ul>
+                <li>Built web and mobile applications for small businesses and startups</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section">
+        <div class="section-title">Schulbildung / Education</div>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="entry-title">West African Senior School Certificate (WASSCE)</span>
+                <span class="entry-date">2017</span>
+            </div>
+            <div class="entry-org">Mount Carmel Secondary School, Emaudo-Ekpoma</div>
+            <div class="entry-location">Nigeria</div>
+        </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section">
+        <div class="section-title">Fähigkeiten / Skills</div>
+        <div class="grid">
+            <span class="label">IT / Technical:</span>
+            <span class="value">Web Development, Mobile Apps, Database Management, Cloud Hosting</span>
+            <span class="label">Social:</span>
+            <span class="value">Youth mentoring, Workshop facilitation, Team collaboration</span>
+        </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="section">
+        <div class="section-title">Sprachen / Languages</div>
+        <div class="grid">
+            <span class="label">Englisch:</span>
+            <span class="value">Muttersprache (Native)</span>
+            <span class="label">Deutsch:</span>
+            <span class="value">Anfänger (Beginner / A1)</span>
+        </div>
+    </div>
+
+    <!-- INTERESTS -->
+    <div class="section">
+        <div class="section-title">Interessen / Interests</div>
+        <p style="font-size: 10pt; color: #444;">Community development, teaching young people to code, intercultural exchange, open-source software, volunteering</p>
+    </div>
+
+</body>
+</html>

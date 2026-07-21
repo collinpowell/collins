@@ -1,0 +1,27 @@
+To: icyen@icyenigeria.org
+Subject: Volunteer Web Developer - I Would Like to Build You a New Website
+
+
+Good day,
+
+My name is Collins Krubu. I am a full-stack web developer based in Nigeria, and I came across ICYE Nigeria while researching international volunteer exchange programs.
+
+I noticed that ICYE Nigeria does not currently have its own standalone website, and I would like to offer my skills to build one for you, completely free of charge. I have experience building websites for NGOs - I recently designed and built the website for the Dorcas Krubu International Foundation (https://dkif-ngo.vercel.app), and I would love to do the same for ICYE Nigeria.
+
+A dedicated website could help you:
+- Reach more young Nigerians interested in volunteer exchange programs
+- Display your projects, partner countries, and application process clearly
+- Accept volunteer applications directly online
+- Increase your visibility on Google for people searching for volunteer opportunities in Nigeria
+
+I work with modern web technologies (Next.js, React) and can have a professional site ready within a few weeks. I am happy to meet in person at your office in Sabo-Yaba, Lagos, or we can discuss this over a call or WhatsApp.
+
+I am also very interested in ICYE's volunteer exchange programs and would appreciate any information about upcoming opportunities for Nigerian volunteers.
+
+Thank you for your time. I look forward to hearing from you.
+
+Best regards,
+Collins Krubu
++234 810 711 1396
+collinskrubu723@gmail.com
+https://github.com/collinpowell
